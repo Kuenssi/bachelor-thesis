@@ -1,0 +1,51 @@
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\lhead{\leftmark} \rhead{\thepage}
+\cfoot{}
+\fancypagestyle{plain}{}
+
+\setcounter{secnumdepth}{\subsubsectionnumdepth}
+
+\usetikzlibrary{arrows,automata}
+
+\hypersetup{colorlinks, citecolor=black, linkcolor=black, urlcolor=black}
+
+% Modify the following to the language you want to display
+\lstloadlanguages{C}
+\lstset{numbers=left,stepnumber=1,numberstyle=\small,numbersep=5pt,mathescape=true,basicstyle=\small\ttfamily,xleftmargin=10pt,frame=bottom,framexrightmargin=-10pt}
+%\lstloadlanguages{XML,Java}
+%\lstset{
+%	language=Java,
+%	alsolanguage=XML,
+%	numbers=none,
+%	breaklines=true,
+%	frame=tlrb,
+%	basicstyle=\scriptsize\tt,
+%	keywordstyle=\color{black}\bfseries,
+%	identifierstyle=\color{black},
+%	commentstyle=\color{black},
+%	showstringspaces=false,
+%	extendedchars=true,
+%	stringstyle=\color{blue},
+%	tabsize=4,
+%	captionpos=b,
+%	xleftmargin=1cm,
+%	stepnumber=5,
+%	aboveskip=0.7cm,
+%	belowskip=0.7cm
+%	}
+
+\onehalfspacing    
+
+% Layout corrections (Schusterjungen)
+\clubpenalty = 10000 
+% Layout corrections (Hurenkinder) 
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+
+% Frequently used column types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centering column type with fixed width
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % right aligned column type with fixed width
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % left aligned column type with fixed width
