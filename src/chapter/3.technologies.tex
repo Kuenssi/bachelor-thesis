@@ -1,0 +1,100 @@
+\chapter{Technologien}\label{ch:technologien}
+
+
+\section{fulibWorkflows}\label{sec:fulibworkflows}
+Jaaaaa, das ist die Java Library.
+Ganz geiles Teil eigentlich jetzt wo der Code auch lesbar ist.
+
+\subsection{ANTLR4}\label{subsec:antlr4}
+Geiles Ding.
+Aber um Albert noch mal zu zitieren: ``ANTLR ist so zickig wie `ne Bitch im Jungle Camp''.
+
+\subsection{JSON-Schema}\label{subsec:json-schema}
+Ziemlich geil um ehrlich zu sein.
+Man kann auch yaml damit definieren.
+
+Erlaubt es die Eingaben des Nutzers zu beschränken und hints zu geben, was man machen darf
+und was nicht.
+Bereitstellen geht easy über schemastore.org.
+Wird dabei auch von vielen IDEs benutzt.
+Intellij direkt out-of-the-box, VSCode auch nachdem man die YAML Redhat Extension installiert hat.
+
+\subsection{fulibTools}
+Dank fulibTools ist auch fulib mit drin.
+FulibTools ist zur Generierung von Objektidiagrammen genutzt worden.
+Fulib (Bei FulibTools mit integriert) zur Generierung von Klassendiagrammen.
+
+\section{fulibWorkflows Web-Editor}\label{sec:fulibworkflows-web-editor}
+Der Editor besteht aus einem Frontend und einem Backend.
+Frontend ist Angular, Backend ist Spring Boot.
+
+\subsection{Frontend}\label{subsec:frontend}
+Da brauchte es etwas mehr als beim BE\@.
+Die Entscheidungen für die verwendeten Technologien im Frontend wurden aufgrund
+der Idee der Integrierung vom Editor auf fulib.org getroffen.
+
+\subsubsection{Angular}
+Wir kennen es.
+Wir lieben es.
+
+\subsubsection{Bootstrap}
+Alles für den Dackel, alles für den Club unser Leben für die schön gestylten FEs.
+Simpel, oder?
+Ja, okay.
+Man nutzt dann auch ng-bootstrap für Angular Anwendungen.
+Natürlich auch noch bootstrap-icons.
+Will ja niemand traurig machen und von Adrian verdroschen werden.
+
+\subsubsection{Codemirror}
+Schönes Ding.
+Ngx-codemirror ist es dann speziell für eine Angular Anwendung geworden.
+Eigentlich alles out of the box benutzt.
+
+\subsubsection{Angular-split}
+Find ich schon gut zu erwähnen.
+Ohne die geile dependency wäre das FE nie so pornös geworden.
+
+\subsubsection{file-saver}
+Weitere erwähnenswerte dependency.
+Wird genutzt um Dateien, die vom BE kommen, auch herunterladen zu können.
+
+\subsection{Backend}\label{subsec:backend}
+Yeey alle Technologien die ich im Backend benutzt habe.
+
+\subsubsection{Spring Boot}
+Framework mit dem man easy mal ein backend generiert bekommt.
+Durch Java und viele Dependency allerdings alles andere als ein leichtgewicht.
+
+Dennoch musste ein Java backend her, da sonst fulibWorkflows nicht hätte integriert werden können.
+Jedenfalls nicht ohne noch mehr middle ware.
+
+Zudem hatte ich im Praktikum mit Spring Boot erfahrungen gesammelt.
+Die Verwendung von Annotations und dem aufsplitten zwischen Controller und Service ist mir bereits
+durch Nest.js bekannt gewesen.
+
+Dennoch muss man sagen, dass durch die von Spring Boot bereits integrierten libraries nichts weiter
+außer fulibWorkflows hinzugefügt werden musste.
+Immerhin umfasst der Code vom Backend vielleicht 300 Lines of Code.
+
+\section{Deployment}\label{sec:deployment}
+Ein Web Editor will natürlich für alle erreichbar sein.
+Und fulibWorkflows muss auch irgendwo bereitgestellt werden, damit es das Backend und alle anderen
+interessierten benutzen können.
+
+\subsection{MavenCentral}\label{subsec:mavencentral}
+MavenCentral ein wirklicher Hussarones was das publishen angeht.
+Glücklicherweise ist fulibWorkflows Teil der Fujaba Tool Suite, wodurch die benötigten
+Zugriffsrechte bereits vorhanden und andere Libraries bereits gepublished wurden.
+Hierdurch war es recht schnell möglich mit dem zuvor erworbenem Wissen fulibWorkflows
+zu publishen.
+
+\subsection{Heroku}\label{subsec:heroku}
+Der Web-Editor soll immer erreichbar sein.
+Dies ist durch Heroku nur bedingt möglich.
+Heroku bietet allerlei Möglichkeiten verschiedenste Anwendungen bereitzustellen.
+Auch mit einem kostenlosen Plan ist es ohne Probleme möglich solch kleine Anwendungen bereitzustellen.
+
+FE Deployment war easy, auch wenn ich erstmal wieder in eins meiner früheren Projekte gucken musste.
+BE Deployment war kniffliger, doch man ist nie der erste der eine Spring Boot application
+auf Heroku deployen will.
+Daher Tutorial reingefahren und ab ging der gebutterte Lachs.
