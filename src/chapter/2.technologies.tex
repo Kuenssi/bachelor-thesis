@@ -1,15 +1,28 @@
-\chapter{Technologien}\label{ch:technologien}
+\chapter{Grundlagen}\label{ch:technologien}
+\section{Event Storming}\label{sec:event-storming}
+Was ist das, warum ist das cool dies das Kontrabass.
 
+\subsection{Allgemein}\label{subsec:allgemein}
+Beschreiben was die Grundideen von Brandolini sind.
+Wo spielt da das DDD (Domain Driven Design) rein?
 
-\section{fulibWorkflows}\label{sec:fulibworkflows}
+\subsection{Erweiterung}\label{subsec:erweiterung}
+Was haben Albert und ich uns dazu gedacht um es nicht nur als Tool für die Wirtschaft, sondern
+auch in der Lehre verwenden zu können.
+Auch hier könnte man schon mit hereinbringen, dass Albert das ganze als Ablaufsbeschreibung in
+Microservices verwendet hat -> Workflow raussuchen und mit youtube video belegen.
+
+\section{Technologien}\label{sec:technologien}
+
+\subsection{fulibWorkflows}\label{subsec:fulibworkflows}
 Jaaaaa, das ist die Java Library.
 Ganz geiles Teil eigentlich jetzt wo der Code auch lesbar ist.
 
-\subsection{ANTLR4}\label{subsec:antlr4}
+\subsubsection{ANTLR4}\label{subsubsec:antlr4}
 Geiles Ding.
 Aber um Albert noch mal zu zitieren: ``ANTLR ist so zickig wie `ne Bitch im Jungle Camp''.
 
-\subsection{JSON-Schema}\label{subsec:json-schema}
+\subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 Ziemlich geil um ehrlich zu sein.
 Man kann auch yaml damit definieren.
 
@@ -19,16 +32,12 @@ Bereitstellen geht easy über schemastore.org.
 Wird dabei auch von vielen IDEs benutzt.
 Intellij direkt out-of-the-box, VSCode auch nachdem man die YAML Redhat Extension installiert hat.
 
-\subsection{fulibTools}
+\subsubsection{fulibTools}
 Dank fulibTools ist auch fulib mit drin.
 FulibTools ist zur Generierung von Objektidiagrammen genutzt worden.
 Fulib (Bei FulibTools mit integriert) zur Generierung von Klassendiagrammen.
 
-\section{fulibWorkflows Web-Editor}\label{sec:fulibworkflows-web-editor}
-Der Editor besteht aus einem Frontend und einem Backend.
-Frontend ist Angular, Backend ist Spring Boot.
-
-\subsection{Frontend}\label{subsec:frontend}
+\subsection{fulibWorkflows Web-Editor FE}\label{subsec:fulibworkflows-web-editor}
 Da brauchte es etwas mehr als beim BE\@.
 Die Entscheidungen für die verwendeten Technologien im Frontend wurden aufgrund
 der Idee der Integrierung vom Editor auf fulib.org getroffen.
@@ -58,7 +67,7 @@ Ohne die geile dependency wäre das FE nie so pornös geworden.
 Weitere erwähnenswerte dependency.
 Wird genutzt um Dateien, die vom BE kommen, auch herunterladen zu können.
 
-\subsection{Backend}\label{subsec:backend}
+\subsection{fulibWorkflows Web-Editor BE}\label{subsubsec:backend}
 Yeey alle Technologien die ich im Backend benutzt habe.
 
 \subsubsection{Spring Boot}
@@ -76,19 +85,19 @@ Dennoch muss man sagen, dass durch die von Spring Boot bereits integrierten libr
 außer fulibWorkflows hinzugefügt werden musste.
 Immerhin umfasst der Code vom Backend vielleicht 300 Lines of Code.
 
-\section{Deployment}\label{sec:deployment}
+\subsection{Deployment}\label{subsec:deployment}
 Ein Web Editor will natürlich für alle erreichbar sein.
 Und fulibWorkflows muss auch irgendwo bereitgestellt werden, damit es das Backend und alle anderen
 interessierten benutzen können.
 
-\subsection{MavenCentral}\label{subsec:mavencentral}
+\subsubsection{MavenCentral}\label{subsubsec:mavencentral}
 MavenCentral ein wirklicher Hussarones was das publishen angeht.
 Glücklicherweise ist fulibWorkflows Teil der Fujaba Tool Suite, wodurch die benötigten
 Zugriffsrechte bereits vorhanden und andere Libraries bereits gepublished wurden.
 Hierdurch war es recht schnell möglich mit dem zuvor erworbenem Wissen fulibWorkflows
 zu publishen.
 
-\subsection{Heroku}\label{subsec:heroku}
+\subsubsection{Heroku}\label{subsubsec:heroku}
 Der Web-Editor soll immer erreichbar sein.
 Dies ist durch Heroku nur bedingt möglich.
 Heroku bietet allerlei Möglichkeiten verschiedenste Anwendungen bereitzustellen.
