@@ -1,30 +1,41 @@
 \chapter{Grundlagen}\label{ch:technologien}
-
+Im folgenden Kapitel werden zuerst die grundlegenden Konzepte des \textit{Event Stormings} erläutert.
+Hierbei wird auf dessen Herkunft und Entwicklung eingegangen.
+Neben diesen Grundlagen werden anschließend die für diese Arbeit notwendigen Änderungen und Erweiterungen dargelegt.
+Weiterhin werden die wichtigsten Technologien erläutert, welche für die Implementierung der Anwendungen nötig waren.
+Um eine bessere Übersicht zu schaffen, sind die Technologien nach dem Anwendungsteil, für welche diese nötig sind, unterteilt.
 
 \section{Event Storming}\label{sec:event-storming}
-Was ist das, warum ist das cool dies das Kontrabass.
+\todo
+Was ist das, warum ist das cool dies das Kontrabass.\cite*{introES}
 
 \subsection{Allgemein}\label{subsec:allgemein}
+\todo
 Beschreiben was die Grundideen von Brandolini sind.
 Wo spielt da das DDD (Domain Driven Design) rein?
 
 \subsection{Erweiterung}\label{subsec:erweiterung}
+\todo
 Was haben Albert und ich uns dazu gedacht um es nicht nur als Tool für die Wirtschaft, sondern
 auch in der Lehre verwenden zu können.
 Auch hier könnte man schon mit hereinbringen, dass Albert das ganze als Ablaufsbeschreibung in
 Microservices verwendet hat -> Workflow raussuchen und mit youtube video belegen.
 
 \section{Technologien}\label{sec:technologien}
+\todo
 
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
+\todo
 Jaaaaa, das ist die Java Library.
 Ganz geiles Teil eigentlich jetzt wo der Code auch lesbar ist.
 
 \subsubsection{ANTLR4}\label{subsubsec:antlr4}
+\todo
 Geiles Ding.
 Aber um Albert noch mal zu zitieren: ``ANTLR ist so zickig wie `ne Bitch im Jungle Camp''.
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
+\todo
 Ziemlich geil um ehrlich zu sein.
 Man kann auch yaml damit definieren.
 
@@ -35,20 +46,24 @@ Wird dabei auch von vielen IDEs benutzt.
 Intellij direkt out-of-the-box, VSCode auch nachdem man die YAML Redhat Extension installiert hat.
 
 \subsubsection{fulibTools}
+\todo
 Dank fulibTools ist auch fulib mit drin.
 FulibTools ist zur Generierung von Objektidiagrammen genutzt worden.
 Fulib (Bei FulibTools mit integriert) zur Generierung von Klassendiagrammen.
 
 \subsection{fulibWorkflows Web-Editor FE}\label{subsec:fulibworkflows-web-editor}
+\todo
 Da brauchte es etwas mehr als beim BE\@.
 Die Entscheidungen für die verwendeten Technologien im Frontend wurden aufgrund
 der Idee der Integrierung vom Editor auf fulib.org getroffen.
 
 \subsubsection{Angular}
+\todo
 Wir kennen es.
 Wir lieben es.
 
 \subsubsection{Bootstrap}
+\todo
 Alles für den Dackel, alles für den Club unser Leben für die schön gestylten FEs.
 Simpel, oder?
 Ja, okay.
@@ -57,27 +72,34 @@ Natürlich auch noch bootstrap-icons.
 Will ja niemand traurig machen und von Adrian verdroschen werden.
 
 \subsubsection{Codemirror}
+\todo
 Schönes Ding.
 Ngx-codemirror ist es dann speziell für eine Angular Anwendung geworden.
 Eigentlich alles out of the box benutzt.
 
 \subsubsection{Angular-split}
+\todo
 Find ich schon gut zu erwähnen.
 Ohne die geile dependency wäre das FE nie so pornös geworden.
 
 \subsubsection{file-saver}
+\todo
 Weitere erwähnenswerte dependency.
 Wird genutzt um Dateien, die vom BE kommen, auch herunterladen zu können.
 
 \subsubsection{ajv}
+\todo
 
 \subsubsection{js-yaml}
+\todo
 
 
 \subsection{fulibWorkflows Web-Editor BE}\label{subsubsec:backend}
+\todo
 Yeey alle Technologien die ich im Backend benutzt habe.
 
 \subsubsection{Spring Boot}
+\todo
 Framework mit dem man easy mal ein backend generiert bekommt.
 Durch Java und viele Dependency allerdings alles andere als ein leichtgewicht.
 
@@ -93,16 +115,18 @@ außer fulibWorkflows hinzugefügt werden musste.
 Immerhin umfasst der Code vom Backend vielleicht 300 Lines of Code.
 
 \subsubsection{fulibWorkflows}
-Da wurde wohl \ac{Antlr} benutzt.
+\todo
 Sollte mindestens irgendwo erwähnt werden.
 Kann man ggf. auch in dem Text zum Kapitel schreiben.
 
 \subsection{Deployment}\label{subsec:deployment}
+\todo
 Ein Web Editor will natürlich für alle erreichbar sein.
 Und fulibWorkflows muss auch irgendwo bereitgestellt werden, damit es das Backend und alle anderen
 interessierten benutzen können.
 
 \subsubsection{MavenCentral}\label{subsubsec:mavencentral}
+\todo
 MavenCentral ein wirklicher Hussarones was das publishen angeht.
 Glücklicherweise ist fulibWorkflows Teil der Fujaba Tool Suite, wodurch die benötigten
 Zugriffsrechte bereits vorhanden und andere Libraries bereits gepublished wurden.
@@ -110,6 +134,7 @@ Hierdurch war es recht schnell möglich mit dem zuvor erworbenem Wissen fulibWor
 zu publishen.
 
 \subsubsection{Heroku}\label{subsubsec:heroku}
+\todo
 Der Web-Editor soll immer erreichbar sein.
 Dies ist durch Heroku nur bedingt möglich.
 Heroku bietet allerlei Möglichkeiten verschiedenste Anwendungen bereitzustellen.
