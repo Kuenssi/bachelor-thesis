@@ -18,6 +18,7 @@ Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser
     \item Wie verläuft so ein ES Workshop (Beschrieben in seinem Buch, mehrfach)
     \item Wichtigsten Eckpunkte
     \item Warum ist es besser als Brain Storming oder ähnliches?
+    \item Beispielhaftes Event Storming Board (Bild und beschreibungstext um später darauf bezug nehmen zu können)
 \end{itemize}
 
 \subsection{Erweiterung}\label{subsec:erweiterung}
@@ -29,12 +30,15 @@ Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser
 \end{itemize}
 
 \section{Technologien}\label{sec:technologien}
-\todo
+Dieses Kapitel gibt einen Überblick über die verwendeten Technologien in der Umsetzung.
+Da die Implementierung aus veschiedenen Komponenten besteht, ist dieses Kapitel in drei weitere Unterkapitel aufgeteilt.
+Es wird somit getrennt auf die Java Library \textit{fulibWorkflows}, das Spring Boot Backend des \textit{fulibWorkflows Web-Editors}
+und das zum Editor dazugehörige Frontend, welches mit Angular umgesetzt wurde.
 
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
-\todo
-Jaaaaa, das ist die Java Library.
-Ganz geiles Teil eigentlich jetzt wo der Code auch lesbar ist.
+\textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac*{YAML}-Syntax notiert als Eingabe nimmt und daraus
+sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
+Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, folgt in einem späteren Kapitel.
 
 \subsubsection{ANTLR4}\label{subsubsec:antlr4}
 \todo
