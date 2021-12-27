@@ -11,7 +11,7 @@ Zudem wird ein klassischer Ablauf eines \textit{Event Stormings} erläutert und 
 Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser Arbeit vorgenommen wurden, erklärt.
 
 \subsection{Allgemein}\label{subsec:allgemein}
-\todo Bevor ich dieses und das folgende Unterkapitel schreibe, erst noch mal das \cite*{dddd} und \cite*{introES} lesen.
+\todo Bevor ich dieses und das folgende Unterkapitel schreibe, erst noch mal das~\cite*{dddd} und~\cite*{introES} lesen.
 \begin{itemize}
     \item Alberto Brandolini und das ES
     \item DDD als Grundlage
@@ -31,7 +31,7 @@ Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser
 
 \section{Technologien}\label{sec:technologien}
 Dieses Kapitel gibt einen Überblick über die verwendeten Technologien in der Umsetzung.
-Da die Implementierung aus veschiedenen Komponenten besteht, ist dieses Kapitel in drei weitere Unterkapitel aufgeteilt.
+Da die Implementierung aus verschiedenen Komponenten besteht, ist dieses Kapitel in drei weitere Unterkapitel aufgeteilt.
 Es wird somit getrennt auf die Java Library \textit{fulibWorkflows}, das Spring Boot Backend des \textit{fulibWorkflows Web-Editors}
 und das zum Editor dazugehörige Frontend, welches mit Angular umgesetzt wurde.
 
@@ -41,14 +41,21 @@ sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ K
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, folgt in einem späteren Kapitel.
 
 \subsubsection{Antlr}\label{subsubsec:antlr}
-Aus dem Antlr Project wurden zwei verschiedene Bestandteile genutzt. Zum einen die Möglichkeit Parser anhand einer
-eigenen Grammatik zu generieren und zum anderen die stringtemplates mit welchem ermöglicht wird Templates für Dateien
-zu erstellen und diese dynamisch mit Werten füllen zu können.
+Antlr bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
+Die Grammatik muss Links ableitend sein und ist in EBNF. \todo{Was bedeutet das?}
+Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
+Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen kann.
 
-\todo ANTLR4
+\lstinputlisting[caption={Beispiel einer einfachen Grammatik in Antlr},label={lst:grammar-example}]{listings/AntlrExample.g4}
 
+In Listing~\ref{lst:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.
+Hierbei ist es lediglich möglich Zahlen mittels Klammern, Addition, Subtraktion, Multiplikation und Division miteinander zu kombinieren.
+Das Beispiel aus Listing~\ref{lst:grammar-example} stammt von \cite{antlrOrg}.
 
-\todo String Templates
+\subsubsection{String Templates}
+\todo{jo}
+\textit{StringTemplates} ermöglichen es Schablonen (im Weiteren: Templates) für Dateien zu erstellen und diese dynamisch mit Werten füllen zu können.
+
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 Bei einem JSON-Schema kann man die erlaubten Eingaben eines Nutzers, sowohl für JSON-Dateien als
