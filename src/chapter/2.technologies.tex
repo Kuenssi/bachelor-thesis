@@ -40,21 +40,27 @@ und das zum Editor dazugehörige Frontend, welches mit Angular umgesetzt wurde.
 sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, folgt in einem späteren Kapitel.
 
-\subsubsection{ANTLR4}\label{subsubsec:antlr4}
-\todo
-Geiles Ding.
-Aber um Albert noch mal zu zitieren: ``ANTLR ist so zickig wie `ne Bitch im Jungle Camp''.
+\subsubsection{Antlr}\label{subsubsec:antlr}
+Aus dem Antlr Project wurden zwei verschiedene Bestandteile genutzt. Zum einen die Möglichkeit Parser anhand einer
+eigenen Grammatik zu generieren und zum anderen die stringtemplates mit welchem ermöglicht wird Templates für Dateien
+zu erstellen und diese dynamisch mit Werten füllen zu können.
+
+\todo ANTLR4
+
+
+\todo String Templates
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
-\todo
-Ziemlich geil um ehrlich zu sein.
-Man kann auch yaml damit definieren.
+Bei einem JSON-Schema kann man die erlaubten Eingaben eines Nutzers, sowohl für JSON-Dateien als
+auch YAML-Dateien beschränken.
 
-Erlaubt es die Eingaben des Nutzers zu beschränken und hints zu geben, was man machen darf
-und was nicht.
-Bereitstellen geht easy über schemastore.org.
-Wird dabei auch von vielen IDEs benutzt.
-Intellij direkt out-of-the-box, VSCode auch nachdem man die YAML Redhat Extension installiert hat.
+\todo Welche Version?, Schemastore.org, wie funst das mit den schemas?
+
+Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode, welche
+aus einem Schema nicht nur die fertige Datei auf Fehler überprüfen, sondern dem Entwickelnden bereits
+zum Zeitpunkt des Schreibens einer Datei mittels Autovervollständigung unterstützen kann.
+Eine Liste aller IDEs, welche diesen support mittels schemastore unterstützen sind unter folgendem
+Link zu finden: \url{https://www.schemastore.org/json/#editors}
 
 \subsubsection{fulibTools}
 \todo
