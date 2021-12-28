@@ -79,9 +79,36 @@ In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
 Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in~\ref{subsec:fulibworkflows-grammatik} eingegangen.
 
 \subsubsection{String Templates}
-\todo{jo}
-\textit{StringTemplates} ermöglichen es Schablonen (im Weiteren: Templates) für Dateien zu erstellen und diese dynamisch mit Werten füllen zu können.
+\textit{StringTemplate} gehören wir das vorherige Antlr zum \textit{Antlr Project}.
+Antlr verwendet ebenfalls String Templates zur Generierung von formatiertem Text, im Folgenden als \textit{Code} bezeichnet.
+Templates (übersetzt: Schablone) ermöglichen es zum Beispiel die feste Syntax einer Programmiersprache wie Java mit variablen Werten für
+Variablen, Klassen, Methoden, also den generellen Bausteinen einer Sprache zu füllen.
+Durch diese Funktionalität bieten sich String Templates sehr gut zu Generierung von Dateien an.
+Ursprünglich ist \textit{StringTemplate} eine Java Library, jedoch wurden bereits Portierungen für C#, Objective-C, JavaScript und Scala erstellt.
 
+Die folgenden Erläuterungen beziehen sich auf die Java Library von \textit{StringTemplate}, da diese in dieser Arbeit verwendet wurde.
+Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{lst:simpleTemplate} zu sehen.
+
+\lstinputlisting[caption={``Hello World!'' - Beispiel mittels StringTemplate},label={lst:simpleTemplate}, language=Java]{listings/JavaStringTemplateExample.java}
+
+Die Klasse \textit{ST} aus Zeile 3 kann mit einem String initialisiert werden.
+In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes \textit{<>} verwendet.
+Im Anschluss wird dem neuen \textit{ST} Objekt mithilfe der add()-Methode ein bestimmter Wert hinzugefügt.
+Der erste Parameter der Methode ist der Bezeichner innerhalb eines Templates, zu beachten ist die Angabe des Bezeichners ohne die Begrenzer.
+Der eigentliche Wert wird als zweiter Parameter übergeben und besitzt in diesem Beispiel den Text \textbf{World}.
+Um nun den fertig ersetzten Text aus dem Template und dem übergebenem Wert zu bekommen, muss auf dem \textit{ST} Objekt die Methode render() aufgerufen werden.
+Hierbei werden die Platzhalter des Templates durch den zuvor übergebenen Wert ersetzt und als String zurückgegeben.
+In Zeile 6 wird nun abschließend der fertige Text auf der Konsole ausgegeben, `Hello, World!`.
+Dieses Beispiel entstammt der offiziellen Webseite von \textit{StringTemplate}.\cite*{stOrg}
+
+Für ein strukturiertes Arbeiten mit vielen Templates bietet \textit{StringTemplate} die Möglichkeit StringTemplateGroups zu erstellen.
+Hierbei können mehrere Templates in einer Datei beschrieben werden um aufeinander aufbauende Templates nicht im Code, sondern einer gesonderten Datei zu organisieren.
+In diesen Dateien, welche die Dateiendung \textbf{.stg} tragen, können die Begrenzer (eng.: Delimiters) frei gewählt werden.
+Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung von HTML-Dateien, welche \textit{<>} als Zeichen zum Abgrenzen von Bereichen verwenden.
+Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
+Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
+
+\todo{Nutzung von STG}
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 Bei einem JSON-Schema kann man die erlaubten Eingaben eines Nutzers, sowohl für JSON-Dateien als
