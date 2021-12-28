@@ -1,0 +1,7 @@
+delimiters "{", "}"
+
+example(topic, language) ::= <<
+<span>
+    This test about {topic} is written in {language}.
+</span>
+>>

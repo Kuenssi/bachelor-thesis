@@ -108,7 +108,34 @@ Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung v
 Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
 Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
 
-\todo{Nutzung von STG}
+\lstinputlisting[caption={Beispiel einer .stg-Datei},label={lst:stgFile}]{listings/Example.stg}
+
+Wie zuvor beschrieben ist in Listing~\ref{lst:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf \textit{{}} gesetzt wurden.
+Dies hat den Hintergrund, dass in diesem Beispiel ein Text in eine HTML-Datei generiert werden soll.
+Hierfür könnten auch die Standardbegrenzer verwendet werden, allerdings müsste dann anstelle von \textbf{<span>} \textbf{\<span\>} stehen.
+Da dies für HTML-Dateien allerdings einen immensen Aufwand bedeutet, macht die Nutzung anderer Begrenzer Sinn.
+In Zeile 3 werden für ein StringTemplate, sowohl der Name des Templates, als auch Übergabeparameter definiert werden.
+Ein StringTemplate wird durch \textit{>>} geschlossen und das nächste Template könnte definiert werden.
+Die Begrenzer in Zeile 5 zeigen, dass alles, was sich zwischen Ihnen befindet, einen Übergabeparameter in sich trägt.
+Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährleistet.
+
+Um diese Templates nun in einem Java Programm zu verwenden, benötigt es unter anderem die zuvor beschriebenen ST Klasse, sowie
+die Klasse \textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates benötigt wird.
+In Zeile 6 von Listing~\ref{lst:stgJavaFile} ist zu erkennen, dass einem STGroupFile Objekt bei der Initialisierung eine URL übergeben werden muss.
+Diese URL verweist auf die stg-Datei.
+Im Anschluss kann, wie in Zeile 8 ersichtlich, über die getInstanceOf()-Methode auf ein bestimmtes Template in der stg-Datei zugegriffen werden.
+Hierbei ist es wichtig, keine Fehler bei der Benennung zu machen.
+Schließlich ist die weiterführende Verwendung bereits zuvor mittels der ST-Klasse beschrieben worden.
+
+\lstinputlisting[caption={Nutzung einer STG-Datei in Java},label={lst:stgJavaFile}]{listings/JavaSTGExample.java}
+
+Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listing~\ref{lst:outputSTG} angezeigt werden.
+
+\begin{lstlisting}[label={lst:outputSTG}]
+<span>
+    This test about the university is written in english.
+</span>
+\end{lstlisting}
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 Bei einem JSON-Schema kann man die erlaubten Eingaben eines Nutzers, sowohl für JSON-Dateien als
