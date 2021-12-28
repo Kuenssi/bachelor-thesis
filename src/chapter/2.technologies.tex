@@ -11,7 +11,7 @@ Zudem wird ein klassischer Ablauf eines \textit{Event Stormings} erläutert und 
 Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser Arbeit vorgenommen wurden, erklärt.
 
 \subsection{Allgemein}\label{subsec:allgemein}
-\todo Bevor ich dieses und das folgende Unterkapitel schreibe, erst noch mal das~\cite*{dddd} und~\cite*{introES} lesen.
+\todo{Bevor ich dieses und das folgende Unterkapitel schreibe, erst noch mal das~\cite*{dddd} und~\cite*{introES} lesen.}
 \begin{itemize}
     \item Alberto Brandolini und das ES
     \item DDD als Grundlage
@@ -22,7 +22,7 @@ Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser
 \end{itemize}
 
 \subsection{Erweiterung}\label{subsec:erweiterung}
-\todo Hier das vorherige Kapitel abwarten um alle Änderungen/Erweiterungen besser daran fest zu machen.
+\todo{Hier das vorherige Kapitel abwarten um alle Änderungen/Erweiterungen besser daran fest zu machen.}
 \begin{itemize}
     \item Erweiterungen für Wirtschaft (Pages -> daraus generierte Mockups, abgehen von dem "Wir wollen keinen PC benutzen" des ES)
     \item Ideen für die Lehre (Wird in dieser Arbeit nicht näher beleuchtet, da es für den Beleg der Funktionalität nicht mehr möglich ist dies ausreichend in der Bearbeitungszeit zu machen)
@@ -42,15 +42,41 @@ Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generie
 
 \subsubsection{Antlr}\label{subsubsec:antlr}
 Antlr bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in EBNF. \todo{Was bedeutet das?}
+Die Grammatik muss Links ableitend sein und ist in EBNF.
+\todo{Was bedeutet das?}
 Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
-Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen kann.
+Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
 \lstinputlisting[caption={Beispiel einer einfachen Grammatik in Antlr},label={lst:grammar-example}]{listings/AntlrExample.g4}
 
-In Listing~\ref{lst:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.
+In Listing~\ref{lst:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.\cite{antlrOrg}
 Hierbei ist es lediglich möglich Zahlen mittels Klammern, Addition, Subtraktion, Multiplikation und Division miteinander zu kombinieren.
-Das Beispiel aus Listing~\ref{lst:grammar-example} stammt von \cite{antlrOrg}.
+Die Länge eines Ausdruckes ist durch den rekursiven Aufbau der Grammatik nicht begrenzt.
+
+\begin{lstlisting}[caption={Einfacher mathematischer Ausdruck},label={lst:mathematical-input}]
+    ((199+2324)*43)/55
+
+\end{lstlisting}
+
+Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
+Eine zulässige Eingabe für die festgelegte Grammatik aus~\ref{lst:grammar-example} ist in~\ref{lst:mathematical-input} dargestellt.
+Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
+Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antlr Plugin für IntelliJ generiert.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/parseTreeExample}
+    \caption{ParseTree für einen mathematischen Ausdruck}
+    \label{fig:parse-example}
+\end{figure}
+
+Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel \textbf{prog} beginnt und alle weiteren Kindknoten durch verschachtelte \textbf{expr} Regeln kreiert wurden.
+Der oberste Teilausdruck ist die Division aus einem komplexeren linken Ausdruck und dem rechten Ausdruck, welcher direkt einer Nummer zugeordnet werden konnte und somit keine weiteren Kindknoten mehr haben kann.
+Dies entsteht durch die Unterscheidung bei der Grammatik in Terminale und Nicht-Terminale.
+Hierbei werden wie in~\ref{lst:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale werden in Großbuchstaben verfasst.
+In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
+
+Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in~\ref{subsec:fulibworkflows-grammatik} eingegangen.
 
 \subsubsection{String Templates}
 \todo{jo}
