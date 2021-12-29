@@ -194,10 +194,14 @@ Link zu finden: \url{https://www.schemastore.org/json/#editors}
 
 \subsubsection{fulibTools}
 FulibTools ist der Teile Fujaba Tool Suite, auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
-\todo
-Dank fulibTools ist auch fulib mit drin.
-FulibTools ist zur Generierung von Objektidiagrammen genutzt worden.
-Fulib (Bei FulibTools mit integriert) zur Generierung von Klassendiagrammen.
+Fulib bildet die Grundlage für fulibTools, wobei fulibTools erweiterte Möglichkeiten für die Nutzung von fulib bereitstellt.
+Fulib ist ein Codegenerator, welcher mittels einer \ac*{DSL}, Modelle als Digramme darstellen kann.\cite*{fulib}
+Dies begrenzt sich nicht nur auf Klassen-, sondern auch auf Objektmodelle.
+FulibTools ist eine Erweiterung, da die Generierung der Diagramme auch abseits der eben erwähnten DSL funktioniert.\cite*{fulibTools}
+Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-Format oder ein Java Objektmodell zur Laufzeit zu generieren.
+Gleiches gilt für Klassenmodelle.
+Die Verwendung von FulibTools ist somit für diese Arbeit eine bessere Wahl, als die \textit{Graphviz}, eine Bibliothek zur Generierung von Diagrammen, direkt zu verwenden.
+Dies ist der Fall, da FulibTools bereits die Arbeit der Verarbeitung eines Inputs übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.
 
 \subsection{fulibWorkflows Web-Editor FE}\label{subsec:fulibworkflows-web-editor}
 \todo
