@@ -1,40 +1,3 @@
-\chapter{Grundlagen}\label{ch:technologien}
-Im folgenden Kapitel werden zuerst die grundlegenden Konzepte des \textit{Event Stormings} erläutert.
-Hierbei wird auf dessen Herkunft und Entwicklung eingegangen.
-Neben diesen Grundlagen werden anschließend die für diese Arbeit notwendigen Änderungen und Erweiterungen dargelegt.
-Weiterhin werden die wichtigsten Technologien erläutert, welche für die Implementierung der Anwendungen nötig waren.
-Um eine bessere Übersicht zu schaffen, sind die Technologien nach dem Anwendungsteil, für welche diese nötig sind, unterteilt.
-
-\section{Event Storming}\label{sec:event-storming}
-Dieses Unterkapitel befasst sich mit der Herkunft des \textit{Event Stormings}, dem \ac*{DDD}.
-Zudem wird ein klassischer Ablauf eines \textit{Event Stormings} erläutert und daran die Vorteile dieser Methodik für das Requirements Engineering beleuchtet.
-Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser Arbeit vorgenommen wurden, erklärt.
-
-\subsection{Allgemein}\label{subsec:allgemein}
-\todo{Bevor ich dieses und das folgende Unterkapitel schreibe, erst noch mal das~\cite*{dddd} und~\cite*{introES} lesen.}
-\begin{itemize}
-    \item Alberto Brandolini und das ES
-    \item DDD als Grundlage
-    \item Wie verläuft so ein ES Workshop (Beschrieben in seinem Buch, mehrfach)
-    \item Wichtigsten Eckpunkte
-    \item Warum ist es besser als Brain Storming oder ähnliches?
-    \item Beispielhaftes Event Storming Board (Bild und beschreibungstext um später darauf bezug nehmen zu können)
-\end{itemize}
-
-\subsection{Erweiterung}\label{subsec:erweiterung}
-\todo{Hier das vorherige Kapitel abwarten um alle Änderungen/Erweiterungen besser daran fest zu machen.}
-\begin{itemize}
-    \item Erweiterungen für Wirtschaft (Pages -> daraus generierte Mockups, abgehen von dem "Wir wollen keinen PC benutzen" des ES)
-    \item Ideen für die Lehre (Wird in dieser Arbeit nicht näher beleuchtet, da es für den Beleg der Funktionalität nicht mehr möglich ist dies ausreichend in der Bearbeitungszeit zu machen)
-    \item ES -> Ablauf von Schritten -> Albert -> Workflow (Arbeitsablauf) beschreibungen -> Mögliche Idee zum besseren Nahebringen von komplexeren Abläufen in Vorlesungen. (Verbildlichung)
-\end{itemize}
-
-\section{Technologien}\label{sec:technologien}
-Dieses Kapitel gibt einen Überblick über die verwendeten Technologien in der Umsetzung.
-Da die Implementierung aus verschiedenen Komponenten besteht, ist dieses Kapitel in drei weitere Unterkapitel aufgeteilt.
-Es wird somit getrennt auf die Java Library \textit{fulibWorkflows}, das Spring Boot Backend des \textit{fulibWorkflows Web-Editors}
-und das zum Editor dazugehörige Frontend, welches mit Angular umgesetzt wurde.
-
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
 \textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac*{YAML}-Syntax notiert als Eingabe nimmt und daraus
 sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
@@ -42,12 +5,11 @@ Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generie
 
 \subsubsection{Antlr}\label{subsubsec:antlr}
 Antlr bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in EBNF.
-\todo{Was bedeutet das?}
+Die Grammatik muss Links ableitend sein und ist in \ac*{EBNF}.
 Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
 Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
-\lstinputlisting[caption={Beispiel einer einfachen Grammatik in Antlr},label={lst:grammar-example}]{listings/AntlrExample.g4}
+\lstinputlisting[caption={Beispiel einer einfachen Grammatik in Antlr},label={lst:grammar-example}]{listings/2.2.1/AntlrExample.g4}
 
 In Listing~\ref{lst:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.\cite{antlrOrg}
 Hierbei ist es lediglich möglich Zahlen mittels Klammern, Addition, Subtraktion, Multiplikation und Division miteinander zu kombinieren.
@@ -65,7 +27,7 @@ Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antl
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.3\textwidth]{images/parseTreeExample}
+    \includegraphics[width=0.3\textwidth]{images/2.2/parseTreeExample}
     \caption{ParseTree für einen mathematischen Ausdruck}
     \label{fig:parse-example}
 \end{figure}
@@ -89,7 +51,7 @@ Ursprünglich ist \textit{StringTemplate} eine Java Library, jedoch wurden berei
 Die folgenden Erläuterungen beziehen sich auf die Java Library von \textit{StringTemplate}, da diese in dieser Arbeit verwendet wurde.
 Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{lst:simpleTemplate} zu sehen.
 
-\lstinputlisting[caption={``Hello World!'' - Beispiel mittels StringTemplate},label={lst:simpleTemplate}, language=Java]{listings/JavaStringTemplateExample.java}
+\lstinputlisting[caption={``Hello World!'' - Beispiel mittels StringTemplate},label={lst:simpleTemplate}, language=Java]{listings/2.2.1/JavaStringTemplateExample.java}
 
 Die Klasse \textit{ST} aus Zeile 3 kann mit einem String initialisiert werden.
 In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes \textit{<>} verwendet.
@@ -108,7 +70,7 @@ Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung v
 Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
 Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
 
-\lstinputlisting[caption={Beispiel einer .stg-Datei},label={lst:stgFile}]{listings/Example.stg}
+\lstinputlisting[caption={Beispiel einer .stg-Datei},label={lst:stgFile}]{listings/2.2.1/Example.stg}
 
 Wie zuvor beschrieben ist in Listing~\ref{lst:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf \textit{{}} gesetzt wurden.
 Dies hat den Hintergrund, dass in diesem Beispiel ein Text in eine HTML-Datei generiert werden soll.
@@ -127,7 +89,7 @@ Im Anschluss kann, wie in Zeile 8 ersichtlich, über die getInstanceOf()-Methode
 Hierbei ist es wichtig, keine Fehler bei der Benennung zu machen.
 Schließlich ist die weiterführende Verwendung bereits zuvor mittels der ST-Klasse beschrieben worden.
 
-\lstinputlisting[caption={Nutzung einer STG-Datei in Java},label={lst:stgJavaFile}]{listings/JavaSTGExample.java}
+\lstinputlisting[caption={Nutzung einer STG-Datei in Java},label={lst:stgJavaFile}]{listings/2.2.1/JavaSTGExample.java}
 
 Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listing~\ref{lst:outputSTG} angezeigt werden.
 
@@ -150,7 +112,7 @@ Ein einzelnes Objekt kann zur Verbesserung der späteren Nutzung mit einem Titel
 Diese sind in Listing~\ref{lst:objectSchema} in Zeile 2 und 3 dargestellt.
 \textit{title} und \textit{description} dienen lediglich der Nutzbarkeit für den Entwickler.
 
-\lstinputlisting[caption={Objekt Beispiel eines JSON Schemas}, label={lst:objectSchema}]{listings/object.schema.json}
+\lstinputlisting[caption={Objekt Beispiel eines JSON Schemas}, label={lst:objectSchema}]{listings/2.2.1/object.schema.json}
 
 Einem Element muss stets ein \textit{type}, also ein Typ, zugeordnet werden.
 Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{lst:objectSchema}, sein.
@@ -176,7 +138,7 @@ Eine JSON-/YAML-Datei, welchem dieses Schema zugrunde liegt, besteht somit aus e
 Durch die Verwendung des \textit{oneOf} Operators in Zeile 6, werden nur Elemente mit dem darunterliegenden Schema akzeptiert.
 Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines dieser Elemente auf das Objekt in der JSON-/YAML-Datei zutreffen.
 
-\lstinputlisting[caption={Listen Beispiel eines JSON Schemas}, label={lst:listSchema}]{listings/list.schema.json}
+\lstinputlisting[caption={Listen Beispiel eines JSON Schemas}, label={lst:listSchema}]{listings/2.2.1/list.schema.json}
 
 Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode, welche
 aus einem Schema nicht nur die fertige Datei auf Fehler überprüfen, sondern dem Entwickelnden bereits
@@ -202,97 +164,3 @@ Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-F
 Gleiches gilt für Klassenmodelle.
 Die Verwendung von FulibTools ist somit für diese Arbeit eine bessere Wahl, als die \textit{Graphviz}, eine Bibliothek zur Generierung von Diagrammen, direkt zu verwenden.
 Dies ist der Fall, da FulibTools bereits die Arbeit der Verarbeitung eines Inputs übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.
-
-\subsection{fulibWorkflows Web-Editor FE}\label{subsec:fulibworkflows-web-editor}
-\todo
-Da brauchte es etwas mehr als beim BE\@.
-Die Entscheidungen für die verwendeten Technologien im Frontend wurden aufgrund
-der Idee der Integrierung vom Editor auf fulib.org getroffen.
-
-\subsubsection{Angular}
-\todo
-Wir kennen es.
-Wir lieben es.
-
-\subsubsection{Bootstrap}
-\todo
-Alles für den Dackel, alles für den Club unser Leben für die schön gestylten FEs.
-Simpel, oder?
-Ja, okay.
-Man nutzt dann auch ng-bootstrap für Angular Anwendungen.
-Natürlich auch noch bootstrap-icons.
-Will ja niemand traurig machen und von Adrian verdroschen werden.
-
-\subsubsection{Codemirror}
-\todo
-Schönes Ding.
-Ngx-codemirror ist es dann speziell für eine Angular Anwendung geworden.
-Eigentlich alles out of the box benutzt.
-
-\subsubsection{Angular-split}
-\todo
-Find ich schon gut zu erwähnen.
-Ohne die geile dependency wäre das FE nie so pornös geworden.
-
-\subsubsection{file-saver}
-\todo
-Weitere erwähnenswerte dependency.
-Wird genutzt um Dateien, die vom BE kommen, auch herunterladen zu können.
-
-\subsubsection{ajv}
-\todo
-
-\subsubsection{js-yaml}
-\todo
-
-
-\subsection{fulibWorkflows Web-Editor BE}\label{subsubsec:backend}
-\todo
-Yeey alle Technologien die ich im Backend benutzt habe.
-
-\subsubsection{Spring Boot}
-\todo
-Framework mit dem man easy mal ein backend generiert bekommt.
-Durch Java und viele Dependency allerdings alles andere als ein leichtgewicht.
-
-Dennoch musste ein Java backend her, da sonst fulibWorkflows nicht hätte integriert werden können.
-Jedenfalls nicht ohne noch mehr middle ware.
-
-Zudem hatte ich im Praktikum mit Spring Boot Erfahrungen gesammelt.
-Die Verwendung von Annotations und dem aufsplitten zwischen Controller und Service ist mir bereits
-durch Nest.js bekannt gewesen.
-
-Dennoch muss man sagen, dass durch die von Spring Boot bereits integrierten libraries nichts weiter
-außer fulibWorkflows hinzugefügt werden musste.
-Immerhin umfasst der Code vom Backend vielleicht 300 Lines of Code.
-
-\subsubsection{fulibWorkflows}
-\todo
-Sollte mindestens irgendwo erwähnt werden.
-Kann man ggf. auch in dem Text zum Kapitel schreiben.
-
-\subsection{Deployment}\label{subsec:deployment}
-\todo
-Ein Web Editor will natürlich für alle erreichbar sein.
-Und fulibWorkflows muss auch irgendwo bereitgestellt werden, damit es das Backend und alle anderen
-interessierten benutzen können.
-
-\subsubsection{MavenCentral}\label{subsubsec:mavencentral}
-\todo
-MavenCentral ein wirklicher Hussarones was das publishen angeht.
-Glücklicherweise ist fulibWorkflows Teil der Fujaba Tool Suite, wodurch die benötigten
-Zugriffsrechte bereits vorhanden und andere Libraries bereits gepublished wurden.
-Hierdurch war es recht schnell möglich mit dem zuvor erworbenem Wissen fulibWorkflows
-zu publishen.
-
-\subsubsection{Heroku}\label{subsubsec:heroku}
-\todo
-Der Web-Editor soll immer erreichbar sein.
-Dies ist durch Heroku nur bedingt möglich.
-Heroku bietet allerlei Möglichkeiten verschiedenste Anwendungen bereitzustellen.
-Auch mit einem kostenlosen Plan ist es ohne Probleme möglich solch kleine Anwendungen bereitzustellen.
-
-FE Deployment war easy, auch wenn ich erstmal wieder in eins meiner früheren Projekte gucken musste.
-BE Deployment war kniffliger, doch man ist nie der erste der eine Spring Boot application
-auf Heroku deployen will.
-Daher Tutorial reingefahren und ab ging der gebutterte Lachs.
