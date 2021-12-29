@@ -1,11 +1,11 @@
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
-\textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac*{YAML}-Syntax notiert als Eingabe nimmt und daraus
+\textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac{YAML}-Syntax notiert als Eingabe nimmt und daraus
 sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, folgt in einem späteren Kapitel.
 
 \subsubsection{Antlr}\label{subsubsec:antlr}
 Antlr bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in \ac*{EBNF}.
+Die Grammatik muss Links ableitend sein und ist in \ac{EBNF}.
 Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
 Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
@@ -157,7 +157,7 @@ Link zu finden: \url{https://www.schemastore.org/json/#editors}
 \subsubsection{fulibTools}
 FulibTools ist der Teile Fujaba Tool Suite, auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
 Fulib bildet die Grundlage für fulibTools, wobei fulibTools erweiterte Möglichkeiten für die Nutzung von fulib bereitstellt.
-Fulib ist ein Codegenerator, welcher mittels einer \ac*{DSL}, Modelle als Digramme darstellen kann.\cite*{fulib}
+Fulib ist ein Codegenerator, welcher mittels einer \ac{DSL}, Modelle als Digramme darstellen kann.\cite*{fulib}
 Dies begrenzt sich nicht nur auf Klassen-, sondern auch auf Objektmodelle.
 FulibTools ist eine Erweiterung, da die Generierung der Diagramme auch abseits der eben erwähnten DSL funktioniert.\cite*{fulibTools}
 Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-Format oder ein Java Objektmodell zur Laufzeit zu generieren.
