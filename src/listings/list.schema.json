@@ -1,0 +1,21 @@
+{
+  "title": "Products",
+  "description": "A list of products from Acme's catalog",
+  "type": "array",
+  "items": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "description": "The unique identifier for a product",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "productId"
+        ]
+      }
+    ]
+  }
+}
