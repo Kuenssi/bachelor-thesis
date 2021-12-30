@@ -41,24 +41,17 @@ Dies beginnt bei der Größe einer Komponente bis hin zu der Anordnung in der Ho
 Zusätzlich zu Bootstrap ist es möglich Bootstrap Icons zu verwenden.
 Hierbei handelt es sich über 1500 Icons, welche im open source Prinzip zugänglich sind.\cite*{bsIcons}
 
-\subsubsection{Codemirror}
-\todo
-Schönes Ding.
-Ngx-codemirror ist es dann speziell für eine Angular Anwendung geworden.
-Eigentlich alles out of the box benutzt.
+\subsubsection{CodeMirror}
+CodeMirror ist ein Texteditor, welcher in JavaScript geschrieben wurde und somit in Web-Anwendungen verwendet werden kann.
+Es gibt zahlreiche Optionen, um CodeMirror an die Bedingungen der zu bauenden Anwendung anzupassen.
+Neben zahlreichen Programmiersprachen, welche durch das Hervorheben von Schlüsselwörter und der Überprüfung der Syntax, emuliert werden können,
+ist es möglich CodeMirror zu einer eigenen, individualisierten IDE zu machen.
+Erweiterungen für einen CodeMirror sind die sogenannten Add-Ons.
+Hierbei gibt es neben vielen bereits vorhandenen Erweiterungen auch die Möglichkeit eigene Add-Ons zu erstellen.
+Hierzu zählt unter anderem das zuvor erwähnte farbliche Hervorheben von Schlüsselwörtern, auch Highlighting genannt, wie auch die
+Überprüfung des Codes auf die Syntax der eingestellten Programmiersprache.\cite*{cm}
 
-\subsubsection{Angular-split}
-\todo
-Find ich schon gut zu erwähnen.
-Ohne die geile dependency wäre das FE nie so pornös geworden.
-
-\subsubsection{file-saver}
-\todo
-Weitere erwähnenswerte dependency.
-Wird genutzt um Dateien, die vom BE kommen, auch herunterladen zu können.
-
-\subsubsection{ajv}
-\todo
-
-\subsubsection{js-yaml}
-\todo
+Für eine einfache Einbindung in ein Angular-Projekt existieren bereits mehrere Bibliotheken, welche eine CodeMirror Komponente bereitstellen.
+Bei dieser Komponente können nicht nur Optionen übergeben, sondern auch der Inhalt eines CodeMirrors, also den geschriebenen Code, aus der komponente
+extrahiert werden.
+In dieser Arbeit wurde hierzu ngx-codemirror von Scott Cooper verwendet.\cite*{ngxcm}
