@@ -5,16 +5,7 @@ Das Parsen wird über einen von Antlr generierten Parser übernommen, hierzu wir
 die zugrundeliegende Grammatik eingegangen.
 Zudem wird auf die Limitationen des Parsers und der generierten Mockups eingegangen.
 
-\subsection{fulibWorkflows Grammatik}\label{subsec:fulibworkflows-grammatik}
-\todo{this}
-Beschreiben der ANTLR4 Grammatik für fulibWorkflows
-
-Und natürlich auch wie mir das beim parsen der yaml geholfen hat.
-Dat wird ne lange Sektion.
-
-\subsection{Generierung dank fulibTools}\label{subsec:generierung-dank-fulibtools}
-\todo{this}
-FulibTools gibt gute Anbindung an Graphviz, wenn man sowieso schon mit fulib arbeitet.
+\input{chapter/3/3.1.1.format}
 
 \subsection{schema}\label{subsec:schema}
 \todo{this}
@@ -22,9 +13,22 @@ Da hab ich lange dran gesessen.
 Und ich glaube, selbst jetzt ist es kein gutes Schema.
 Allerdings tut es was es soll.
 
-\subsubsection{Mockups}
+\subsection{fulibWorkflows Grammatik}\label{subsec:fulibworkflows-grammatik}
+Wie zuvor bereits erwähnt, existiert für die Workflow Beschreibung ein eigener Parser.
+
+\todo{this}
+Beschreiben der ANTLR4 Grammatik für fulibWorkflows
+
+Und natürlich auch wie mir das beim parsen der yaml geholfen hat.
+Dat wird ne lange Sektion.
+
+\subsection{Mockups}\label{subsec:mockups}
 \todo{this}
 Eigenes Datenmodell gebaut.
 Daraus die wichtigsten Infos gezogen.
 Dank StringTemplates von antlr richtig easy zu bauen.
 Gilt für Html als auch Fxml.
+
+\subsection{Generierung dank fulibTools}\label{subsec:generierung-dank-fulibtools}
+\todo{this}
+FulibTools gibt gute Anbindung an Graphviz, wenn man sowieso schon mit fulib arbeitet.
