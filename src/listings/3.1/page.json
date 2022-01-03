@@ -1,0 +1,15 @@
+....
+  "pageItem": {
+    "description": "Defines a ui page",
+    "type": "object",
+    "properties": {
+      "page": {
+      "$\$$ref": "page.schema.json"
+    }
+  },
+  "required": [
+    "page"
+  ],
+  "additionalProperties": false
+  }
+....
