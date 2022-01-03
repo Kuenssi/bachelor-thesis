@@ -1,77 +1,11 @@
 \chapter{Implementierung}\label{ch:implementierung}
-\todo{this}
-Hier bin ich mir tatsächlich unsicher was alles reinsoll.
-Ich teile es auch erstmal in drei auf.
+Dieses Kapitel erläutert die Implementierung der in dieser Arbeit erstellten Anwendung.
+Dies werden anhand der im vorherigen Kapitel erläuterten Technologien genauer erklärt.
+Hierbei beschäftigt sich Kapitel~\ref{sec:fulibworkflows2} mit fulibWorkflows, Kapitel~\ref{sec:editor-frontend} mit dem Frontend des
+fulibWorkflows Web-Editors und abschließend Kapitel~\ref{sec:editor-backend} mit dem dazugehörigen Backend.
 
-\section{fulibWorkflows}\label{sec:fulibworkflows2}
-\todo{this}
-Was gibt es hier so interessantes zu sehen?
-Gehen Sie weiter.
+\input{chapter/3/3.1.fulibWorkflows}
 
-\subsection{fulibWorkflows Grammatik}\label{subsec:fulibworkflows-grammatik}
-\todo{this}
-Beschreiben der ANTLR4 Grammatik für fulibWorkflows
+\input{chapter/3/3.2.editorFE}
 
-Und natürlich auch wie mir das beim parsen der yaml geholfen hat.
-Dat wird ne lange Sektion.
-
-\subsection{Generierung dank fulibTools}\label{subsec:generierung-dank-fulibtools}
-\todo{this}
-FulibTools gibt gute Anbindung an Graphviz, wenn man sowieso schon mit fulib arbeitet.
-
-\subsection{schema}\label{subsec:schema}
-\todo{this}
-Da hab ich lange dran gesessen.
-Und ich glaube, selbst jetzt ist es kein gutes Schema.
-Allerdings tut es was es soll.
-
-\subsubsection{Mockups}
-\todo{this}
-Eigenes Datenmodell gebaut.
-Daraus die wichtigsten Infos gezogen.
-Dank StringTemplates von antlr richtig easy zu bauen.
-Gilt für Html als auch Fxml.
-
-\section{editor-frontend}\label{sec:editor-frontend}
-\todo{this}
-Alles was es zum FE so gibt.
-
-\subsection{iframes}\label{subsec:iframes}
-\todo{this}
-Naja der editor basiert einfach darauf, dass es iframes gibt.
-Könnte man auch weg lassen?
-
-\subsection{codemirror}\label{subsec:codemirror}
-\todo{this}
-Eingerichtet und los ging es.
-Noch einen eigenes kleines Hint Add on geschrieben.
-Feddig.
-Musste es erstmal simpel halten.
-Gibt noch genügend zukünftige Ideen.
-
-\subsection{angular split}\label{subsec:angular-split}
-\todo{this}
-Danke an Adrian, der mit dazu geraten hat.
-
-Nachdem ich mit purem css da grids erstellt habe, stand ich vor dem Problem der Veränderung von Größen.
-Angular split löst das Problem auf eine wunderbare Art und Weise.
-
-Die dreiteilung der View war damit wirklich einfach.
-Auch wenn man aufpassen musste beim Verändern der größen, wenn man iframes benutzt.
-Da musste ein kleiner Fix rein, der aber auch bereits von den machern vorgegeben war.
-
-\section{editor-backend}\label{sec:editor-backend}
-\todo{this}
-Das wird wieder kurz.
-
-\subsection{Spring booterino}\label{subsec:spring-booterino}
-\todo{this}
-Gabelstablinski hier drüben war dank ein paar Annotations schnell erstellt und macht bisher keine Probleme.
-
-Die zip Datei wird im BE zusammengebaut.
-Dafür gibt es schon alles fertig in java.util.zip.
-Da hab ich nach gegoogelt und alles lief wie von selbst.
-
-Na gut, ich muss zugeben, dass die zip vom BE ans FE schicken und dann richtig runterladen können,
-ohne das mir alles um die Ohren fliegt schon einen Arbeitstag gebraucht hat.
-Manchmal muss man lediglich seine Dummheit für einen Moment ablegen.
+\input{chapter/3/3.3.editorBE}
