@@ -5,6 +5,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{siunitx}
 \usepackage{xcolor}
+\usepackage{wasysym}
 
 \addbibresource{references.bib}
 
@@ -13,6 +14,8 @@
 
 \begin{document}
 \input{titlepage_german}
+
+\pagenumbering{Roman}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Abriged%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{chapter/0/0.abriged}
@@ -33,6 +36,8 @@
 
 %\input{start}
 
+\pagenumbering{arabic}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%KAPITEL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{chapter/1/1.introduction.tex}
@@ -44,4 +49,8 @@
 
 \printbibliography[title={Quellenverzeichnis}]
 
+\pagenumbering{Alph}
+
+\input{appendix}
+    
 \end{document}

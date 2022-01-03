@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "JSON schema for pages used in fulibWorkflows ",
+  "description": "Page Schema for the generation file of fulibWorkflows",
+  "type": "array",
+  "additionalItems": false,
+  "$defs": {
+    "nameItem": {
+      "description": "Defines the name of the page",
+      "type": "object",
+      "properties": {
+        "pageName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pageName"
+      ],
+      "additionalProperties": false
+    },
+    "textItem": {
+      "description": "Defines a text",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "buttonItem": {
+      "description": "Defines a button with optional command",
+      "type": "object",
+      "properties": {
+        "button": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "button"
+      ],
+      "additionalProperties": false
+    },
+    "inputItem": {
+      "description": "Defines an input with optional fill",
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "passwordItem": {
+      "description": "Defines a password input with optional fill",
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "password"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "items": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nameItem"
+      },
+      {
+        "$ref": "#/$defs/textItem"
+      },
+      {
+        "$ref": "#/$defs/buttonItem"
+      },
+      {
+        "$ref": "#/$defs/inputItem"
+      },
+      {
+        "$ref": "#/$defs/passwordItem"
+      }
+    ]
+  }
+}
