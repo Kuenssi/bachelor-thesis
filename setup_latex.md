@@ -8,3 +8,9 @@
 - Restart Intellij
 - Run main.tex
 - Pdf get's generated in out/main.pdf
+
+
+This man is a genious -> Using minted
+https://alipourmousavi.com/blog/index.php/2018/02/08/using-minted-package-in-latex-to-format-codes/
+
+Move out folder into src folder, don't forget to change those directories in the run configurations

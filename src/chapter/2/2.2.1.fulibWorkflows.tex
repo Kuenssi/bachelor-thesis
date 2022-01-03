@@ -9,19 +9,27 @@ Die Grammatik muss Links ableitend sein und ist in \ac{EBNF}.
 Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
 Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
-\lstinputlisting[caption={Beispiel einer einfachen Grammatik in Antlr},label={lst:grammar-example}]{listings/2.2.1/AntlrExample.g4}
+\begin{listing}[!ht]
+    \inputminted{json}{listings/2.2.1/AntlrExample.g4}
+    \caption{Beispiel einer einfachen Grammatik in Antlr}
+    \label{listing:grammar-example}
+\end{listing}
 
-In Listing~\ref{lst:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.\cite{antlrOrg}
+In Listing~\ref{listing:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.\cite{antlrOrg}
 Hierbei ist es lediglich möglich Zahlen mittels Klammern, Addition, Subtraktion, Multiplikation und Division miteinander zu kombinieren.
 Die Länge eines Ausdruckes ist durch den rekursiven Aufbau der Grammatik nicht begrenzt.
 
-\begin{lstlisting}[caption={Einfacher mathematischer Ausdruck},label={lst:mathematical-input}]
+\begin{listing}[!ht]
+    \begin{minted}{text}
     ((199+2324)*43)/55
 
-\end{lstlisting}
+    \end{minted}
+    \caption{Einfacher mathematischer Ausdruck}
+    \label{listing:mathematical-input}
+\end{listing}
 
 Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
-Eine zulässige Eingabe für die festgelegte Grammatik aus~\ref{lst:grammar-example} ist in~\ref{lst:mathematical-input} dargestellt.
+Eine zulässige Eingabe für die festgelegte Grammatik aus~\ref{listing:grammar-example} ist in~\ref{listing:mathematical-input} dargestellt.
 Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
 Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antlr Plugin für IntelliJ generiert.
 
@@ -35,7 +43,7 @@ Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antl
 Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel \textbf{prog} beginnt und alle weiteren Kindknoten durch verschachtelte \textbf{expr} Regeln kreiert wurden.
 Der oberste Teilausdruck ist die Division aus einem komplexeren linken Ausdruck und dem rechten Ausdruck, welcher direkt einer Nummer zugeordnet werden konnte und somit keine weiteren Kindknoten mehr haben kann.
 Dies entsteht durch die Unterscheidung bei der Grammatik in Terminale und Nicht-Terminale.
-Hierbei werden wie in~\ref{lst:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale werden in Großbuchstaben verfasst.
+Hierbei werden wie in~\ref{listing:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale werden in Großbuchstaben verfasst.
 In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
 
 Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in~\ref{subsec:fulibworkflows-grammatik} eingegangen.
@@ -49,9 +57,13 @@ Durch diese Funktionalität bieten sich String Templates sehr gut zu Generierung
 Ursprünglich ist \textit{StringTemplate} eine Java Library, jedoch wurden bereits Portierungen für C\#, Objective-C, JavaScript und Scala erstellt.
 
 Die folgenden Erläuterungen beziehen sich auf die Java Library von \textit{StringTemplate}, da diese in dieser Arbeit verwendet wurde.
-Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{lst:simpleTemplate} zu sehen.
+Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{listing:simpleTemplate} zu sehen.
 
-\lstinputlisting[caption={``Hello World!'' - Beispiel mittels StringTemplate},label={lst:simpleTemplate}, language=Java]{listings/2.2.1/JavaStringTemplateExample.java}
+\begin{listing}[!ht]
+    \inputminted{java}{listings/2.2.1/JavaStringTemplateExample.java}
+    \caption{``Hello World!'' - Beispiel mittels StringTemplate}
+    \label{listing:simpleTemplate}
+\end{listing}
 
 Die Klasse \textit{ST} aus Zeile 3 kann mit einem String initialisiert werden.
 In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes \textit{<>} verwendet.
@@ -70,9 +82,13 @@ Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung v
 Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
 Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
 
-\lstinputlisting[caption={Beispiel einer .stg-Datei},label={lst:stgFile}]{listings/2.2.1/Example.stg}
+\begin{listing}[!ht]
+    \inputminted{text}{listings/2.2.1/Example.stg}
+    \caption{Beispiel einer .stg-Datei}
+    \label{listing:stgFile}
+\end{listing}
 
-Wie zuvor beschrieben ist in Listing~\ref{lst:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf \textit{{}} gesetzt wurden.
+Wie zuvor beschrieben ist in Listing~\ref{listing:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf \textit{{}} gesetzt wurden.
 Dies hat den Hintergrund, dass in diesem Beispiel ein Text in eine HTML-Datei generiert werden soll.
 Hierfür könnten auch die Standardbegrenzer verwendet werden, allerdings müsste dann anstelle von \textbf{<span>} \textbf{\<span\>} stehen.
 Da dies für HTML-Dateien allerdings einen immensen Aufwand bedeutet, macht die Nutzung anderer Begrenzer Sinn.
@@ -83,21 +99,29 @@ Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährl
 
 Um diese Templates nun in einem Java Programm zu verwenden, benötigt es unter anderem die zuvor beschriebenen ST Klasse, sowie
 die Klasse \textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates benötigt wird.
-In Zeile 6 von Listing~\ref{lst:stgJavaFile} ist zu erkennen, dass einem STGroupFile Objekt bei der Initialisierung eine URL übergeben werden muss.
+In Zeile 6 von Listing~\ref{listing:stgJavaFile} ist zu erkennen, dass einem STGroupFile Objekt bei der Initialisierung eine URL übergeben werden muss.
 Diese URL verweist auf die stg-Datei.
 Im Anschluss kann, wie in Zeile 8 ersichtlich, über die getInstanceOf()-Methode auf ein bestimmtes Template in der stg-Datei zugegriffen werden.
 Hierbei ist es wichtig, keine Fehler bei der Benennung zu machen.
 Schließlich ist die weiterführende Verwendung bereits zuvor mittels der ST-Klasse beschrieben worden.
 
-\lstinputlisting[caption={Nutzung einer STG-Datei in Java},label={lst:stgJavaFile}]{listings/2.2.1/JavaSTGExample.java}
+\begin{listing}[!ht]
+    \inputminted{java}{listings/2.2.1/JavaSTGExample.java}
+    \caption{Nutzung einer STG-Datei in Java}
+    \label{listing:stgJavaFile}
+\end{listing}
 
-Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listing~\ref{lst:outputSTG} angezeigt werden.
+Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listing~\ref{listing:outputSTG} angezeigt werden.
 
-\begin{lstlisting}[label={lst:outputSTG}]
+\begin{listing}[!ht]
+    \begin{minted}{text}
 <span>
     This test about the university is written in english.
 </span>
-\end{lstlisting}
+    \end{minted}
+    \caption{STG Ausgabe auf Konsole}
+    \label{listing:outputSTG}
+\end{listing}
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 JSON-Schemas sind Schemata, welche den Inhalt einer JSON-/YAML-Datei begrenzen können.
@@ -109,36 +133,48 @@ Im folgenden Abschnitt werden die grundlegenden Elemente eines JSON Schemas erl�
 Weiterführende Funktionalitäten werden anhand der Implementierung in einem späteren Kapitel näher beleuchtet.
 
 Ein einzelnes Objekt kann zur Verbesserung der späteren Nutzung mit einem Titel und einer kurzen Beschreibung versehen werden.
-Diese sind in Listing~\ref{lst:objectSchema} in Zeile 2 und 3 dargestellt.
+Diese sind in Listing~\ref{listing:objectSchema} in Zeile 2 und 3 dargestellt.
 \textit{title} und \textit{description} dienen lediglich der Nutzbarkeit für den Entwickler.
 
-\lstinputlisting[caption={Objekt Beispiel eines JSON Schemas}, label={lst:objectSchema}]{listings/2.2.1/object.schema.json}
+\begin{listing}[!ht]
+    \inputminted{java}{listings/2.2.1/object.schema.json}
+    \caption{Objekt Beispiel eines JSON Schemas}
+    \label{listing:objectSchema}
+\end{listing}
 
 Einem Element muss stets ein \textit{type}, also ein Typ, zugeordnet werden.
-Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{lst:objectSchema}, sein.
+Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{listing:objectSchema}, sein.
 Alternativ kann ein Element auch als Liste typisiert werden, dies wird in einem folgenden Beispiel genauer erläutert.
 Einem Objekt können nun \textit{properties} hinzugefügt werden.
 Diese besitzen neben einem eindeutigen Bezeichner ebenfalls eine Beschreibung und ein Typ.
 Auf dieser Ebene kann der Typ eine Nummer, \textit{integer} in Zeile 8, oder auch ein Text, welches den Typ \textit{string} bekommen würde, sein.
 Ist eine der \textit{Properties} ein notwendiges Feld, kann dies mittels des Schlüsselwortes \textit{required} realisiert werden.
 Hierbei wird eine Liste an Bezeichnern hinterlegt, welche dem Objekt bereits zugeordnet wurden und somit stets vorhanden sein müssen.
-Das Beispiel stammt von der offizillen JSON Schema Webseite.\cite*{schemaExample}
-Sollten einem Objekt keine weitere properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{lst:additionalProperties} möglich.
+Das Beispiel stammt von der offiziellen JSON Schema Webseite.\cite*{schemaExample}
+Sollten einem Objekt keine weitere properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
 
-\begin{lstlisting}[caption={Begrenzung der Properties eines Schemas},label={lst:additionalProperties}]
-"additionalProperties": false
-\end{lstlisting}
+\begin{listing}[!ht]
+    \begin{minted}{json}
+        "additionalProperties": false
+    \end{minted}
+    \caption{Begrenzung der Properties eines Schemas}
+    \label{listing:additionalProperties}
+\end{listing}
 
 Wie zuvor bereits beschrieben, kann ein Element auch als Liste deklariert werden.
-Dies ist an einem kleinen Beispiel aus Listing~\ref{lst:listSchema} dargestellt.
+Dies ist an einem kleinen Beispiel aus Listing~\ref{listing:listSchema} dargestellt.
 Hierbei ist es möglich die \textit{items} einer Liste genauer zu definieren.
-In diesem Beispiel müssen die Elemente einer Liste dem Schema aus dem Beispiel aus Listing~\ref{lst:objectSchema} entsprechen.
+In diesem Beispiel müssen die Elemente einer Liste dem Schema aus dem Beispiel aus Listing~\ref{listing:objectSchema} entsprechen.
 
 Eine JSON-/YAML-Datei, welchem dieses Schema zugrunde liegt, besteht somit aus einer Liste an Produkten.
 Durch die Verwendung des \textit{oneOf} Operators in Zeile 6, werden nur Elemente mit dem darunterliegenden Schema akzeptiert.
 Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines dieser Elemente auf das Objekt in der JSON-/YAML-Datei zutreffen.
 
-\lstinputlisting[caption={Listen Beispiel eines JSON Schemas}, label={lst:listSchema}]{listings/2.2.1/list.schema.json}
+\begin{listing}[!ht]
+    \inputminted{json}{listings/2.2.1/list.schema.json}
+    \caption{Listen Beispiel eines JSON Schemas}
+    \label{listing:listSchema}
+\end{listing}
 
 Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode, welche
 aus einem Schema nicht nur die fertige Datei auf Fehler überprüfen, sondern dem Entwickelnden bereits
@@ -157,7 +193,7 @@ Link zu finden: \url{https://www.schemastore.org/json/#editors}
 \subsubsection{fulibTools}
 FulibTools ist der Teile Fujaba Tool Suite, auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
 Fulib bildet die Grundlage für fulibTools, wobei fulibTools erweiterte Möglichkeiten für die Nutzung von fulib bereitstellt.
-Fulib ist ein Codegenerator, welcher mittels einer \ac{DSL}, Modelle als Digramme darstellen kann.\cite*{fulib}
+Fulib ist ein Codegenerator, welcher mittels einer \ac{DSL}, Modelle als Diagramme darstellen kann.\cite*{fulib}
 Dies begrenzt sich nicht nur auf Klassen-, sondern auch auf Objektmodelle.
 FulibTools ist eine Erweiterung, da die Generierung der Diagramme auch abseits der eben erwähnten DSL funktioniert.\cite*{fulibTools}
 Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-Format oder ein Java Objektmodell zur Laufzeit zu generieren.

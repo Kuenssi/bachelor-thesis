@@ -4,9 +4,13 @@ ist es nötig das Format in welcher ein Workflow beschrieben werden muss, näher
 Die Grundlage des Formats bildet \ac*{YAML}, hierbei handelt es sich allerdings um eine stark begrenzte YAML-Syntax, welche verwendet werden kann.
 Näheres zu den Beschränkungen der Syntax wird in Kapitel~\ref{subsec:schema} erklärt.
 
-\lstinputlisting[caption={Beispiel aller vorhandenen ``Post-Its''},label={lst:workflowNotes}]{listings/3.1/allNotes.es.yaml}
+\begin{listing}[!ht]
+    \inputminted{json}{listings/3.1/allNotes.es.yaml}
+    \caption{Beispiel aller vorhandenen ``Post-Its''}
+    \label{listing:workflowNotes}
+\end{listing}
 
-In Listing\ref{lst:workflowNotes} sind alle möglichen Post-its aufgelistet.
+In Listing\ref{listing:workflowNotes} sind alle möglichen Post-its aufgelistet.
 Im weiteren Verlauf wird für einen Post-It das Wort Zettel verwendet, da es sich bei jedem Element in der Beschreibung um einen einzelnen Zettel aus dem Event Storming handelt.
 Als Beispiel für einen Workflow ist hierbei die Registrierung eines neuen Benutzers auf einer Webseite in vereinfachter Form dargestellt.
 Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.3.4, von fulibWorkflows aufgelistet und deren Funktion erläutert.
@@ -23,7 +27,7 @@ Im vorherigen Beispiel gibt es einen Workflow mit dem Namen~\textit{User Registr
 Durch den \textit{service}-Zettel werden Services bereitgestellt.
 Diese sind lediglich zur Strukturierung des Workflows und dem später daraus entstehenden Event Storming Board da.
 Hiermit kann erreicht werden, dass die nach einem service-Zettel folgenden Zettel von dem vorherigen Service ausgeführt werden.
-Im Beispiel aus Listing~\ref{lst:workflowNotes} gibt es nur einen Service, dieser kümmert sich um die Nutzerverwaltung, daher
+Im Beispiel aus Listing~\ref{listing:workflowNotes} gibt es nur einen Service, dieser kümmert sich um die Nutzerverwaltung, daher
 stammt auch der Name~\textit{User management}.
 
 \largerText{problem}
@@ -40,7 +44,7 @@ Im obigen Workflow Beispiel, gibt es das Problem, dass das Validieren einer E-Ma
 Aus dem~\textit{Domain Event} aus dem Event Storming ist die verkürzte Version \textit{event} als Indikator für einen weiteren Zettel geworden.
 Hierbei wird eine Beschreibung eines Events in der Vergangenheitsform als Bezeichnung verwendet.
 Dies bezieht sich auf eine Aktion, welche innerhalb eines Workflows, aufgetreten ist.
-Wie in~\lst{lst:workflowNotes} in Zeile 22 und ab Zeile 28 zu sehen, können event-Zettel allein stehen oder mit weiteren Informationen
+Wie in Listing~\ref{listing:workflowNotes} in Zeile 22 und ab Zeile 28 zu sehen, können event-Zettel allein stehen oder mit weiteren Informationen
 angereichert werden.
 Weitere Informationen, die einem Event zugeordnet sind, repräsentieren Daten, welche zu der ausgeführten Aktion gehören.
 
@@ -56,7 +60,7 @@ Im Beispielworkflow existiert ein User, welcher den Namen Karli trägt, welches 
 Eine \textit{policy} ist wie auch beim \textit{event} eine Abstrahierung eines Begriffes aus dem Event Storming.
 Ein \textit{policy}-Zettel beschreibt somit einen Automatismus, welcher aufgrund eines vorherigen Events einen bestimmten
 Ablauf an Schritten ausführt.
-Im Beispiel aus~\lst{lst:workflowNotes} reagiert die policy aus Zeile 16 auf den vorherigen Command um automatisch zu prüfen,
+Im Beispiel aus Listing~\ref{listing:workflowNotes} reagiert die policy aus Zeile 16 auf den vorherigen Command um automatisch zu prüfen,
 ob die eingegebene E-Mail valide ist.
 
 \largerText{command}

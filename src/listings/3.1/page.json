@@ -4,7 +4,7 @@
     "type": "object",
     "properties": {
       "page": {
-      "$\$$ref": "page.schema.json"
+      "$ref": "page.schema.json"
     }
   },
   "required": [

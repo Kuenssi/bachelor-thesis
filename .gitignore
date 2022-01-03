@@ -1,4 +1,4 @@
 /.idea/
 /auxil/
-/out/*
-!out/main.pdf
+src/out/*
+!src/out/main.pdf
