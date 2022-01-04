@@ -1,15 +1,31 @@
-....
-  "pageItem": {
-    "description": "Defines a ui page",
-    "type": "object",
-    "properties": {
-      "page": {
-      "$ref": "page.schema.json"
+{
+  "type": "array",
+  "additionalItems": false,
+  "$defs": {
+    ....
+    "pageItem": {
+      "description": "Defines a ui page",
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "page.schema.json"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "additionalProperties": false
     }
   },
-  "required": [
-    "page"
-  ],
-  "additionalProperties": false
+  "items": {
+    "oneOf": [
+      ....
+      {
+        "$ref": "#/$defs/pageItem"
+      },
+      {
+        "$ref": "#/$defs/problemItem"
+      }
+    ]
   }
-....
+}
