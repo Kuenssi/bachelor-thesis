@@ -84,8 +84,38 @@ Weiterhin können Pages beliebig viele Elemente beherbergen.
 Ein Element wiederum muss entweder als Bezeichner text, input, password oder button besitzen, um valide zu sein.
 Jedem dieser Elemente wird anschließend ein Text(NAME) zugeordnet, welche Funktion diese für das jeweilige Element erfüllen, wurde bereits in Kapitel~\ref{subsec:workflow-format} erläutert.
 
+Wie zuvor bereits beschrieben, wird aus der Grammatik ein Parser generiert.
+Dazu gehört unter anderem ein Interface, welches für diese Grammatik den Namen \textit{FulibWorkflowsListener} trägt.
+Um während dem Parsen ein Datenmodell aufzubauen, wurde eine eigener Listener implementiert, welcher die Methoden des Interfaces überschreibt.
+Für jeder Regel aus der Grammatik existiert eine enter- und eine exit-Methode.
+In den enter-Methoden werden lediglich neue Objekte angelegt und globale Variablen zurückgesetzt.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/3.1/classdiagram.drawio}
+    \caption{Klassendiagramm fulibWorkflows}
+    \label{fig:classdiagram}
+\end{figure}
 
-\todo{Was wird beim Parsen zusätzlich gemacht?}
+Bevor anhand eines Beispieles die Verwendung einer exit-Methode erläutert wird, ist es notwendig das Datenmodell genauer zu betrachten.
+In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches die Struktur eines Event Storming Boards nach dem Parsen der YAML-Eingabe widerspiegelt.
+Jeder Note besitzt eine dazugehörige Klasse, welche von BaseNote erbt.
+Für jeden Note existiert somit ein Name und ein Index, auf welchen im folgenden Abschnitt eingegangen wird.
+Da es im Event Storming ein dazugehöriges \textit{Board} gibt, ist dies ebenfalls eine Klasse, welche alle \textit{workflows} einer Eingabe hält.
+Ein Workflow besteht weiterhin aus vielen Notes.
+Wie zuvor bereits erläutert, sind Data, Event und Page Sonderfälle unter den Notes, da diese weitere Daten beherbergen.
+Daher haben diese Klassen ein Attribut, welches diese Daten organisiert in einer Map hält.
+Hierbei wird als key der Index eines Notes verwendet und das value ist ein Pair.
+Das Pair beinhaltet den Bezeichner und den dazugehörigen Wert einer zusätzlichen Property eines Notes.
 
-\todo{Ergebnis nach dem Parsen}
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=106]{java}{listings/3.1.3/ExitPage.java}
+    \caption{exitPage-Methode}
+    \label{listing:exitpage}
+\end{listing}
+
+In Listing~\ref{listing:exitpage} wird ein neues Page-Objekt erstellt.
+Bevor jedoch die exitPage-Methode aufgerufen wird, werden alle Elemente in der Variable \textit{noteData} gespeichert.
+Dieser werden in der exitElement-Methode hinzugefügt, der Name einer Page wird hingegen in der gesonderten exitPageName-Methode zu noteData hinzugefügt.
+Zusätzlich zu den Daten eines Notes, wird diesem ein Index gegeben und anschließend zur Liste aller Notes hinzugefügt.
+Der Index ist wichtig, um die Reihenfolge von Notes und deren Attributen beizubehalten.
