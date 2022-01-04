@@ -72,12 +72,92 @@ Auf oberster Ebene werden alle erlaubten Schlüsselwörter für Elemente angezei
 Hierbei fällt auf, dass die Elemente für eine Page nicht angezeigt werden, dies ist jedoch der Fall, sobald der Kontext dies zulässt.
 Während der Entwickelnde ein page-Element definiert, werden wie in Abbildung~\ref{fig:completion-schema}((b)) dargestellt die Schlüsselwörter für Page-Elemente vorgeschlagen.
 
-\subsection{fulibWorkflows Grammatik}\label{subsec:fulibWorkflows-grammatik}
-\todo{this}
-Beschreiben der ANTLR4 Grammatik für fulibWorkflows
+\subsection{Antlr Grammatik}\label{subsec:antlr-grammatik}
+Da die möglichen Eingaben durch das zuvor beschriebene JSON-Schemas bereits verringert wurden, viel die Wahl der Verarbeitung der YAML-Eingabe auf eine durch Antlr generierten Parser.
+Der generierte Parser bietet die Möglichkeit, während dem parsen weitere Aktionen durchzuführen und in dem Fall dieser Anwendung ein Datenmodell aus der Eingabe zu erstellen.
+Das Datenmodell wird im folgenden weiterverarbeitet und bietet somit eine Grundlage für die Generierung, auf welche im folgenden Kapitel eingegangen wird.
 
-Und natürlich auch wie mir das beim parsen der yaml geholfen hat.
-Dat wird ne lange Sektion.
+Wie in Kapitel~\ref{subsubsec:antlr} bereits beschrieben, ist die Grundlage eines Antlr Parser die dazugehörige Grammatik, welche nun beleuchtet wird.
+Die komplette Grammatik ist im Anhang hinterlegt, in diesem Kapitel werden lediglich Ausschnitte daraus verwendet.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=5]{antlr}{listings/3.1/Main.g4}
+    \caption{Grammatik für Workflows}
+    \label{listing:main-grammar}
+\end{listing}
+
+Zuerst wird die grundlegende Struktur einer Datei festgelegt, dies ist durch die drei Regeln in Listing~\ref{listing:main-grammar} dargestellt.
+Da eine Datei mehrere Workflows beinhalten kann, ist die oberste Regel in Zeile 5 der Startpunkt des Parser.
+Da als Eingabe eine YAML-Datei ist, heißt die oberste Regel \textit{file} und erfordert mindestens einen workflow.
+Ein workflow besteht immer aus einem workflow-Note und beliebig vielen event-Notes, wobei diese immer mit einer Leerzeile von einander getrennt sind.
+Die Spezifikation ist aufgrund der YAML-Syntax notwendig.
+Ein event-Note kann einer aus drei Typen sein, wobei nach einem Note beliebig viele Leerzeilen folgen können.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=11]{antlr}{listings/3.1/Note.g4}
+    \caption{Grammatik für Notes}
+    \label{listing:note-grammar}
+\end{listing}
+
+Die Unterscheidung zwischen normal-/extended-Note, workflow und page erfolgt durch das Schlüsselwort, welches zwischen Bindestrich(MINUS) und Doppelpunkt(NAME) befindet.
+Sowohl ein workflow-Note als auch die normal-Notes besitzen lediglich nach dem Doppelpunkt einen Wert, welcher durch \textbf{NAME} gekennzeichnet ist.
+Dies ist in Listing~\ref{listing:note-grammar} in Zeile 11 und 13 dargestellt.
+Ein extended-Note besitzt neben dem Wert zusätzliche Attribute, welche in einer neuen Zeile beschrieben werden.
+Die Anzahl der attribute ist beliebig, es ist somit erlaubt einen extended-Note ohne weitere Attribute anzugeben.
+Die Page ist wie zuvor bereits häufiger erwähnt ein Sonderfall, welches sich auch in der Grammatik widerspiegelt.
+Dem Schlüsselwort \textit{page} folgt ein gesonderter Doppelpunkt und anschließend eine Liste von neuen Elemente.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=30]{antlr}{listings/3.1/Keywords.g4}
+    \caption{Schlüsselwörter zum Identifizieren von Notes}
+    \label{listing:note-ids}
+\end{listing}
+
+Die zuvor erwähnte \textit{normalen Notes} bestehen wie in Listing~\ref{listing:note-ids} Zeile 30 und 31 dargestellt aus externalSystem, service, command, policy, user und problem.
+Diese erhalten lediglich einen Bezeichner und erlauben keine weiteren Attribute.
+Zu den \textit{extended Notes} zählen lediglich event und data.
+Diese erhalten wie zuvor beschrieben weiter Attribute um Daten, welche zwischen Services verschickt werden, darstellen zu können.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=19]{antlr}{listings/3.1/Attribute.g4}
+    \caption{Grammatik von Attributen}
+    \label{listing:attributes}
+\end{listing}
+
+Attribute werden eingerückt und enthalten neben einem Bezeichner(NAME) einen dazugehörigen Wert(value).
+Ein Wert kann entweder ein Text, eine Nummer oder eine Liste sein, wobei eine neue Zeile optional ist.
+Die dazugehörigen Regeln sind in Zeile 19 und 21 aus Listing~\ref{listing:attributes} vermerkt.
+
+Wie in Listing~\ref{listing:values} genauer beschrieben, ist der akzeptierte Text auf eine feste Zahl an verschiedenen Zeichen begrenzt.
+Ein Text muss stets mit einem Buchstaben beginnen, ungeachtet ob groß oder klein geschrieben.
+Darauf können Zahlen, Sonderzeichen und weitere Wörter folgen.
+Die Sonderzeichen sind in Zeile 36 genauer beschrieben.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=36]{antlr}{listings/3.1/Values.g4}
+    \caption{Grammatik von Werten}
+    \label{listing:values}
+\end{listing}
+
+Eine Nummer kann lediglich eine ganze Zahl sein, führende Nullen sind erlaubt.
+Die Möglichkeit als Wert eine Liste angeben zu können, basiert auf der Möglichkeit Objekt- und Klassendiagramme mit fulibWorkflows generieren zu können.
+Hierzu wurde die Syntax von Java als Grundlage genommen.
+Zwischen den Klammern in Zeile 38 befindet sich eine sogenannte Wildcard, welche es erlaubt alle Symbole als Eingabe zu akzeptieren.
+Die Klammern erfüllen somit nicht nur den Zweck als Listendarstellung, sondern auch die Begrenzung der Wildcard.
+Eine Wildcard für die Eingabe eines Textes zu verwenden war für diese Grammatik aufgrund der Struktur vorerst nicht möglich, da es keine passenden Begrenzungen gab,
+welche keine anderen Regeln überschrieben hätte.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=23]{antlr}{listings/3.1/Page.g4}
+    \caption{Grammatik einer Page}
+    \label{listing:page}
+\end{listing}
+
+\todo{Page Grammatik erläutern}
+
+\todo{Was wird beim Parsen zusätzlich gemacht?}
+
+\todo{Ergebnis nach dem Parsen}
 
 \subsection{Mockups}\label{subsec:mockups}
 \todo{this}

@@ -1,0 +1,5 @@
+pageList: pageName NEWLINE element* ;
+
+pageName: INDENTATION MINUS 'pageName' COLON NAME ;
+
+element: INDENTATION MINUS ELEMENTKEY COLON NAME NEWLINE ;

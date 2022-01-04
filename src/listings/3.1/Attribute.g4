@@ -1,0 +1,3 @@
+attribute: INDENTATION NAME COLON value NEWLINE? ;
+
+value: NAME | NUMBER | LIST;
