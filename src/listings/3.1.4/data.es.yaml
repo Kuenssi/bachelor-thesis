@@ -1,0 +1,6 @@
+- data: Student carli
+  motivation: 83
+  stops: [stop1]
+  stops.back: student
+
+- data: Stop stop1

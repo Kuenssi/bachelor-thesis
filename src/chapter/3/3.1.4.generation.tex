@@ -121,12 +121,42 @@ Diese Methoden existieren für die Nutzung im fulibWorkflows Web-Editor, später
 In Abbildung~\ref{fig:generated-object} sind zwei Objektdiagrammen dargestellt, welche mit fulibWorkflows generiert wurden.
 Die Beschreibung des workflows stammt von einem Beispiel, welches zum Testen dieser Funktionalität in fulibWorkflows verwendet wurde.\cite*{objectGenerate}
 Zu dem Objektdiagramm aus Abbildung~\ref{fig:generated-object}((a)) ist ein weiteres Room-Objekt in Abbildung~\ref{fig:generated-object}((b)) hinzugefügt worden.
-Dies basiert auf der vorherig erwähnten Funktion, dass Objekte in einer Liste gespeichert werden und jedes neue Objekt dort hinzugefügt wird, bevor ein Objektdiagramm generiert wird.
+Dies basiert auf der vorher erwähnten Funktion, dass Objekte in einer Liste gespeichert werden und jedes neue Objekt dort hinzugefügt wird, bevor ein Objektdiagramm generiert wird.
 
 \subsubsection{Klassendiagramme}
 Der in der vorherigen Sektion erwähnte DiagramGenerator verwaltet nicht nur die Objektdiagramme.
 Nachdem alle Data Notes aus allen Workflows durchlaufen wurden, enthält die ebenfalls zuvor erwähnte Liste alle Data Notes eines Event Storming Boards.
 Diese Liste wird an die \textit{ClassDiagramConstructor}-Klasse weitergegeben.
+
+Für das Erstellen eines Klassenmodells aus Data Notes müssen die Data Notes bestimmte Spezifikationen erfüllen, um das gewünschte Ergebnis zu erzielen.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=5]{yaml}{listings/3.1.4/data.es.yaml}
+    \caption{Beispiel eines richtigen Data Notes}
+    \label{listing:object-yaml}
+\end{listing}
+
+Anhand des Data Notes aus Listing~\ref{listing:object-yaml} werden folgend die eben erwähnte Spezifikationen näher betrachtet.
+Der \textit{Name}, welcher in Zeile 5 nach dem Doppelpunkt vergeben wird muss immer die Form: <Klassenname> <Objektname> besitzen.
+Zudem muss beim ersten Aufkommen einer Assoziation sowohl die Hin- als auch Rückrichtung beschrieben werden.
+Eine Assoziation wurde in Zeile 7 und 8 beschrieben, bei dieser wird mittels \textit{stops} der Bezeichner für die Hinrichtung festgelegt.
+Mit den eckigen Klammern um den Text \textit{stop1} wird ausgesagt, dass die Hinrichtung eine To Many-Assoziation ist, somit ein Student mehrere Stops haben kann.
+Die Rückrichtung wird in Zeile 8 durch \textit{stops.back} definiert, gemeinsam mit dem Wert \textit{student} wird der Bezeichner
+der Rückrichtung auf \textit{student} gesetzt.
+Durch die fehlenden eckigen Klammern ist die Kardinalität der Rückrichtung 0 oder 1.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=39,fontsize=\small]{java}{listings/3.1.4/ClassProcedure.java}
+    \caption{Schritte zum Aufbau eines Klassenmodells}
+    \label{listing:class-procedure}
+\end{listing}
+
+Anhand diese Anforderungen an ein Data Note ist es möglich ein Klassenmodell aus den Notes zu abstrahieren.
+\todo{this}
+
+Nachdem das Klassenmodell erstellt wurde, wird dieses ebenfalls mit FulibTools zu einem Diagram weiterverarbeitet.
+Der Ablauf hierbei ist ähnlich zu der Generierung von Objektdiagrammen.
+Nachdem das Diagramm generiert wurde, wird dieses ebenfalls auf dem Dateisystem gelöscht und der Inhalt des Diagramms als String zurückgegeben.
 
 \begin{figure}[h]
     \centering
@@ -135,4 +165,8 @@ Diese Liste wird an die \textit{ClassDiagramConstructor}-Klasse weitergegeben.
     \label{fig:generated-class}
 \end{figure}
 
-\todo{Wie wird aus allen Objekten ein Klassendiagramm? Aufbauen eine neuen Klassenmodells mittels fulib und dann fulibtools zur generierung mit Bildern}
+In Abbildung~\ref{fig:generated-class} ist das aus der vorherigen Sektion verwendete Beispiel zur Grundlage der Generierung eines Klassendiagramms genutzt worden.
+Das Klassendiagramm besteht aus drei Klassen und beinhaltet alle beschriebenen Assoziationen bestehend aus Kanten, Bezeichnern an beiden Seiten und den entsprechenden
+Kardinalitäten.
+Bei den Kardinalitäten kennzeichnet ein * eine \textit{TO MANY}-Assoziation.
+Die Typen der Felder einer Klasse können lediglich zwischen String und int unterschieden werden.
