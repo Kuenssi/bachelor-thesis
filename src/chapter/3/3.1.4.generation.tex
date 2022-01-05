@@ -30,7 +30,7 @@ im WebEditor genutzt wird.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/3.1/board}
+    \includegraphics[width=1.0\textwidth]{images/3.1.4/board}
     \caption{Mittels fulibWorkflows generiertes Event Storming Board}
     \label{fig:generated-board}
 \end{figure}
@@ -109,5 +109,30 @@ Dies hat den Hintergrund, dass die Generierung von Dateien, in Form vom Speicher
 Zudem wird im BoardGenerator die Möglichkeit geboten, Dateien aus einer Workflow Beschreibung zu generieren und diese als String zurückzugeben.
 Diese Methoden existieren für die Nutzung im fulibWorkflows Web-Editor, später dazu mehr.
 
+\begin{figure}%
+    \centering
+    \subfloat[\centering Diagramm nach 3 Data Notes]{{\includegraphics[width=2.5cm,height=6cm]{images/3.1.4/3_diagram} }}%
+    \qquad
+    \subfloat[\centering Diagramm nach 5 Data Notes]{{\includegraphics[width=2.5cm,height=7cm]{images/3.1.4/5_diagram} }}%
+    \caption{Mittels fulibWorkflows generierte Objektdiagramme}%
+    \label{fig:generated-object}%
+\end{figure}
+
+In Abbildung~\ref{fig:generated-object} sind zwei Objektdiagrammen dargestellt, welche mit fulibWorkflows generiert wurden.
+Die Beschreibung des workflows stammt von einem Beispiel, welches zum Testen dieser Funktionalität in fulibWorkflows verwendet wurde.\cite*{objectGenerate}
+Zu dem Objektdiagramm aus Abbildung~\ref{fig:generated-object}((a)) ist ein weiteres Room-Objekt in Abbildung~\ref{fig:generated-object}((b)) hinzugefügt worden.
+Dies basiert auf der vorherig erwähnten Funktion, dass Objekte in einer Liste gespeichert werden und jedes neue Objekt dort hinzugefügt wird, bevor ein Objektdiagramm generiert wird.
+
 \subsubsection{Klassendiagramme}
+Der in der vorherigen Sektion erwähnte DiagramGenerator verwaltet nicht nur die Objektdiagramme.
+Nachdem alle Data Notes aus allen Workflows durchlaufen wurden, enthält die ebenfalls zuvor erwähnte Liste alle Data Notes eines Event Storming Boards.
+Diese Liste wird an die \textit{ClassDiagramConstructor}-Klasse weitergegeben.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/3.1.4/class_diagram}
+    \caption{Mittels fulibWorkflows generiertes Klassendiagramm}
+    \label{fig:generated-class}
+\end{figure}
+
 \todo{Wie wird aus allen Objekten ein Klassendiagramm? Aufbauen eine neuen Klassenmodells mittels fulib und dann fulibtools zur generierung mit Bildern}
