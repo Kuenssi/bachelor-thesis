@@ -71,7 +71,43 @@ Der Aufbau der in Abbildung~\ref{fig:mockups}((a)) und Abbildung~\ref{fig:mockup
 sind lediglich durch das Stylen des HTML-Mockups, mittels Bootstrap, zu erkennen.
 
 \subsubsection{Objektdiagramme}
-\todo{STG für Objekte, Fulib Notation zum generien mit FulibTools mit Bildern}
+Zuletzt gibt es die \textit{DiagramGenerator}-Klasse, welche die Eingabe für Objekt- und Klassendiagramme aufarbeitet.
+Jeder Data-Note erhält sein eigenes Objektdiagramm.
+Damit die zeitliche Abfolge und somit ein korrektes Objektdiagramm entsteht, wird jeder Data Note zu einer Liste hinzugefügt und diese anschließend an die
+\textit{ObjectDiagramConstructor}-Klasse übergeben.
+Hierdurch werden pro Data Note mehr Objekte zu dem dazugehörigen Objektdiagramm hinzugefügt, sollte es eine Verbindung zu einem bestehenden Objekt geben.
+FulibTools verwendet Graphviz zur Erstellung von Diagrammen, zusätzlich besitzt FulibTools die Möglichkeit Objekt- und Klassendiagramme anhand einer bestimmten Eingabe zu generieren.
+Diese Funktionalität macht sich fulibWorkflows im ObjectDiagramConstructor zunutze.
+Aus der übergebenen Liste an Data Notes baut der ObjectDiagramConstructor eine YAML-Datei, welche den Spezifikationen von fulibYaml entspricht.
+In Listing~\ref{listing:fulibYaml} ist die zum ObjectDiagramConstructor gehörende \ac{STG}-Datei abgebildet.
+Ein Objekt benötigt immer einen Namen, eine Klasse in Zeile 5 als \textit{type} gekennzeichnet und optionale Attribute.
+Die Form eines Attributes ist in dem \ac{ST} ab Zeile 10 abgebildet, ein Attribute besteht lediglich aus einer Klasse, erneut \textit{type} genannt, und dem
+dazugehörigen Wert.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos]{text}{listings/3.1.4/FulibYaml.stg}
+    \caption{FulibYaml.stg}
+    \label{listing:fulibYaml}
+\end{listing}
+
+Nachdem ein Objektdiagramm in fulibYaml Notation vorhanden ist, wird FulibTools verwendet um daraus ein Diagram zu generieren.
+In Listing~\ref{listing:object-gen} ist diese Generierungsmethode abgebildet.
+Der erste Parameter der Methode enthält die Objektstruktur in Form von fulibYaml als String.
+Daraus wird in Zeile 99 und 100 ein root-Objekt erstellt, welches die Klasse \textit{YamlIdMap} aus der Bibliothek fulibYaml nutzt.
+Dieses root-Objekt wird gemeinsam mit dem in Zeile 96 festgelegten Dateinamen durch FulibTools in Zeile 102 generiert.
+FulibTools erlaubt bei der Generierung nicht, dass der Inhalt der zu generierenden Datei zurückgegeben wird, die Datei wird sofort im Dateisystem erstellt.
+
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=95]{java}{listings/3.1.4/ObjectGeneration.java}
+    \caption{Generierungsmethode eines Objektdiagramms}
+    \label{listing:object-gen}
+\end{listing}
+
+Im Anschluss an die Generierung durch FulibTools wird der Inhalt der generierten Datei als String ausgelesen und von der Methode zurückgegeben.
+Danach wird die generierte Datei, sowie ein Ordner wieder gelöscht.
+Dies hat den Hintergrund, dass die Generierung von Dateien, in Form vom Speichern im lokalen Dateisystem, gesammelt in der BoardGenerator-Klasse vollzogen werden soll.
+Zudem wird im BoardGenerator die Möglichkeit geboten, Dateien aus einer Workflow Beschreibung zu generieren und diese als String zurückzugeben.
+Diese Methoden existieren für die Nutzung im fulibWorkflows Web-Editor, später dazu mehr.
 
 \subsubsection{Klassendiagramme}
 \todo{Wie wird aus allen Objekten ein Klassendiagramm? Aufbauen eine neuen Klassenmodells mittels fulib und dann fulibtools zur generierung mit Bildern}
