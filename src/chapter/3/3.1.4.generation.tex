@@ -151,8 +151,23 @@ Durch die fehlenden eckigen Klammern ist die Kardinalität der Rückrichtung 0 o
     \label{listing:class-procedure}
 \end{listing}
 
-Anhand diese Anforderungen an ein Data Note ist es möglich ein Klassenmodell aus den Notes zu abstrahieren.
-\todo{this}
+Anhand dieser Anforderungen an ein Data Note ist es möglich ein Klassenmodell aus den Notes zu abstrahieren.
+In Listing~\ref{listing:class-procedure} sind die Schritte, welche zum Aufbau eines Klassenmodells nötig sind aufgelistet.
+Diese Stammen samt Kommentaren aus der Implementierung, die \textit{ClassModelManager}-Klasse ist in der fulib-Bibliothek enthalten.
+Im ersten Schritt, Zeile 43, werden alle Klassen in einer Map abgelegt, wobei als Key der Name der Klasse und als Value ein \textit{Clazz}-Objekt fungiert.
+Hierbei wird über alle Data Notes iteriert und die darin enthaltenen Klassen aus dem Namen des Data Notes extrahiert.
+Schritt Zwei, Zeile 47, werden die vorhandenen Assoziationen zusammengebaut.
+Hierfür wurde eine Klasse namens \textit{Association} erstellt, welche zum Zwischenspeichern der für eine Assoziation wichtigsten Daten trägt.
+Darunter zählen Klasse, Bezeichner und Kardinalität für Hin- und Rückrichtung.
+Neben diesen Daten wird in einer Liste von Strings Schlüsselwörter gespeichert, welche als Assoziation fungieren und nicht als Attribut betrachtet werden dürfen.
+Die wichtigsten Spezifikationen für eine funktionierende Assoziation wurde bereits zuvor anhand von Listing~\ref{listing:object-yaml} erläutert.
+Weiterhin ist es wichtig, dass die verwendeten Objektnamen in der Workflowbeschreibung konsistent sind, da ansonsten keine Zielklasse ermittelt werden kann.
+Während dem Bauen einer Assoziation wird über alle Data Notes iteriert um die Informationen der Zielklasse zu erhalten.
+Der nächste Schritt, Zeile 50, erstellt Attribute für alle Klassen.
+Hierbei kommt die zuvor erstellte Liste an Schlüsselwörtern zum Tragen, um auszuschließen, dass eine Assoziation ebenfalls als Attribut aufgefasst wird.
+Im letzten Schritt zur Abstrahierung eines Klassenmodells aus den Data Notes werden die zuvor in Zeile 47 gebauten Assoziationen im Klassenmodell erstellt.
+In diesem Schritt wird darauf geachtet, dass alle benötigten Informationen für eine Assoziation vorhanden sind.
+Durch die Nutzung von fulib und dem ClassModelManager muss nicht auf Duplikate bei Attributen oder Assoziationen geachtet werden.
 
 Nachdem das Klassenmodell erstellt wurde, wird dieses ebenfalls mit FulibTools zu einem Diagram weiterverarbeitet.
 Der Ablauf hierbei ist ähnlich zu der Generierung von Objektdiagrammen.
