@@ -43,7 +43,7 @@ eigenes Icon erkennbar sind.
 Ebenfalls ist der Page-Note der Note mit den meisten Informationen in diesem Ausschnitt, da nur dort zusätzliche Informationen
 in der Workflowbeschreibung existierten.
 
-\subsubsection{Mockups HTML/FXML}
+\subsubsection{Mockups HTML/FXML}\label{subsubsec:mockups-html/fxml}
 Die Generierung von HTML-Mockups wird durch die zuvor bereits erwähnte \textit{HtmlGenerator}-Klasse übernommen.
 Diese filtert aus allen Workflows und den dazugehörigen Notes die Pages heraus und übergibt diese an die \textit{PageConstructor}-Klasse.
 FXML-Mockups erhalten eine gesonderte Generator- und Constructor-Klasse.
@@ -70,7 +70,7 @@ Bei der Generierung wird vor allem darauf geachtet, dass sich die Oberflächen m
 Der Aufbau der in Abbildung~\ref{fig:mockups}((a)) und Abbildung~\ref{fig:mockups}((b)) Oberflächen ist somit identisch, Unterschiede
 sind lediglich durch das Stylen des HTML-Mockups, mittels Bootstrap, zu erkennen.
 
-\subsubsection{Objektdiagramme}
+\subsubsection{Objektdiagramme}\label{subsubsec:objektdiagramme}
 Zuletzt gibt es die \textit{DiagramGenerator}-Klasse, welche die Eingabe für Objekt- und Klassendiagramme aufarbeitet.
 Jeder Data-Note erhält sein eigenes Objektdiagramm.
 Damit die zeitliche Abfolge und somit ein korrektes Objektdiagramm entsteht, wird jeder Data Note zu einer Liste hinzugefügt und diese anschließend an die
