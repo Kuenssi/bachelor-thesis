@@ -161,6 +161,18 @@ Um dies zu ermöglichen wurde die Bibliothek \textit{angular-split} verwendet.
 Diese ermöglicht es Bereiche zu definieren und darin Inhalt zu platzieren, sowie die Veränderung der Größen der Bereiche bereitzustellen.\cite*{angular-split}
 Ohne diese Funktionalität können auch größere Boards in der Oberfläche angezeigt werden.
 
-\todo{ Was kann der bereich der mockups/diagramme so mit den Buttons?}
+Für den unteren IFrame gelten die gleichen gegebenheiten wie für den oberen IFrame.
+Da es mehrere Mockups oder Diagramme geben kann, existieren vier Knöpfe, mit welchen es möglich ist zwischen den Mockups/Diagrammen zu wechseln.
+Doch der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe möglich, sondern ebenfalls über die entsprechenden Notes aus dem Board IFrame.
+Für jeden Page oder Data Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
 
-\todo{Wie kann man von einem Iframe auf den anderen zugreifen(Parent functions)?}
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos]{js}{listings/3.2/method.ts}
+    \caption{Bereitstellung einer Methode}
+    \label{listing:global-method}
+\end{listing}
+
+Hierfür ist eine Methode erstellt worden, welche für die gesamte Oberfläche sichtbar ist.
+In der Generierung mittels fulibWorkflows wird dieser Link erstellt, darin wird die bereitgestellte Methode mittels~\texttt{window.parent.setIndexFromIframe(0);} aufgerufen.
+Hierbei wird über das Fenster auf die oberste Komponente der Anwendung zugegriffen, dort ist durch den Code aus Listing~\ref{listing:global-method}
+die Methode \textit{setIndexFromIframe} bereitgestellt.
