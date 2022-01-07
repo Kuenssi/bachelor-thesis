@@ -39,15 +39,67 @@ Die Dokumentation stammt aus dem GitHub-Repository von fulibWorkflows.
 Im rechten Bereich der Navigationsleiste befinden sich zwei Buttons, welche das Theme des Code-Editors abändern, damit ist es möglich einen Light- oder Dark-Mode zum Schreiben
 des Codes zu verwenden.
 Daneben finden sich drei weitere Buttons, welche die Anzeige der generierten Dateien umschaltet.
-Hierbei kann zwischen dem Anzeigen der Mockups(Pages), der Objektdiagramme oder des Klassendiagrammes umgeschaltet werden.
+Hierbei kann zwischen dem Anzeigen der Mockups(Pages), der Objektdiagramme oder des Klassendiagramms umgeschaltet werden.
 Letztlich befindet sich ganz recht die aktuelle Versionsnummer des gesamten Web-Editors.
 
-\todo{Resizable View dank angular split, daran die vier bereiche erläutern: Editor, Board, Pages}
+\subsection{Code-Editor}\label{subsec:codeeditor}
+In dieser Sektion wird der Code-Editor, welcher das Herzstück der Anwendung ist erläutert.
+Dieser befindet sich auf der linken Seite der Oberfläche.
+Wie zuvor bereits beschrieben wurde hierbei ein Codemirror verwendet.
+Durch die Verwendung der \textit{ngx-codemirror} Bibliothek vereinfacht sich das Einbinden eines Codemirrors in eine Angular Anwendung.
+Dadurch kann eine Konfiguration des Codemirrors über ein Options-Objekt übergeben werden.
+Die Konfiguration des Codemirrors ist in Listing~\ref{listing:configuration} dargestellt.
 
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=49]{js}{listings/3.2/codemirror-options.ts}
+    \caption{Codemirror Konfiguration}
+    \label{listing:configuration}
+\end{listing}
 
-\subsection{Codeeditor}\label{subsec:codeeditor}
+In Zeile 50 werden die Zeilennummern am linken Rand des Codemirrors aktiviert.
+Das aktuelle Theme wird in der folgenden Zeile ebenfalls übergeben, da es zwei verschiedene Themes gibt, welche verwendet werden können, wird der Wert aus einer
+weiteren Variable übernommen.
+Codemirror stellt bereits zahlreiche verschiedene Themes bereit, für den Light-Mode wurde das \textit{idea}-Theme verwendet, für den Dark-Mode das \textit{material}-Theme.
+Initial wird der Codemirror mit dem Light-Theme geladen, das Umstellen des Themes erfolgt über die entsprechenden Knöpfe in der Navigationsleiste, wie bereits zuvor beschrieben.
+Abbildung~\ref{fig:themes} zeigt den Codemirror in beiden Modi, wobei sich sowohl Light- als auch Dark-Mode nah an den Standard-Modi von IntelliJ orientieren.
 
-\todo{Grundlage ist CodeMirror, was für Addons wurden benutzt?, eigenes Add on erklären, wie wird die Eingabe validiert(ajv, schema)}
+% Diese Abbildungen ggf. in den Anhang verschieben
+\begin{figure}%
+    \centering
+    \subfloat[\centering Light Theme]{{\includegraphics[width=4cm,height=6cm]{images/3.2/light-theme} }}%
+    \qquad
+    \subfloat[\centering Dark Theme]{{\includegraphics[width=4cm,height=6cm]{images/3.2/dark-theme} }}%
+    \caption{Themes des Codemirrors}%
+    \label{fig:themes}%
+\end{figure}
+
+In Zeile 52 aus Listing~\ref{listing:configuration} wird die Programmiersprache des Editors festgelegt.
+Da die Workflowbeschreibungen von fulibWorkflows in \textit{.es.yaml}-Dateien angelegt/gespeichert werden, wird die Programmiersprache auf \textit{yaml} festgelegt.
+Dieser Modus wird von Codemirror selbst bereitgestellt und Bedarf zur Verwendung lediglich eines Importes in der \textit{main.ts} der Angular-Anwendung.
+Über die Option \textit{extraKeys} können Tasten oder Tastenkombinationen an weitere Funktionen gekoppelt werden.
+In Zeile 54 wird das Öffnen einer Liste an vorgeschlagenen Wörtern geöffnet, nachdem der Nutzende `Strg+Leertaste' gedrückt hat.
+Damit dies funktioniert benötigt es das Importieren des \textit{show-hint}-AddOns von Codemirror in der \textit{main.ts}-Datei.
+
+\begin{figure}%
+    \centering
+    \subfloat[\centering Ohne Eingabe]{{\includegraphics[width=4cm,height=6cm]{images/3.2/autocompletion-all} }}%
+    \qquad
+    \subfloat[\centering Mit Eingabe]{{\includegraphics[width=4cm,height=5cm]{images/3.2/autocompletion-p} }}%
+    \caption{Autovervollständigung}%
+    \label{fig:autocompletion}%
+\end{figure}
+
+Dieses Add-on erstellt die in Abbildung~\ref{fig:autocompletion}((a)) angezeigt Liste, der Inhalt der Liste wird über ein in dieser Arbeit erstelltes Codemirror Add-on gefüllt.
+Hierbei fällt auf, dass auch Schlüsselwörter angezeigt werden, welche nur im Kontext eines Page-Notes Sinn ergibt.
+Das eigens geschriebene Add-on ist nicht kontextsensitiv und besitzt somit nicht die gleichen Funktionen wie die Autovervollständigung, welche eine IDE über das JSON-Schema erstellt.
+Der Code des geschriebenen Add-ons befindet sich im Anhang dieser Arbeit, hierbei wird über die aktuelle Position des Cursors, das aktuelle Wort extrahiert.
+Damit ist es möglich über die Liste der Schlüsselwörter zu iterieren und zu prüfen, welche Vorschläge sinnvoll sind, sollte ein Wort bereits begonnen sein.
+Dies ist anhand von Abbildung~\ref{fig:autocompletion}((b)) genauer zu erkennen.
+Hierbei wurde bereits der Buchstabe \textit{p} eingetippt und das Add-on bietet zur Vervollständigung lediglich Wörter an, welche mit \textit{p} beginnen.
+
+Des Weiteren wird durch das Betätigen der Tastenkombination `Strg+S' die Generierung angestoßen.
+
+\todo{wie wird die Eingabe validiert(ajv, schema)}
 
 \subsection{Darstellung generierter Dateien}\label{subsec:darstellung-generierter-dateien}
 
