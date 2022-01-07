@@ -117,10 +117,50 @@ Eine solche Fehlermeldung ist in Abbildung~\ref{fig:error-toast} dargestellt.
 Hierbei wurde einem Note ein Attribut \textit{name} zugeordnet.
 Da der besagte Note allerdings ein \textit{user} ist und im JSON-Schema festgelegt ist, dass ein user Note keine zusätzlichen Attribute besitzen darf, entsteht der Fehler aus
 der Abbildung.
-Dieser Fehlermeldung wird nach 20 Sekunden automatisch geschlossen.
+Diese Fehlermeldung wird nach 20 Sekunden automatisch geschlossen.
 Für die Darstellung von Toasts wurde die gleichnamige Komponente von \textit{ng-bootstrap} verwendet.
 Sollte die Eingabe valide sein, so wird diese über einen Service an das Backend geschickt.
 
 \subsection{Darstellung generierter Dateien}\label{subsec:darstellung-generierter-dateien}
+Die anderen beiden Bereiche der Oberfläche, welche bisher nicht erläutert wurden, stellen beide jeweils einen bestimmten Teil der generierten Dateien dar.
+Beide Bereiche bestehen aus einem IFrame, wobei der obere IFrame lediglich das generierte Event Storming Board anzeigt und der untere IFrame die Anzeige von
+HTML-Mockups und Klassen-/Objektdiagrammen übernimmt.
 
-\todo{Was macht der Iframe vom Board? Wie kann man von einem Iframe auf den anderen zugreifen(Parent functions)? Was kann der bereich der mockups/diagramme so mit den Buttons?}
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos]{js}{listings/3.2/GenerateResult.ts}
+    \caption{Modell der vom Backend empfangenen Daten}
+    \label{listing:generateResult}
+\end{listing}
+
+Bevor auf die Darstellung und Funktionen der Iframes eingegangen wird, wird zuerst betrachtet in welcher Form die generierten Dateien vom Backend im Frontend verarbeitet werden.
+Die Form ist in Listing~\ref{listing:generateResult} dargestellt, in einem GenerateResult-Objekt werden alle generierten Dateien und Zusatzinformationen abgespeichert.
+Bei den Zusatzinformationen handelt es sich um die Anzahl der generierten Diagramme und HTML-Mockups.
+Die generierten Dateien werden lediglich als reiner String behandelt.
+Um den Zugriff auf einzelne Objektdiagramme oder Mockups zu vereinfachen, sind diese jeweils in einer Map abgespeichert.
+Bei den Maps ist einer Nummer ein Diagramm/Mockup zugeordnet.
+
+Der obere IFrame erhält als Eingabe das Event Storming Board und stellt dieses dar.
+Dies ist möglich, da das Event Storming Board eine valide HTML-Datei ist, welche durch einen IFrame dargestellt werden kann.
+Hierbei war es nötig eine Pipe zu erstellen, welche den \textit{DomSanitizer} von Angular auf der Eingabe umgeht.\cite*{safe-pipe}
+Der DomSanitizer ist ein von Angular bereitgestellter Service, welcher Elemente aus der Eingabe entfernt die potenziell für Angreifer genutzt werden könnten, um
+Skripte auf der Anwendung auszuführen.
+Dies ist ein Sicherheitsmechanismus um das sogenannte \textit{Cross-site scripting} auszuhebeln.
+Beim \textit{Cross-site scripting} können Angreifer JavaScript Code in den Browsern anderer Nutzer ausführen und somit personenbezogene Daten erhalten.\cite*{xss}
+Durch die Pipe wird dieser Sicherheitsmechanismus umgangen und die Eingabe wird unverändert im IFrame geladen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/3.2/board}
+    \caption{Event Storming Board in einem IFrame}
+    \label{fig:esBoard}
+\end{figure}
+
+In Abbildung~\ref{fig:esBoard} ist ein Event Storming Board für das im Web-Editor vorhandene Microservices Beispiel dargestellt.
+Hierbei ist zu erwähnen, dass die Bereiche: Code-Editor, Event Storming Board IFame und der IFrame zur Anzeige der Mockups und Diagramme beliebig vergrößert oder verkleinert werden kann.
+Um dies zu ermöglichen wurde die Bibliothek \textit{angular-split} verwendet.
+Diese ermöglicht es Bereiche zu definieren und darin Inhalt zu platzieren, sowie die Veränderung der Größen der Bereiche bereitzustellen.\cite*{angular-split}
+Ohne diese Funktionalität können auch größere Boards in der Oberfläche angezeigt werden.
+
+\todo{ Was kann der bereich der mockups/diagramme so mit den Buttons?}
+
+\todo{Wie kann man von einem Iframe auf den anderen zugreifen(Parent functions)?}
