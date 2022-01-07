@@ -1,6 +1,27 @@
 \section{fulibWorkflows Web-Editor Backend}\label{sec:editor-backend}
-\todo{Controller ist der Anfang -> Erstellt die Endpunkte}
+Das Backend des Web-Editors basiert auf einem mit Spring Initializr generiertem Java Projekt.
+Zusätzlich wurden bei der Konfiguration die Dependencies für eine Spring Web Anwendung hinzugefügt.
+Neben den eben genannten Dependencies wurde lediglich fulibWorkflows als weitere Bibliothek zum Backend hinzugefügt.
 
-\todo{Service erhält yaml vom Frontend und ruft fulibWorkflows auf}
+Die verfügbaren Endpunkte des Backends werden in einem Controller bereitgestellt.
+In diesem fall ist dies der FulibWorkflowsController, welcher mit zwei Annotations versehen ist.
+Die erste Annotation ist~\texttt{@Controller}, welche der Anwendung mitteilt, dass diese Klasse als Controller agiert.
+Bei der zweiten Annotation handelt es sich um \texttt{@CrossOrigin()} mit welcher es ermöglicht wird problemlos mit dem
+Frontend zu interagieren.
+Im FulibWorkflowsController sind Endpunkte für die Generierung und den Download definiert.
+Diese Definitionen werden in Listing~\ref{listing:endpoints} zur Veranschaulichung dargestellt.
 
-\todo{Generierung von Zip Archiv}
+\begin{listing}[!ht]
+    \inputminted[xleftmargin=20pt,linenos,firstnumber=15]{java}{listings/3.3/Endpoints.java}
+    \caption{Definition der Endpunkte}
+    \label{listing:endpoints}
+\end{listing}
+
+\todo{Warum beides Post?}
+
+\todo{Was erhalten die Methoden, weitergeben an den service und dann was geben Sie zurück?}
+
+\todo{Für Download -> Service erhält yaml vom Frontend und ruft fulibWorkflows auf, erstellt GenerateResult Objekt und
+macht daraus JSON mit ObjectMapper das dann als string gespeichert wird}
+
+\todo{Generierung von Zip Archiv -> Gleiches prozedere, außer umwandenln in json, anstelle davon erstellen von Zip Archiv}
