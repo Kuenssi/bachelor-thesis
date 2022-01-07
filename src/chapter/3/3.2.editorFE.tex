@@ -98,8 +98,28 @@ Dies ist anhand von Abbildung~\ref{fig:autocompletion}((b)) genauer zu erkennen.
 Hierbei wurde bereits der Buchstabe \textit{p} eingetippt und das Add-on bietet zur Vervollständigung lediglich Wörter an, welche mit \textit{p} beginnen.
 
 Des Weiteren wird durch das Betätigen der Tastenkombination `Strg+S' die Generierung angestoßen.
+Bevor die Daten aus dem Codemirror zur Generierung an das Backend gesendet werden, werden diese auf Richtigkeit überprüft.
+Da bereits ein JSON-Schema für fulibWorkflows existiert, wurde eine Bibliothek ausgewählt, welche einen Text über ein JSON-Schema validieren kann.
+\textit{Ajv} ist ein solcher Validierungsmechanismus, allerdings kann mit Ajv lediglich ein JSON-Objekt mittels JSON-Schema validiert werden.\cite*{ajv}
+Somit wurde zum Umwandeln des Textes aus dem Codemirror zu einem JSON-Objekt die Bibliothek \textit{js-yaml} verwendet.\cite*{js-yaml}
 
-\todo{wie wird die Eingabe validiert(ajv, schema)}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/3.2/error-toast}
+    \caption{Validierungserror als Toast}
+    \label{fig:error-toast}
+\end{figure}
+
+Sobald während der Validierung ein Problem mit der Eingabe erkannt wird, gibt diese einen Fehler zurück.
+Dieser Fehler wird anschließend als Toast in der Oberfläche angezeigt um den Nutzenden darauf hinzuweisen, an welcher Stelle die Eingabe im Codemirror nicht
+dem JSON-Schema von fulibWorkflows entspricht.
+Eine solche Fehlermeldung ist in Abbildung~\ref{fig:error-toast} dargestellt.
+Hierbei wurde einem Note ein Attribut \textit{name} zugeordnet.
+Da der besagte Note allerdings ein \textit{user} ist und im JSON-Schema festgelegt ist, dass ein user Note keine zusätzlichen Attribute besitzen darf, entsteht der Fehler aus
+der Abbildung.
+Dieser Fehlermeldung wird nach 20 Sekunden automatisch geschlossen.
+Für die Darstellung von Toasts wurde die gleichnamige Komponente von \textit{ng-bootstrap} verwendet.
+Sollte die Eingabe valide sein, so wird diese über einen Service an das Backend geschickt.
 
 \subsection{Darstellung generierter Dateien}\label{subsec:darstellung-generierter-dateien}
 
