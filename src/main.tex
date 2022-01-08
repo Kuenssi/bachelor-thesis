@@ -9,6 +9,10 @@
 
 \addbibresource{references.bib}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ACRONYMS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{acronyms}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -22,23 +26,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Tables%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addtocontents{toc}{\protect\vspace{0.2cm}}
+\clearpage
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \tableofcontents
 
 \listoflistings
 \listoffigures
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ACRONYMS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printacronyms[name=Abkürzungsverzeichnis]
 
-\input{acronyms}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%DOC SETTINGS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\input{start}
-
+\clearpage
 \pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%KAPITEL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \input{chapter/1/1.introduction.tex}
 \input{chapter/2/2.technologies.tex}
 \input{chapter/3/3.implementation.tex}
