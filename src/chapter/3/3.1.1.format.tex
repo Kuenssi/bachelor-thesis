@@ -10,7 +10,7 @@ Näheres zu den Beschränkungen der Syntax wird in Kapitel~\ref{subsec:schema} e
     \label{listing:workflowNotes}
 \end{listing}
 
-In Listing\ref{listing:workflowNotes} sind alle möglichen Post-its aufgelistet.
+In Listing~\ref{listing:workflowNotes} sind alle möglichen Post-its aufgelistet.
 Im weiteren Verlauf wird für einen Post-It das Wort Zettel verwendet, da es sich bei jedem Element in der Beschreibung um einen einzelnen Zettel aus dem Event Storming handelt.
 Als Beispiel für einen Workflow ist hierbei die Registrierung eines neuen Benutzers auf einer Webseite in vereinfachter Form dargestellt.
 Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.3.4, von fulibWorkflows aufgelistet und deren Funktion erläutert.
@@ -66,7 +66,7 @@ ob die eingegebene E-Mail valide ist.
 \largerText{command}
 
 Ein \textit{command}-Zettel stellt die Interaktion eines Nutzers mit einer Webseite oder Applikation dar.
-Im Falle des obigen Beispieles wird in Zeile 14 der Klick auf den Knopf \textit{Register} aus der darüber aufgeführten Page simuliert.
+Im Falle des obigen Beispiels wird in Zeile 14 der Klick auf den Knopf \textit{Register} aus der darüber aufgeführten Page simuliert.
 Dies ist anhand der kurzen Beschreibung des Commands zu entnehmen.
 
 \largerText{externalSystem}
@@ -74,7 +74,7 @@ Dies ist anhand der kurzen Beschreibung des Commands zu entnehmen.
 Wie auch bei dem \textit{service} und \textit{user} dient der \textit{externalSystem}-Zettel dazu einen Workflow zu strukturieren.
 In diesem Fall bedeutet dies, dass Aktionen oder Daten von einem System ausgeführt/gesendet werden, welche nicht Teil der zu entwickelnden
 Software gehört, für welche das aktuelle Event Storming durchgeführt wird.
-In Zeile 18 des Beispieles existiert ein externalSystem, welches für die Validierung einer E-Mail-Adresse zuständig ist.
+In Zeile 18 des Beispiels existiert ein externalSystem, welches für die Validierung einer E-Mail-Adresse zuständig ist.
 Es kann sich dabei um ein System handeln, welches von einer anderen Firma oder einem separaten Team entwickelt wird.
 
 \largerText{data}
@@ -84,7 +84,7 @@ Ein \textit{data}-Zettel benötigt als Bezeichner eine besondere Form, diese bes
 Dies ist nötig um im späteren Verlauf das Aufbauen eines Datenmodells zu gewährleisten und Klassen-/Objektdiagramme generieren zu können.
 Wie auch bei dem \textit{event}-Zettel kann auch einem \textit{data}-Zettel zusätzliche Informationen übergeben werden.
 Auf welche Art und Weise diese aufgebaut sein müssen und welche Funktionen diese innehaben, darauf wird in Kapitel~\ref{subsubsec:objektdiagramme} genauer eingegangen.
-In Zeile 33 unseres Beispieles wird ein \textit{User} angelegt, mit den zuvor vom Event vorhandenen zusätzlichen Informationen zu Username, E-Mail und Passwort.
+In Zeile 33 unseres Beispiels wird ein \textit{User} angelegt, mit den zuvor vom Event vorhandenen zusätzlichen Informationen zu Username, E-Mail und Passwort.
 
 \largerText{page}
 
