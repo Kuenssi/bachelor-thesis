@@ -1,13 +1,13 @@
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
-\textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac{YAML}-Syntax notiert als Eingabe nimmt und daraus
-sowohl ein Event Storming Board, im workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
-Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, folgt in einem späteren Kapitel.
+\textit{fulibWorkflows} ist eine Java Library, welche Arbeitsabläufe, im Folgenden "workflows", in \ac{YAML}-Syntax notiert, als Eingabe erhält und daraus
+sowohl ein Event Storming Board, im Workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
+Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, wird in Kapitel~\ref{subsec:workflow-format} erläutert.
 
 \subsubsection{Antlr}\label{subsubsec:antlr}
-Antlr bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in \ac{EBNF}.
-Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines \textit{Parse trees}.
-Hierdurch ergibt sich die Möglichkeit während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
+\ac{Antlr} bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
+Die Grammatik muss Links ableitend sein und ist in~\ac{EBNF} definiert.
+Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines~\textit{Parse trees}.
+Hierdurch ergibt sich die Möglichkeit, während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
 \begin{listing}[!ht]
     \inputminted{antlr}{listings/2.2.1/AntlrExample.g4}
@@ -29,7 +29,7 @@ Die Länge eines Ausdruckes ist durch den rekursiven Aufbau der Grammatik nicht 
 \end{listing}
 
 Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
-Eine zulässige Eingabe für die festgelegte Grammatik aus~\ref{listing:grammar-example} ist in~\ref{listing:mathematical-input} dargestellt.
+Eine zulässige Eingabe für die festgelegte Grammatik aus Listing~\ref{listing:grammar-example} ist in Listing~\ref{listing:mathematical-input} dargestellt.
 Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
 Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antlr Plugin für IntelliJ generiert.
 
@@ -40,23 +40,25 @@ Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antl
     \label{fig:parse-example}
 \end{figure}
 
-Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel \textbf{prog} beginnt und alle weiteren Kindknoten durch verschachtelte \textbf{expr} Regeln kreiert wurden.
+Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel~\textbf{prog} beginnt und alle weiteren Kindknoten durch verschachtelte~\textbf{expr} Regeln kreiert wurden.
 Der oberste Teilausdruck ist die Division aus einem komplexeren linken Ausdruck und dem rechten Ausdruck, welcher direkt einer Nummer zugeordnet werden konnte und somit keine weiteren Kindknoten mehr haben kann.
 Dies entsteht durch die Unterscheidung bei der Grammatik in Terminale und Nicht-Terminale.
-Hierbei werden wie in~\ref{listing:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale werden in Großbuchstaben verfasst.
+Hierbei werden wie in Listing~\ref{listing:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale Regeln werden in Großbuchstaben verfasst.
 In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
 
-Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in~\ref{subsec:antlr-grammatik} eingegangen.
+Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in Kapitel~\ref{subsec:antlr-grammatik},
+anhand der Implementierung, eingegangen.
 
-\subsubsection{String Templates}
-\textit{StringTemplate} gehören wir das vorherige Antlr zum \textit{Antlr Project}.
-Antlr verwendet ebenfalls String Templates zur Generierung von formatiertem Text, im Folgenden als \textit{Code} bezeichnet.
-Templates (übersetzt: Schablone) ermöglichen es zum Beispiel die feste Syntax einer Programmiersprache wie Java mit variablen Werten für
-Variablen, Klassen, Methoden, also den generellen Bausteinen einer Sprache zu füllen.
-Durch diese Funktionalität bieten sich String Templates sehr gut zu Generierung von Dateien an.
+\subsubsection{String Template}
+\ac{ST} gehört, wie das vorherige \ac{Antlr}, zum~\textit{Antlr Project}.
+\ac{Antlr} verwendet ebenfalls \ac{ST}s zur Generierung von formatiertem Text, im Folgenden als \textit{Code} bezeichnet.
+Templates (übersetzt: Schablone) ermöglichen es zum Beispiel die feste Syntax einer Programmiersprache mit variablen Werten für
+Variablen, Klassen und Methoden zu belegen.
+Somit können die generellen Bausteine einer Sprache beliebig gefüllt werden.
+Durch diese Funktionalität bieten sich \ac{ST}s sehr gut zur Generierung von Dateien an.
 Ursprünglich ist \textit{StringTemplate} eine Java Library, jedoch wurden bereits Portierungen für C\#, Objective-C, JavaScript und Scala erstellt.
 
-Die folgenden Erläuterungen beziehen sich auf die Java Library von \textit{StringTemplate}, da diese in dieser Arbeit verwendet wurde.
+Die folgenden Erläuterungen beziehen sich auf die Java Library von \textit{StringTemplate}, da diese in dieser Arbeit verwendet wird.
 Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{listing:simpleTemplate} zu sehen.
 
 \begin{listing}[!ht]
@@ -69,18 +71,18 @@ Die Klasse \textit{ST} aus Zeile 3 kann mit einem String initialisiert werden.
 In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes \textit{<>} verwendet.
 Im Anschluss wird dem neuen \textit{ST} Objekt mithilfe der add()-Methode ein bestimmter Wert hinzugefügt.
 Der erste Parameter der Methode ist der Bezeichner innerhalb eines Templates, zu beachten ist die Angabe des Bezeichners ohne die Begrenzer.
-Der eigentliche Wert wird als zweiter Parameter übergeben und besitzt in diesem Beispiel den Text \textbf{World}.
+Der Wert wird als zweiter Parameter übergeben und besitzt in diesem Beispiel den Text \textbf{World}.
 Um nun den fertig ersetzten Text aus dem Template und dem übergebenem Wert zu bekommen, muss auf dem \textit{ST} Objekt die Methode render() aufgerufen werden.
 Hierbei werden die Platzhalter des Templates durch den zuvor übergebenen Wert ersetzt und als String zurückgegeben.
-In Zeile 6 wird nun abschließend der fertige Text auf der Konsole ausgegeben, `Hello, World!`.
+In Zeile 6 wird nun abschließend der fertige Text auf der Konsole ausgegeben, \texttt{Hello, World!}.
 Dieses Beispiel entstammt der offiziellen Webseite von \textit{StringTemplate}.\cite*{stOrg}
 
-Für ein strukturiertes Arbeiten mit vielen Templates bietet \textit{StringTemplate} die Möglichkeit StringTemplateGroups zu erstellen.
-Hierbei können mehrere Templates in einer Datei beschrieben werden um aufeinander aufbauende Templates nicht im Code, sondern einer gesonderten Datei zu organisieren.
+Für ein strukturiertes Arbeiten mit vielen Templates bietet \textit{StringTemplate} die Möglichkeit \ac{STG}s zu erstellen.
+Hierbei können mehrere Templates in einer Datei beschrieben werden, um aufeinander aufbauende Templates nicht im Code, sondern einer gesonderten Datei zu organisieren.
 In diesen Dateien, welche die Dateiendung \textbf{.stg} tragen, können die Begrenzer (eng.: Delimiters) frei gewählt werden.
 Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung von HTML-Dateien, welche \textit{<>} als Zeichen zum Abgrenzen von Bereichen verwenden.
 Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
-Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
+Zum Parsen einer \ac{STG} wird ein mit Antlr generierter Parser verwendet.\cite*{stgParser}
 
 \begin{listing}[!ht]
     \inputminted{text}{listings/2.2.1/Example.stg}
@@ -88,18 +90,18 @@ Zum Parsen einer StringTemplateGroup wurde ein mit Antlr generierter Parser verw
     \label{listing:stgFile}
 \end{listing}
 
-Wie zuvor beschrieben ist in Listing~\ref{listing:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf \textit{{}} gesetzt wurden.
+Wie zuvor beschrieben ist in Listing~\ref{listing:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf~\texttt{\{\}} gesetzt wurden.
 Dies hat den Hintergrund, dass in diesem Beispiel ein Text in eine HTML-Datei generiert werden soll.
-Hierfür könnten auch die Standardbegrenzer verwendet werden, allerdings müsste dann anstelle von \textbf{<span>} \textbf{\<span\>} stehen.
+Hierfür könnten auch die Standardbegrenzer verwendet werden, allerdings müssten dann für Schlüsselwörter wie~\texttt{<span>} die Zeichen < und > mit einem führenden Backslash definiert werden.
 Da dies für HTML-Dateien allerdings einen immensen Aufwand bedeutet, macht die Nutzung anderer Begrenzer Sinn.
-In Zeile 3 werden für ein StringTemplate, sowohl der Name des Templates, als auch Übergabeparameter definiert werden.
-Ein StringTemplate wird durch \textit{>>} geschlossen und das nächste Template könnte definiert werden.
+In Zeile 3 werden für ein~\ac{ST}, sowohl der Name des Templates, als auch Übergabeparameter definiert.
+Ein~\ac{ST} wird durch \textit{>>} geschlossen.
 Die Begrenzer in Zeile 5 zeigen, dass alles, was sich zwischen Ihnen befindet, einen Übergabeparameter in sich trägt.
 Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährleistet.
 
 Um diese Templates nun in einem Java Programm zu verwenden, benötigt es unter anderem die zuvor beschriebenen ST Klasse, sowie
-die Klasse \textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates benötigt wird.
-In Zeile 6 von Listing~\ref{listing:stgJavaFile} ist zu erkennen, dass einem STGroupFile Objekt bei der Initialisierung eine URL übergeben werden muss.
+die Klasse \textit{STGroupFile}, welche für die Verwaltung der stg-Datei, als auch deren Templates, benötigt wird.
+In Zeile 6 von Listing~\ref{listing:stgJavaFile} ist zu erkennen, dass einem STGroupFile-Objekt bei der Initialisierung eine URL übergeben werden muss.
 Diese URL verweist auf die stg-Datei.
 Im Anschluss kann, wie in Zeile 8 ersichtlich, über die getInstanceOf()-Methode auf ein bestimmtes Template in der stg-Datei zugegriffen werden.
 Hierbei ist es wichtig, keine Fehler bei der Benennung zu machen.
@@ -111,7 +113,7 @@ Schließlich ist die weiterführende Verwendung bereits zuvor mittels der ST-Kla
     \label{listing:stgJavaFile}
 \end{listing}
 
-Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listing~\ref{listing:outputSTG} angezeigt werden.
+Bei der Ausführung dieses Beispieles wird auf der Konsole der Text aus Listing~\ref{listing:outputSTG} angezeigt.
 
 \begin{listing}[!ht]
     \begin{minted}{text}
@@ -126,15 +128,15 @@ Bei der Ausführung dieses Beispieles würde auf der Konsole der Text aus Listin
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 JSON-Schemas sind Schemata, welche den Inhalt einer JSON-/YAML-Datei begrenzen können.
 Hierdurch ist es möglich, den Nutzer in seinen Eingaben zu begrenzen und bereits während dem Schreiben einer Datei dabei zu unterstützen sinnvolle Eingaben zu erstellen.
-In dieser Arbeit wird lediglich auf die Nutzung der Schema Version 7, die neuste Version, eingegangen, da diese in der Anwendung verwendet wurde.
+In dieser Arbeit wird lediglich auf die Nutzung der Schema Version 7, die neuste Version, eingegangen, da diese in der Anwendung verwendet wird.
 
 JSON Schemas können Objektstrukturen in beliebiger Tiefe schachteln.
 Im folgenden Abschnitt werden die grundlegenden Elemente eines JSON Schemas erläutert.
-Weiterführende Funktionalitäten werden anhand der Implementierung in einem späteren Kapitel näher beleuchtet.
+Weiterführende Funktionalitäten werden anhand der Implementierung in Kapitel~\ref{subsec:schema} näher beleuchtet.
 
 Ein einzelnes Objekt kann zur Verbesserung der späteren Nutzung mit einem Titel und einer kurzen Beschreibung versehen werden.
 Diese sind in Listing~\ref{listing:objectSchema} in Zeile 2 und 3 dargestellt.
-\textit{title} und \textit{description} dienen lediglich der Nutzbarkeit für den Entwickler.
+\textit{title} und \textit{description} dienen lediglich der verbesserten Lesbarkeit für den Entwickler.
 
 \begin{listing}[!ht]
     \inputminted{java}{listings/2.2.1/object.schema.json}
@@ -143,15 +145,14 @@ Diese sind in Listing~\ref{listing:objectSchema} in Zeile 2 und 3 dargestellt.
 \end{listing}
 
 Einem Element muss stets ein \textit{type}, also ein Typ, zugeordnet werden.
-Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{listing:objectSchema}, sein.
-Alternativ kann ein Element auch als Liste typisiert werden, dies wird in einem folgenden Beispiel genauer erläutert.
+Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{listing:objectSchema}, oder eine Liste sein.
 Einem Objekt können nun \textit{properties} hinzugefügt werden.
-Diese besitzen neben einem eindeutigen Bezeichner ebenfalls eine Beschreibung und ein Typ.
+Diese besitzen neben einem eindeutigen Bezeichner ebenfalls eine Beschreibung und einen Typen.
 Auf dieser Ebene kann der Typ eine Nummer, \textit{integer} in Zeile 8, oder auch ein Text, welches den Typ \textit{string} bekommen würde, sein.
 Ist eine der \textit{Properties} ein notwendiges Feld, kann dies mittels des Schlüsselwortes \textit{required} realisiert werden.
 Hierbei wird eine Liste an Bezeichnern hinterlegt, welche dem Objekt bereits zugeordnet wurden und somit stets vorhanden sein müssen.
 Das Beispiel stammt von der offiziellen JSON Schema Webseite.\cite*{schemaExample}
-Sollten einem Objekt keine weitere properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
+Sollten einem Objekt keine weiteren properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
 
 \begin{listing}[!ht]
     \begin{minted}{json}
@@ -162,7 +163,7 @@ Sollten einem Objekt keine weitere properties hinzugefügt werden dürfen, ist d
 \end{listing}
 
 Wie zuvor bereits beschrieben, kann ein Element auch als Liste deklariert werden.
-Dies ist an einem kleinen Beispiel aus Listing~\ref{listing:listSchema} dargestellt.
+Dies ist an einem kleinen Beispiel in Listing~\ref{listing:listSchema} dargestellt.
 Hierbei ist es möglich die \textit{items} einer Liste genauer zu definieren.
 In diesem Beispiel müssen die Elemente einer Liste dem Schema aus dem Beispiel aus Listing~\ref{listing:objectSchema} entsprechen.
 
@@ -176,27 +177,26 @@ Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines diese
     \label{listing:listSchema}
 \end{listing}
 
-Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode, welche
-aus einem Schema nicht nur die fertige Datei auf Fehler überprüfen, sondern dem Entwickelnden bereits
-zum Zeitpunkt des Schreibens einer Datei mittels Autovervollständigung unterstützen kann.
+Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode,
+möglich den Entwickler durch Fehlerhervorhebung und Autovervollständigung zu unterstützen.
 Hierfür ist es möglich bereits erstellte JSON-Schemas im \textit{SchemaStore} bereitzustellen.
-Dies ist eine zentrale Stelle um JSON-Schemas für IDEs bereitzustellen.
+Dies ist eine zentrale Stelle um JSON-Schemas für IDEs zur Verfügung zu stellen.
 Bei dem \textit{SchemaStore} handelt es sich um ein Open-Source-Projekt, bei welchem die Einbringung eines neuen Schemas simpel gestaltet ist.
-Es ist möglich ein fertiges Schema fest dort zu hinterlegen, hierdurch muss für jede neue Änderung allerdings einen neuen Betrag erstellt werden.
+Es ist möglich ein fertiges Schema fest dort zu hinterlegen, hierdurch muss für jede neue Änderung allerdings ein neuer Betrag erstellt werden.
 Dieser bedarf einer Zustimmung einem der Verwalter des \textit{Schema Stores}.
 Da dies stets mit einer zeitlichen Verzögerung passiert, ist es möglich eine Verlinkung zu einem Schema zu erstellen.
-Somit ist es möglich Änderungen an einem Schema durchzuführen und diese Änderungen nach dem Hochladen direkt zur Verfügung stellen zu können, ohne weitere Schritte durchführen zu müssen.
+Somit können Änderungen an einem Schema durchgeführt werden, um diese Änderungen nach dem Hochladen direkt zur Verfügung stellen zu können.
 Zum aktuellen Zeitpunkt existieren 439 Schemas, welche durch \textit{SchemaStore.org} für diverse IDEs bereitgestellt werden.\cite*{schemaStore}
 Eine Liste aller IDEs, welche diesen Support mittels \textit{schemastore} unterstützen sind unter folgendem
 Link zu finden: \url{https://www.schemastore.org/json/#editors}
 
 \subsubsection{fulibTools}
-FulibTools ist der Teile Fujaba Tool Suite, auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
+FulibTools ist Teil der Fujaba Tool Suite, auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
 Fulib bildet die Grundlage für fulibTools, wobei fulibTools erweiterte Möglichkeiten für die Nutzung von fulib bereitstellt.
-Fulib ist ein Codegenerator, welcher mittels einer \ac{DSL}, Modelle als Diagramme darstellen kann.\cite*{fulib}
-Dies begrenzt sich nicht nur auf Klassen-, sondern auch auf Objektmodelle.
+Fulib ist ein Codegenerator, welcher mittels einer~\ac{DSL}, Modelle als Diagramme darstellen kann.\cite*{fulib}
+Dies begrenzt sich nicht nur auf Klassenmodelle, sondern ist auch für Objektmodelle einsetzbar.
 FulibTools ist eine Erweiterung, da die Generierung der Diagramme auch abseits der eben erwähnten DSL funktioniert.\cite*{fulibTools}
 Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-Format oder ein Java Objektmodell zur Laufzeit zu generieren.
 Gleiches gilt für Klassenmodelle.
-Die Verwendung von FulibTools ist somit für diese Arbeit eine bessere Wahl, als die \textit{Graphviz}, eine Bibliothek zur Generierung von Diagrammen, direkt zu verwenden.
-Dies ist der Fall, da FulibTools bereits die Arbeit der Verarbeitung eines Inputs übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.
+Die Verwendung von FulibTools ist somit für diese Arbeit eine bessere Wahl, als \textit{Graphviz}, eine Bibliothek zur Generierung von Diagrammen, direkt zu verwenden.
+Dies ist der Fall, da FulibTools bereits die Arbeit der Verarbeitung einer Eingabe übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.
