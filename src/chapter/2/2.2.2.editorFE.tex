@@ -9,7 +9,7 @@ Die Grundlage für das Frontend ist Angular.
 Angular ist ein Framework für das Designen von Applikationen und gleichzeitig eine Entwicklungsplattform.\cite*{angular}
 Für Entwickler ist das Angular Command-Line-Interface ein wichtiger Bestandteil bei der Entwicklung mit Angular.
 Neben der Generierung einer neuen Anwendung, können ebenfalls neue Komponenten, Services und Module generiert werden.
-Die \textit{Komponenten} dienen der Strukturierung einer Anwendung und enthalten verschiedene Abschnitte einer Anwendung.
+Die \textit{Komponenten} dienen der Strukturierung einer Anwendung und enthalten verschiedene Abschnitte eben dieser.
 Hierbei besteht ein großer Vorteil darin, Komponenten modular zu gestalten.
 Dies bedeutet, dass man Komponenten so entwickelt, dass diese in der Anwendung wiederverwendet werden können, sollte dies möglich sein.
 Eine Komponente besteht aus drei einzelnen Bereichen:
@@ -20,7 +20,7 @@ Eine Komponente besteht aus drei einzelnen Bereichen:
     \item Styles, welche im Template eingebunden werden können, um die Oberfläche grafisch zu verändern.
 \end{enumerate}
 
-Im Template werden neben den Styles auch Bestandteile des Code-Segments verwendet um Daten dynamisch anzeigen zu können.
+Im Template werden neben den Styles auch Bestandteile des Code-Segments verwendet, um Daten dynamisch anzeigen zu können.
 Ein neu generiertes Angular Projekt bietet allerdings nur die Grundlage einer Anwendung.
 Um weitere Funktionalitäten in der Anwendung verwenden zu können, können sogenannte Package Manager, wie \textit{npm} oder \textit{yarn}
 verwendet werden, um neue Bibliotheken einzubinden.
@@ -31,27 +31,27 @@ Folgend werden eben erwähnte Bibliotheken erläutert, welche die wichtigsten Be
 
 \subsubsection{Bootstrap}
 Um eine ansehnlichere Oberfläche zu gestalten, welche einheitlich mit der von \textit{fulib.org} sein soll, wurde Bootstrap zum
-Stylen der OberflächenElemente verwendet.
+Stylen der Oberflächenelemente verwendet.
 Bootstrap bietet diverse Komponenten, wie Eingabefelder, Buttons, Menüs, Pop-Ups und viele weitere.
 Neben den Styles enthalten diese auch zusätzliche Funktionen, welche im Kontext der Komponente sinnvoll sind.
 Dabei bleibt es weiterhin abänderbar, um dem Entwickler mehr Freiheiten zur Gestaltung einer Oberfläche zu geben.
-Weiterhin ermöglicht es Bootstrap das Layout, also die Anordnung, von Komponenten auf einer Seite zu sortieren.
+Weiterhin ermöglicht es Bootstrap das Layout, also die Anordnung, von Komponenten auf einer Seite festzulegen.
 Dies beginnt bei der Größe einer Komponente bis hin zu der Anordnung in der Horizontale und Vertikale.\cite*{bs}
 
 Zusätzlich zu Bootstrap ist es möglich Bootstrap Icons zu verwenden.
-Hierbei handelt es sich über 1500 Icons, welche im open source Prinzip zugänglich sind.\cite*{bsIcons}
+Hierbei handelt es sich um eine Sammlung von rund über 1500 Icons, welche im open source Prinzip zugänglich sind.\cite*{bsIcons}
 
 \subsubsection{CodeMirror}
 CodeMirror ist ein Texteditor, welcher in JavaScript geschrieben wurde und somit in Web-Anwendungen verwendet werden kann.
 Es gibt zahlreiche Optionen, um CodeMirror an die Bedingungen der zu bauenden Anwendung anzupassen.
-Neben zahlreichen Programmiersprachen, welche durch das Hervorheben von Schlüsselwörter und der Überprüfung der Syntax, emuliert werden können,
-ist es möglich CodeMirror zu einer eigenen, individualisierten IDE zu machen.
+Neben zahlreichen Programmiersprachen, welche durch das Hervorheben von Schlüsselwörtern und der Überprüfung der Syntax, emuliert werden können,
+ist es möglich CodeMirror zu einer eigenen, individualisierten IDE zu konfigurieren.
 Erweiterungen für einen CodeMirror sind die sogenannten Add-Ons.
 Hierbei gibt es neben vielen bereits vorhandenen Erweiterungen auch die Möglichkeit eigene Add-Ons zu erstellen.
 Hierzu zählt unter anderem das zuvor erwähnte farbliche Hervorheben von Schlüsselwörtern, auch Highlighting genannt, wie auch die
 Überprüfung des Codes auf die Syntax der eingestellten Programmiersprache.\cite*{cm}
 
 Für eine einfache Einbindung in ein Angular-Projekt existieren bereits mehrere Bibliotheken, welche eine CodeMirror Komponente bereitstellen.
-Bei dieser Komponente können nicht nur Optionen übergeben, sondern auch der Inhalt eines CodeMirrors, also den geschriebenen Code, aus der komponente
+Bei dieser Komponente können nicht nur Optionen übergeben, sondern auch der Inhalt eines CodeMirrors, also den geschriebenen Code, aus der Komponente
 extrahiert werden.
-In dieser Arbeit wurde hierzu ngx-codemirror von Scott Cooper verwendet.\cite*{ngxcm}
+In dieser Arbeit wird hierzu ngx-codemirror von Scott Cooper verwendet.\cite*{ngxcm}

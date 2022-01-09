@@ -1,14 +1,14 @@
 \subsection{fulibWorkflows Web-Editor Backend}\label{subsec:backend}
-Das folgende Kapitel beschäftigt sich mit dem zweiten Bestandteil des Web-Editors, das dazugehörige Backend.
+Das folgende Kapitel beschäftigt sich mit dem zweiten Bestandteil des Web-Editors, das Backend.
 Vom Frontend wird eine YAML-Beschreibung ans Backend geschickt, in diesem wird dies als Eingabe für fulibWorkflows verwendet.
-Da fulibWorkflows eine Java-Bibliothek ist, benötigt es ein Backend basierend auf Java.
+Da fulibWorkflows eine Java-Bibliothek ist, benötigt es ein Backend, welches auf Java basiert.
 
 \subsubsection{Spring Boot}
-Mittels \textit{Spring Boot} ist es möglich schnell und ohne zusätzliche Kofniguration eine auf \textit{Spring} basierende Applikation zu erstellen.\cite*{springBoot}
-Spring ist ein Framework, welches sich als Ziel gesetzt hat Java Programmierung zu vereinfachen und zu verschnelleren, allerdings keine Einbußen
-bei Geschwindikeit, Komplexität und Produktivität zu machen.\cite*{spring}
-In diesem Kapitel wird sich mit der Erstellung eines Rest-Services eingegangen.
-Ein Rest-Services stellt Endpunkte bereit, welche über REST angesprochen werden können.
+Mittels \textit{Spring Boot} ist es möglich schnell und ohne zusätzliche Konfiguration eine auf \textit{Spring} basierende Applikation zu erstellen.\cite*{springBoot}
+Spring ist ein Framework, welches sich als Ziel gesetzt hat Java Programmierung zu vereinfachen und zu verschnellern, allerdings keine Einbußen
+bei Geschwindigkeit, Komplexität und Produktivität zu machen.\cite*{spring}
+In diesem Kapitel wird sich mit der Erstellung eines Rest-Services befasst.
+Ein Rest-Service stellt Endpunkte bereit, welche über REST angesprochen werden können.
 Diese eignen sich zur Nutzung als simples Backend.
 
 \begin{figure}[h]
@@ -29,5 +29,5 @@ In diesem Fall wurde \textbf{Spring Web} ausgewählt, wodurch die wichtigsten De
 
 Das aus den vorherigen Einstellungen beschriebene Projekt ist bereits ein fertiges Backend, welches direkt ausgeführt werden kann.
 Durch sogenannte Annotations, welche mit einem @ gekennzeichnet werden, ist es möglich weitere Endpunkte für das Backend zu definieren.
-Auf die genaueren Funktionen, welche mittels Annotations implementiert werden können, wird in~\ref{sec:editor-backend} eingegangen, anhand von Beispielen der Implementierung.
+Auf die genaueren Funktionen, welche mittels Annotations implementiert werden können, wird in Kapitel~\ref{sec:editor-backend} eingegangen, anhand von Beispielen der Implementierung.
 
