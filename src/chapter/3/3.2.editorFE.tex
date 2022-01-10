@@ -1,7 +1,13 @@
 \section{fulibWorkflows Web-Editor Frontend}\label{sec:editor-frontend}
 Nachdem die erste Hälfte der Implementierung durch fulibWorkflows abgeschlossen ist, konzentrieren sich dieses und das folgende Kapitel um den dazugehörigen Web-Editor.
 Der Web-Editor besteht aus einem Frontend und einem Backend, welche beide über Heroku deployed wurden und somit erreichbar sind.
-Erreichbar ist der Web-Editor unter~\url{https://workflows-editor-frontend.herokuapp.com/}.
+Hierdurch ist das Frontend über
+
+\-\hspace{3cm}\url{https://workflows-editor-frontend.herokuapp.com/}
+
+erreichbar.
+Hierbei ist zu beachten, dass das initiale Laden der Webseite etwas Zeit in ansprucht nimmt, da die Anwendung auf Heroku nach einer gewissen
+Inaktivität in einen Ruhezustand versetzt wird und bei einem neuen Aufruf erst hochgefahren werden muss.
 
 \begin{figure}[h]
     \centering
@@ -51,7 +57,7 @@ Dadurch kann eine Konfiguration des Codemirrors über ein Options-Objekt überge
 Die Konfiguration des Codemirrors ist in Listing~\ref{listing:configuration} dargestellt.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=49]{ts}{listings/3.2/codemirror-options.ts}
+    \inputminted[firstnumber=49]{ts}{listings/3.2/codemirror-options.ts}
     \caption{Codemirror Konfiguration}
     \label{listing:configuration}
 \end{listing}
@@ -127,7 +133,7 @@ Beide Bereiche bestehen aus einem IFrame, wobei der obere IFrame lediglich das g
 HTML-Mockups und Klassen-/Objektdiagrammen übernimmt.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos]{ts}{listings/3.2/GenerateResult.ts}
+    \inputminted{ts}{listings/3.2/GenerateResult.ts}
     \caption{Modell der vom Backend empfangenen Daten}
     \label{listing:generateResult}
 \end{listing}
@@ -167,7 +173,7 @@ Doch der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe 
 Für jeden Page oder Data Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos]{ts}{listings/3.2/method.ts}
+    \inputminted{ts}{listings/3.2/method.ts}
     \caption{Bereitstellung einer Methode}
     \label{listing:global-method}
 \end{listing}

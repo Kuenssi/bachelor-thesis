@@ -7,7 +7,7 @@ Wie in Kapitel~\ref{subsubsec:antlr} bereits beschrieben, ist die Grundlage eine
 Die komplette Grammatik ist im referenzierten fulibWorkflows-Repository im Anhang hinterlegt, in diesem Kapitel werden lediglich Ausschnitte daraus verwendet.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=5]{antlr-java}{listings/3.1.3/Main.g4}
+    \inputminted[firstnumber=5]{antlr-java}{listings/3.1.3/Main.g4}
     \caption{Grammatik für Workflows}
     \label{listing:main-grammar}
 \end{listing}
@@ -20,7 +20,7 @@ Die Spezifikation ist aufgrund der YAML-Syntax notwendig.
 Ein event-Note kann einer aus drei Typen sein, wobei nach einem Note beliebig viele Leerzeilen folgen können.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=11]{antlr-java}{listings/3.1.3/Note.g4}
+    \inputminted[firstnumber=11]{antlr-java}{listings/3.1.3/Note.g4}
     \caption{Grammatik für Notes}
     \label{listing:note-grammar}
 \end{listing}
@@ -34,7 +34,7 @@ Die Page ist wie zuvor bereits häufiger erwähnt ein Sonderfall, welches sich a
 Dem Schlüsselwort \textit{page} folgt ein gesonderter Doppelpunkt und anschließend eine Liste von neuen Elemente.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=30]{antlr-java}{listings/3.1.3/Keywords.g4}
+    \inputminted[firstnumber=30]{antlr-java}{listings/3.1.3/Keywords.g4}
     \caption{Schlüsselwörter zum Identifizieren von Notes}
     \label{listing:note-ids}
 \end{listing}
@@ -45,7 +45,7 @@ Zu den \textit{extended Notes} zählen lediglich event und data.
 Diese erhalten wie zuvor beschrieben weiter Attribute um Daten, welche zwischen Services verschickt werden, darstellen zu können.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=19]{antlr-java}{listings/3.1.3/Attribute.g4}
+    \inputminted[firstnumber=19]{antlr-java}{listings/3.1.3/Attribute.g4}
     \caption{Grammatik von Attributen}
     \label{listing:attributes}
 \end{listing}
@@ -60,7 +60,7 @@ Darauf können Zahlen, Sonderzeichen und weitere Wörter folgen.
 Die Sonderzeichen sind in Zeile 36 genauer beschrieben.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=36]{antlr-java}{listings/3.1.3/Values.g4}
+    \inputminted[firstnumber=36]{antlr-java}{listings/3.1.3/Values.g4}
     \caption{Grammatik von Werten}
     \label{listing:values}
 \end{listing}
@@ -74,7 +74,7 @@ Eine Wildcard für die Eingabe eines Textes zu verwenden war für diese Grammati
 welche keine anderen Regeln überschrieben hätte.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=23]{antlr-java}{listings/3.1.3/Page.g4}
+    \inputminted[firstnumber=23]{antlr-java}{listings/3.1.3/Page.g4}
     \caption{Grammatik einer Page}
     \label{listing:page}
 \end{listing}
@@ -109,7 +109,7 @@ Hierbei wird als key der Index eines Notes verwendet und das value ist ein Pair.
 Das Pair beinhaltet den Bezeichner und den dazugehörigen Wert einer zusätzlichen Property eines Notes.
 
 \begin{listing}[!ht]
-    \inputminted[xleftmargin=20pt,linenos,firstnumber=106]{java}{listings/3.1.3/ExitPage.java}
+    \inputminted[firstnumber=106]{java}{listings/3.1.3/ExitPage.java}
     \caption{exitPage-Methode}
     \label{listing:exitpage}
 \end{listing}
