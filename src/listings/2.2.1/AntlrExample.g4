@@ -1,9 +1,9 @@
 grammar AntlrExample;
-prog:	(expr NEWLINE)* ;
-expr:	expr ('*'|'/') expr
-|	expr ('+'|'-') expr
-|	INT
-|	'(' expr ')'
-;
-NEWLINE : [\r\n]+ ;
-INT     : [0-9]+ ;
+
+file: prop+ ;
+prop: ID '=' value '\n' ;
+value: STRING | ID ;
+
+ID: [a-zA-Z]+ ;
+STRING: '"' .*? '"' ;
+WS : [ \t]+ -> skip ;

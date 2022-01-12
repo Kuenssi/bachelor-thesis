@@ -3,51 +3,7 @@
 sowohl ein Event Storming Board, im Workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, wird in Kapitel~\ref{subsec:workflow-format} erläutert.
 
-\subsubsection{Antlr}\label{subsubsec:antlr}
-\ac{Antlr} bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in~\ac{EBNF} definiert.
-Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines~\textit{Parse trees}.
-Hierdurch ergibt sich die Möglichkeit, während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
-
-\begin{listing}[!ht]
-    \inputminted{antlr-java}{listings/2.2.1/AntlrExample.g4}
-    \caption{Beispiel einer einfachen Grammatik in Antlr}
-    \label{listing:grammar-example}
-\end{listing}
-
-In Listing~\ref{listing:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von mathematischen Gleichungen dargestellt.\cite{antlrOrg}
-Hierbei ist es lediglich möglich Zahlen mittels Klammern, Addition, Subtraktion, Multiplikation und Division miteinander zu kombinieren.
-Die Länge eines Ausdruckes ist durch den rekursiven Aufbau der Grammatik nicht begrenzt.
-
-\begin{listing}[!ht]
-    \begin{minted}{text}
-    ((199+2324)*43)/55
-
-    \end{minted}
-    \caption{Einfacher mathematischer Ausdruck}
-    \label{listing:mathematical-input}
-\end{listing}
-
-Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
-Eine zulässige Eingabe für die festgelegte Grammatik aus Listing~\ref{listing:grammar-example} ist in Listing~\ref{listing:mathematical-input} dargestellt.
-Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
-Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antlr Plugin für IntelliJ generiert.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.3\textwidth]{images/2.2/parseTreeExample}
-    \caption{ParseTree für einen mathematischen Ausdruck}
-    \label{fig:parse-example}
-\end{figure}
-
-Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel~\textbf{prog} beginnt und alle weiteren Kindknoten durch verschachtelte~\textbf{expr} Regeln kreiert wurden.
-Der oberste Teilausdruck ist die Division aus einem komplexeren linken Ausdruck und dem rechten Ausdruck, welcher direkt einer Nummer zugeordnet werden konnte und somit keine weiteren Kindknoten mehr haben kann.
-Dies entsteht durch die Unterscheidung bei der Grammatik in Terminale und Nicht-Terminale.
-Hierbei werden wie in Listing~\ref{listing:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale Regeln werden in Großbuchstaben verfasst.
-In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
-
-Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in Kapitel~\ref{subsec:antlr-grammatik},
-anhand der Implementierung, eingegangen.
+\input{chapter/2/2.2.1.1.antlr}
 
 \subsubsection{String Template}
 \ac{ST} gehört, wie das vorherige \ac{Antlr}, zum~\textit{Antlr Project}.
