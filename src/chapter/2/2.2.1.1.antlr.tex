@@ -10,7 +10,14 @@ Hierdurch ergibt sich die Möglichkeit, während dem Parsen weitere Aktionen dur
     \label{listing:grammar-example}
 \end{listing}
 
-\todo{Grammatik beschreiben}
+In Listing~\ref{listing:grammar-example} ist ein Beispiel für eine einfache Grammatik zur Erkennung von Wertzuweisungen beziehungsweise dem Erstellen von
+Properties dargestellt.\cite*{antlrOrg}
+Es existieren drei nicht-terminale Regeln, welche für den generierten Parser wichtig sind, und den Gesamtaufbau einer Eingabe definieren.
+Die Grammatik kann mehrere Properties verarbeiten, welche aus einer ID, einem Gleichheitszeichen und einem Wert bestehen.
+Hierbei ist in Zeile 4 zu erkennen, dass nach jeder Property eine neue Zeile begonnen werden muss.
+Ein Wert kann entweder ein String oder eine ID sein.
+\textit{STRING} und \textit{ID}  sind terminale Regeln, welche im generierten Lexer angesiedelt sind.
+Diese definieren einen finalen Knoten für einen Ast des Parse Trees.
 
 Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
 Eine zulässige Eingabe für die festgelegte Grammatik aus Listing~\ref{listing:grammar-example} ist in Listing~\ref{listing:prop-input} dargestellt.
