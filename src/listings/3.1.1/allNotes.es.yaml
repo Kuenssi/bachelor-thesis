@@ -6,10 +6,12 @@
     - pageName: Registration
     - text: Please create a new account
     - input: Username
+      fill: Gonpachiro1912
     - input: E-Mail
     - password: Password
     - password: Repeat Password
     - button: Register
+      targetPage: Login
 
 - command: Register clicked
 
@@ -26,13 +28,17 @@
 - policy: create user
 
 - event: user data received
-  username: Karli
-  eMail: karli@example.com
-  psw: Karli!Example42
+  username: Gonpachiro1912
+  eMail: ds@taicho.com
+  psw: nesuko!DS42
 
-- data: User karli
-  username: Karli
-  eMail: karli@example.com
-  psw: Karli!Example42
+- data: User gonpachiro1912
+  username: Gonpachiro1912
+  eMail: ds@taicho.com
+  psw: nezuko!DS42
 
 - event: User created
+
+- page:
+    - pageName: Login
+    - text: Successfully logged in

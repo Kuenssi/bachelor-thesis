@@ -13,7 +13,7 @@ Näheres zu den Beschränkungen der Syntax wird in Kapitel~\ref{subsec:schema} e
 In Listing~\ref{listing:workflowNotes} sind alle möglichen Post-its aufgelistet.
 Im weiteren Verlauf wird für einen Post-It das Wort Zettel verwendet, da es sich bei jedem Element in der Beschreibung um einen einzelnen Zettel aus dem Event Storming handelt.
 Als Beispiel für einen Workflow ist hierbei die Registrierung eines neuen Benutzers auf einer Webseite in vereinfachter Form dargestellt.
-Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.3.4, von fulibWorkflows aufgelistet und deren Funktion erläutert.
+Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.3.5, von fulibWorkflows aufgelistet und deren Funktion erläutert.
 
 \largerText{workflow}
 
@@ -94,11 +94,21 @@ An diesem Punkt ist es lediglich wichtig, die Restriktionen einer \textit{page} 
 Eine Page besteht aus einer Liste an Elementen, hierbei steht \textit{pageName} lediglich für den Bezeichner der Page und wird im Mockup nicht dargestellt.
 Um die Oberfläche einer Applikation zu beschreiben, existieren vier Elemente, welche beliebig oft verwendet werden können.
 
-Ein Text Element kann enthält einen Text, welcher entweder zur Verwendung als Überschrift, Bezeichner oder Trenner verwendet werden kann.
+Ein Text Element enthält einen Text, welcher entweder zur Verwendung als Überschrift, Bezeichner oder Trenner verwendet werden kann.
 Um Daten in einer Applikation eingeben zu können, gibt es das \textit{input}- und das \textit{password}-Element.
 Bei beiden handelt es sich um Eingabefelder, mit dem Unterschied, dass bei dem \textit{password}-Element der eingetippte Inhalt mit Punkten ersetzt wird.
 Der Bezeichner, welcher einem Input oder Password hinterlegt wird, wird als Platzhalter im Eingabefeld und als Label über eben diesem angezeigt.
+Um die Variationen der Mockups zu erweitern und diese mit beispielhaften Eingaben zu füllen, können sowohl dem \textit{input}- als auch \textit{password}-Element
+ein Attribut namens \textit{fill} zugeordnet werden.
+Dabei handelt es sich um den Inhalt des Eingabefeldes, welches im Mockup angezeigt wird.
 Zuletzt kann ein Knopf mittels dem \textit{button}-Element erstellt werden, dabei wird der Bezeichner als Inhalt des Knopfes dargestellt.
+Das \textit{button}-Element kann ebenfalls mit einem weiteren Attribut versehen werden.
+Mit dem Attribut \textit{targetPage} kann dem Knopf der Name einer Seite übergeben werden, welche innerhalb der workflow-Datei definiert wurde.
+Dafür ist es notwendig, dass die erstellten Pages unterschiedliche namen besitzen.
+Dieses Attribut entfaltet seine Funktionalität im Web-Editor zu fulibWorkflows, da es somit möglich ist eine lose Verlinkung zwischen einem Button und einer Page
+zu erzeugen.
+Näheres zu der Verwendung und der Umsetzung folgt in Kapitel~\ref{subsec:darstellung-generierter-dateien}.
 
 Eine Oberfläche kann nur von oben nach unten beschrieben werden, eine weitere Limitierung ist, dass es nicht möglich ist mehrere Elemente in eine Reihe zu ordnen.
-Hierdurch ist das Designen eines Mockups durch die begrenzten Elemente einer Page sehr stark begrenzt.
+Hierdurch ist das Designen eines Mockups durch die begrenzten Elemente einer Page sehr stark begrenzt und kann lediglich für
+simple Benutzeroberflächen verwendet werden.

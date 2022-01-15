@@ -81,8 +81,10 @@ welche keine anderen Regeln überschrieben hätte.
 
 Jeder Page muss ein pageName Element zugeordnet werden, um diese später referenzieren zu können.
 Weiterhin können Pages beliebig viele Elemente beherbergen.
-Ein Element wiederum muss entweder als Bezeichner text, input, password oder button besitzen, um valide zu sein.
-Jedem dieser Elemente wird anschließend ein Text(NAME) zugeordnet, welche Funktion diese für das jeweilige Element erfüllen, wurde bereits in Kapitel~\ref{subsec:workflow-format} erläutert.
+Ein Element kann entweder ein Text, Eingabefeld oder Knopf sein.
+Ein Text-Element wird ein Text(NAME) zugeordnet.
+Dies ist bei den Eingabefeldern und dem Knopf anders, da diese wie in Kapitel~\ref{subsec:workflow-format} beschrieben zuästzliche
+Attribute besitzen können.
 
 Wie zuvor bereits beschrieben, wird aus der Grammatik ein Parser generiert.
 Dazu gehört unter anderem ein Interface, welches für diese Grammatik den Namen \textit{FulibWorkflowsListener} trägt.

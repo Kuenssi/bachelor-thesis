@@ -6,7 +6,7 @@ Hierdurch ist das Frontend über
 \-\hspace{3cm}\url{https://workflows-editor-frontend.herokuapp.com/}
 
 erreichbar.
-Hierbei ist zu beachten, dass das initiale Laden der Webseite etwas Zeit in ansprucht nimmt, da die Anwendung auf Heroku nach einer gewissen
+Hierbei ist zu beachten, dass das initiale Laden der Webseite etwas Zeit in anspruch nimmt, da die Anwendung auf Heroku nach einer gewissen
 Inaktivität in einen Ruhezustand versetzt wird und bei einem neuen Aufruf erst hochgefahren werden muss.
 
 \begin{figure}[h]
@@ -19,14 +19,16 @@ Inaktivität in einen Ruhezustand versetzt wird und bei einem neuen Aufruf erst 
 In Abbildung~\ref{fig:frontend} ist die Oberfläche des Web-Editors dargestellt.
 Dieser besteht aus vier verschiedenen Bereichen, welche jeweils andere Funktionen bereitstellen.
 Der erste dieser Bereiche ist die Navigationsleiste, welche den oberen Rand der Oberfläche einnimmt.
-In dieser steht zuerst, von links nach rechts, ein Dropdown Menü bereit, mit welchem es möglich ist verschiedene vorgefertigte Beispiele zu laden.
+In dieser existieren zuerst, von links nach rechts, zwei Buttons, welche das Theme des Code-Editors abändern, damit ist es möglich einen Light- oder Dark-Mode zum Schreiben
+des Codes zu verwenden.
+Danach folgt ein Dropdown Menü bereit, mit welchem es möglich ist verschiedene vorgefertigte Beispiele zu laden.
 Diese Beispiele werden automatisiert nach der Auswahl ans Backend geschickt und dort generiert, sodass nach einer kurzen Wartezeit ein Event Storming Board und falls
 vorhanden Mockups und Diagramme angezeigt werden können.
 Als Nächstes folgt ein Knopf zum Anstoßen einer Generierung, nachdem dieser Knopf gedrückt wurde und die Generierung angestoßen ist, erscheint ein Ladekreis in dem Knopf,
 um als Indikator dafür zu dienen, dass der Prozess noch nicht abgeschlossen ist.
 Die Web-Anwendung ermöglicht es zusätzlich die in der Oberfläche erstellten Dateien herunterladen zu können.
 Hierfür öffnet sich ein Pop-Up Bereich, nachdem der Download-Knopf betätigt wurde.
-Dieses Fenster ist in Abbildung\ref{fig:download} dargestellt.
+Dieses Fenster ist in Abbildung~\ref{fig:download} dargestellt.
 
 \begin{figure}[h]
     \centering
@@ -42,10 +44,6 @@ Mit einem erneuten Klick auf den Download-Knopf, welcher sich neben dem Dismiss-
 Für den Fall, dass der Nutzende noch keine Erfahrungen mit der Syntax von fulibWorkflows gemacht hat, kann die Dokumentation, welche auf Englisch verfasst ist, mit einem Klick
 auf den grauen Docs-Knopf geöffnet werden.
 Die Dokumentation stammt aus dem GitHub-Repository von fulibWorkflows.
-Im rechten Bereich der Navigationsleiste befinden sich zwei Buttons, welche das Theme des Code-Editors abändern, damit ist es möglich einen Light- oder Dark-Mode zum Schreiben
-des Codes zu verwenden.
-Daneben finden sich drei weitere Buttons, welche die Anzeige der generierten Dateien umschaltet.
-Hierbei kann zwischen dem Anzeigen der Mockups(Pages), der Objektdiagramme oder des Klassendiagramms umgeschaltet werden.
 Letztlich befindet sich ganz recht die aktuelle Versionsnummer des gesamten Web-Editors.
 
 \subsection{Code-Editor}\label{subsec:codeeditor}
@@ -167,10 +165,10 @@ Um dies zu ermöglichen wurde die Bibliothek \textit{angular-split} verwendet.
 Diese ermöglicht es Bereiche zu definieren und darin Inhalt zu platzieren, sowie die Veränderung der Größen der Bereiche bereitzustellen.\cite*{angular-split}
 Ohne diese Funktionalität können auch größere Boards in der Oberfläche angezeigt werden.
 
-Für den unteren IFrame gelten die gleichen gegebenheiten wie für den oberen IFrame.
+Für den unteren IFrame gelten die gleichen Gegebenheiten wie für den oberen IFrame.
 Da es mehrere Mockups oder Diagramme geben kann, existieren vier Knöpfe, mit welchen es möglich ist zwischen den Mockups/Diagrammen zu wechseln.
 Doch der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe möglich, sondern ebenfalls über die entsprechenden Notes aus dem Board IFrame.
-Für jeden Page oder Data Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
+Für jeden Page- oder Data-Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
 
 \begin{listing}[!ht]
     \inputminted{ts}{listings/3.2/method.ts}
@@ -179,6 +177,10 @@ Für jeden Page oder Data Note existiert in der Anzeige ein Link, welcher als Kn
 \end{listing}
 
 Hierfür ist eine Methode erstellt worden, welche für die gesamte Oberfläche sichtbar ist.
-In der Generierung mittels fulibWorkflows wird dieser Link erstellt, darin wird die bereitgestellte Methode mittels~\texttt{window.parent.setIndexFromIframe(0);} aufgerufen.
+In der Generierung mittels fulibWorkflows wird dieser Link erstellt, darin wird die bereitgestellte Methode mittels~\texttt{window.parent.setIndexFromIframe(0, `pages');} aufgerufen.
 Hierbei wird über das Fenster auf die oberste Komponente der Anwendung zugegriffen, dort ist durch den Code aus Listing~\ref{listing:global-method}
 die Methode \textit{setIndexFromIframe} bereitgestellt.
+Neben dem Index, wird der Methode ebenfalls ein String übergeben, mit diesem ist es möglich zwischen Page und Object-Darstellung automatisch beim Klicken des Links zu wechseln.
+
+Zuletzt existieren drei weitere Buttons auf Höhe der Buttons zum Wechseln der Page oder des Diagramms, welche die Anzeige der generierten Dateien manuell umschaltet.
+Hierbei kann zwischen dem Anzeigen der Mockups(Pages), der Objektdiagramme oder des Klassendiagramms umgeschaltet werden.
