@@ -3,7 +3,6 @@ In diesem Unterkapitel werden die grundlegenden Prinzipien und Ziele des \ac{DDD
 \textit{Domain-Driven Design Distilled} definiert hat.\cite*{dddd}
 Nachdem diese Grundlage vorhanden ist, wird darauf aufbauend erklärt, welche Symbiose aus dem \ac{DDD} und dem \ac{ES} entsteht und wie
 dies zu einer Softwareentwicklung beiträgt.
-Zur Veranschaulichung eines Event Stormings wird ein von Alberto Brandolini beschriebener \ac{ES}-Workshop genutzt.
 Abschließend werden die Änderungen und Erweiterungen, welche im Kontext dieser Arbeit vorgenommen wurden, erklärt.
 
 \subsection{Domain-Driven Design}\label{subsec:domain-driven-design}
@@ -21,7 +20,7 @@ nicht nur das Verständnis zwischen den beiden Parteien, sondern auch mit in das
 
 \subsection{Event Storming}\label{subsec:allgemein}
 Vernon selbst nennt Event Storming, als eine Möglichkeit um eine~\textit{Ubiquitous Language} zu entwickeln.\footnote{Seite 112, folgende in~\cite*{dddd}}
-Event Storming wurde von Alberto Brandolini entwickelt und resultiert aus mangelnder Zeit während der Nutzung von \textit{event-driven modeling}.
+Event Storming wurde von Alberto Brandolini entwickelt und resultiert aus mangelnder Zeit während der Nutzung von~\textit{event-driven modeling}.
 \textit{Event-driven modeling} basiert ebenfalls auf Konversationen und konkreten Szenarien, allerdings mit der Verwendung von UML-Diagrammen zur Datenmodellierung.
 Dies hatte zur Konsequenz, dass in Gesprächen ab einem bestimmten Punkt nur noch die Entwickler daran teilnahmen.
 Brandolini verwarf UML-Diagramme und verwendete Haftnotizen und legte damit für das~\ac{ES}.\footnote{Seite 113 in~\cite*{dddd}}
@@ -35,20 +34,39 @@ Keine Grenzen zu dem Thema oder der Anwendung welche modelliert werden soll, um 
 Ein Event Storming beginnt immer mit dem Erstellen von Domain Events und dem Platzieren dieser anhand eines Zeitstrahles.
 Zudem müssen alle Beteiligten am fortlaufenden Verfeinern eines Modells interessiert sein, da ein \ac{ES}-Workshop zum Lernen und Verbessern
 von Anwendungen gedacht ist.
-Ein Event Storming Board nach einem solchen Workshop ist in Abbildung~\ref{fig:rlBoard} dargestellt.
+Ein Event Storming Board\footnote{\url{https://www.softwarecraftsperson.com/2021/04/25/event-storming/}}
+nach einem solchen Workshop ist in Abbildung~\ref{fig:rlBoard} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/2.2/parseTreeExample}
-    \caption{Interner ParseTree}
+    \includegraphics[width=0.75\textwidth]{images/2.1/event-storming}
+    \caption{Event Storming Board}
     \label{fig:rlBoard}
 \end{figure}
 
-\todo{Fig beschreiben}
+Nachdem initial Domain Events beim \ac{ES} erstellt wurden, soll jedem ein Command vorausgesetzt werden.
+Ein Command fungiert hierbei als die Aktion, welche das Event ausgelöst hat.
+Dies können Aktionen eines Nutzers oder externen Systems sein.
+Während eines Workshops können sogenannte \textit{Hotspots} in Gesprächen entdeckt werden.
+Dabei kann es sich um Probleme aber auch Fragen bezüglich des Ablaufs handeln, welche wichtig für die spätere Anwendung werden.
 
-\todo{Verschiednene Arten der Benutzung -> Big picture, design level, ....}
-
-\todo{Erweiterbarkeit von notes bezogen uf den kontext -> Überleitung zum nächsten kapitel}
+Wie auch das~\ac{DDD} kann Event Storming jederzeit während des Entwicklungsprozesses verwendet werden.
+Für die verschiedenen Anwendungsbereiche hat Brandolini mehrere Typen des Event Stormings definiert.
+Hierbei bleibt die Methodik an sich die gleiche, allerdings wird das Ziel genauer definiert.\newline
+\textbf{Big Picture EventStorming} wird während eines Kick-off Meetings eingesetzt, damit alle Teilnehmer den Inhalt und den Bereich der zur erstellenden Anwendung kennenlernen.
+Hierzu ist es nötig, dass alle Interessengruppen vertreten sind, welche innerhalb des Unternehmens existieren und ebenfalls eine Entscheidungsgewalt innehaben.\newline
+\textbf{Design Level EventStorming} findet auf einer tieferen Ebene einen Einsatz.
+Dabei handelt es sich um das Erstellen möglicher Implementierungen, zum Beispiel, ob Event Sourcing oder andere Techniken aus dem~\ac{DDD} verwendet werden sollen.
+Es werden somit Entscheidungen getroffen, welcher in erster Linie die Entwickler betrifft und von diesen am besten zu bewerten ist.\newline
+\textbf{Value-Driven EventStorming} bietet einen Einstieg in die Wertstromanalyse (englisch: value-stream mapping).
+Anhand einer solchen Analyse ist es möglich den Erhalt von Informationen und der Verarbeitung dieser darzustellen und Probleme zu erkennen.\newline
+\textbf{UX-Driven EventStorming} konzentriert sich auf das Erlebnis eines Nutzers/Kunden bei der Benutzung der Anwendung.
+Hierbei wird neben der Nutzerfreundlichkeit auch die fehlerfreie Ausführung abgebildet und überprüft.\newline
+\textbf{EventStorming as a Retrospective} konzentriert sich darauf einen Ablauf über Domain Events zu definieren und nach
+Erweiterungsmöglichkeiten zu suchen, welche Vorteile für die Anwendung bereitstellen können.\newline
+\textbf{EventStorming as a Learning Tool} zeigt auch die weiteren Lernchancen innerhalb eines Unternehmens.
+Mittels Event Storming ist es somit auch möglich neue Angestellte möglichst schnell auf den aktuellen Stand zu bringen.
+Diese Art von Lernchancen ist ebenfalls im~\textbf{Big Picture EventStorming} enthalten.
 
 \subsection{Erweiterung}\label{subsec:erweiterung}
 \todo{Hier das vorherige Kapitel abwarten um alle Änderungen/Erweiterungen besser daran fest zu machen.}
