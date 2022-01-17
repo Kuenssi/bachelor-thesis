@@ -18,17 +18,37 @@ Diese einheitliche Sprache beschreibt Vernon als~\textit{Ubiquitous Language}.\f
 Eine allgegenwärtige Sprache (\textit{Ubiquitous Language}) zu entwickeln, ist ein fortlaufender Prozess.
 Initial ist es wichtig, dass zwischen den verschiedenen Domänenexperten und den Entwicklern diese einheitliche Sprache entsteht, welche
 nicht nur das Verständnis zwischen den beiden Parteien, sondern auch mit in das Modell einfließen soll.
-Vernon selbst nennt Event Storming, als eine Möglichkeit um eine~\textit{Ubiquitous Language} zu entwickeln.\footnote{Seite 112 folgende in~\cite*{dddd}}
-Wie zuvor bereits erwähnt ungeachtet, ob ein Projekt neu oder bereits seit zwei Jahren in Entwicklung ist.
 
 \subsection{Event Storming}\label{subsec:allgemein}
-\begin{itemize}
-    \item Alberto Brandolini und das ES
-    \item Wie verläuft so ein ES Workshop (Beschrieben in seinem Buch, mehrfach)
-    \item Wichtigsten Eckpunkte
-    \item Warum ist es besser als Brain Storming oder ähnliches?
-    \item Beispielhaftes Event Storming Board (Bild und beschreibungstext um später darauf bezug nehmen zu können)
-\end{itemize}
+Vernon selbst nennt Event Storming, als eine Möglichkeit um eine~\textit{Ubiquitous Language} zu entwickeln.\footnote{Seite 112, folgende in~\cite*{dddd}}
+Event Storming wurde von Alberto Brandolini entwickelt und resultiert aus mangelnder Zeit während der Nutzung von \textit{event-driven modeling}.
+\textit{Event-driven modeling} basiert ebenfalls auf Konversationen und konkreten Szenarien, allerdings mit der Verwendung von UML-Diagrammen zur Datenmodellierung.
+Dies hatte zur Konsequenz, dass in Gesprächen ab einem bestimmten Punkt nur noch die Entwickler daran teilnahmen.
+Brandolini verwarf UML-Diagramme und verwendete Haftnotizen und legte damit für das~\ac{ES}.\footnote{Seite 113 in~\cite*{dddd}}
+
+In seinem Buch, \textit{Introducing EventStorming}, beschreibt Brandolini mehrere Event Storming Workshops und wie diese durchgeführt wurden.\cite*{introES}
+Hierbei stellt sich heraus, dass Event Storming kein starres Konstrukt aus Abläufen ist, sondern je nach Kontext angepasst werden kann.
+Dennoch gibt es Ähnlichkeiten, welche eine solide Grundlage für ein Event Storming Workshop bieten.\footnote{Seite 23 in~\cite*{introES}}
+Neben einem grenzenlosen Platz zum Modellieren benötigt es genügend Marker und Haftnotizen in verschiedenen Formen und Farben.
+Die teilnehmenden Domänenexperten benötigen eine kollaborative Einstellung zur Modellierung, ein offenes Miteinander ungeachtet ihrer Stellung.
+Keine Grenzen zu dem Thema oder der Anwendung welche modelliert werden soll, um weitere Probleme oder Fragen zu lösen und beantworten zu können.
+Ein Event Storming beginnt immer mit dem Erstellen von Domain Events und dem Platzieren dieser anhand eines Zeitstrahles.
+Zudem müssen alle Beteiligten am fortlaufenden Verfeinern eines Modells interessiert sein, da ein \ac{ES}-Workshop zum Lernen und Verbessern
+von Anwendungen gedacht ist.
+Ein Event Storming Board nach einem solchen Workshop ist in Abbildung~\ref{fig:rlBoard} dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/2.2/parseTreeExample}
+    \caption{Interner ParseTree}
+    \label{fig:rlBoard}
+\end{figure}
+
+\todo{Fig beschreiben}
+
+\todo{Verschiednene Arten der Benutzung -> Big picture, design level, ....}
+
+\todo{Erweiterbarkeit von notes bezogen uf den kontext -> Überleitung zum nächsten kapitel}
 
 \subsection{Erweiterung}\label{subsec:erweiterung}
 \todo{Hier das vorherige Kapitel abwarten um alle Änderungen/Erweiterungen besser daran fest zu machen.}
