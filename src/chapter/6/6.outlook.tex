@@ -1,10 +1,37 @@
 \chapter{Ausblick}\label{ch:ausblick}
-\todo{Einbindung des Web-Editors in fulib.org}
 
-fulib.org sammelplattform für alle fulib bezüglichen Bestandteile -> Alles der fujaba tool suite an einem ort
+Die im Web-Editor vorhandenen Beispiele wurden in dem Editor selbst beschrieben.
+Bei der Arbeit mit der Anwendung sind mehrere Feature-Anfragen aufgekommen.
+Die Autovervollständigung im Codeeditor ist bisher nicht kontext abhängig.
+Es werden immer alle möglichen Schlüsselwörter angeboten, auch wenn diese nach dem JSON-Schema nicht valide sind.
+Hier erhält man erst bei dem Beginn der Generierung und der damit einhergehenden Validierung der Beschreibung ein Feedback.
+Um die Arbeit mit dem Tool für den Entwickelnden zu erleichtern, sollte diese Autovervollständigung verbessert werden und abhängig vom Kontext
+sinnvolle Vorschläge machen.
+Das eben erwähnte Feedback wird im Fehlerfall als Toast angezeigt, hierbei hat die Fehlermeldung eine bestimmte Form, welche nicht in jedem Fall aussagekräftig ist.
+Zudem wird zwar angezeigt, welches Element falsch ist, diese Stelle wird aber weder farblich hervorgehoben noch fokussiert.
 
-\todo{Verwendung des Tools in der Lehre des Fachgebiets}
+Im Gespräch mit dem Experten aus Kapitel~\ref{sec:expertengespraech} entstanden ebenfalls weitere Funktionen, welche für die Verwendung des Tools in der Praxis von Vorteil wären.
+\todo{Das aus dem Video rausholen (Übersicht -> Mehr Viewelemente -> Bild hochladen für Personalisierung(Branding) -> APis ansprechen und daten darstellen?)}
 
-\todo{Erweiterungen die mir aufgefallen sind}
+Wie bereits in Kapitel~\ref{subsec:erweiterung} angedeutet wurde, soll das in dieser Arbeit erstellte Tool auch einen Einsatz in der Lehre bekommen.
+In der Veranstaltung \textit{Programmieren und Modellieren} wird den Studierenden die Methodik der objektorientierten Programmierung beigebracht.
+Hierfür wurde bereits in vorherigen Semestern zur Generierung von Datenmodellen in Java die Bibliothek \textit{fulib} verwendet.
+Doch auch fulibScenarios, welches die Datenmodellgenerierung über eine natürliche Sprache übernimmt, wurde als eine mögliche Alternative ausprobiert.
+fulibWorkflows soll ebenfalls als eine mögliche Alternative zur Fulib-Notation ausprobiert werden.
+Eine weitere Veranstaltung ist \textit{Microservices}, bei welche Studierende eine Einführung in die Web-Entwicklung und die Verwendung von
+Microservices erhalten.
+Da es sich dabei um separate System handelt, welche miteinander kommunizieren, um Daten zu übertragen, ist die Architektur schwierig greifbar.
+Hierfür soll die Verwendung des mittels fulibWorkflows generierten Event Storming Boards als Unterstützung zum Verständnis der Abläufe dienen.
 
-\todo{Erweiterungen von Adam und anderen}
+Studierende haben bereits in vergangenen Instanzen der Veranstaltung~\textit{Programmieren und Modellieren} die Web-Anwendung
+
+\-\hspace{5cm}\url{https://fulib.org/}
+
+kennengelernt.
+Dort ist es möglich auf fulib basierende Anwendungen zu verwenden.
+Neben einer natürlichsprachigen Beschreibung eines Datenmodells besteht ebenfalls die Möglichkeit ein vorgefertigtes Gradle-Projekt zu exportieren.
+Da auch fulibWorkflows ein Teil der \textit{Fujaba Tool Suite} ist, soll der in dieser Arbeit erstellte Web-Editor in fulib.org integriert werden.
+Somit werden Anwendungen, welche zur \textit{Fujaba Tool Suite} gehören, an einem Ort platziert und verwendet werden.
+Da der Web-Editor für fulibWorkflows und fulibScenarios Objekt- und Klassendiagramme generieren und diese Anzeigen, liegt ein Zusammenlegen nahe.
+Dies setzt voraus, dass fulibWorkflows ebenfalls die Generierung eines Klassenmodells mittels fulib in einem Gradle-Projekt bietet.
+Diese Funktion soll ebenfalls bereitgestellt werden, um den zuvor erwähnten Einsatz in der Lehre zu ermöglichen.
