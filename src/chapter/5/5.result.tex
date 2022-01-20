@@ -2,45 +2,26 @@
 Neben der Beantwortung der Frage, ob die Ziele aus Kapitel~\ref{sec:ziele} erreicht wurden, wird auch auf Probleme während
 der Implementierung eingegangen.
 
-\todo{Ich glaube, dass die beiden Nachfolgenden Absätze keinen Sinn machen. Eher das Endziel evaluieren mit diesen Teilschritten}
-Bevor die Frage nach der Erfüllung des Zieles einer Web-Anwendung, welche ein Event Storming unterstützen kann, beantwortet wird,
-werden zuerst die in Kapitel~\ref{sec:ziele} gesetzten Teilziele überprüft.
+\todo{Ist das Ergebnis eine Bereicherung für ES? (Adam mit rein mit ja ist cool), ABER es brauch noch erweiterungen die in Kapitel 6 kommen}
 
-Ob die Entwicklung einer Beschreibungssprache für Event Stormings erfolgreich war, zeigt sich erst, nachdem weitere Personen die Anwendung 
-ausprobiert haben und somit verwertbares Feedback entsteht.
-In erster Linie wurden Anpassungen an der Sprache durchgeführt, nachdem die im Web-Editor vorhandenen Beispiele, in der Anwendung selbst erstellt wurden.
-Ein Nutzerfeedback konnten in dieser Arbeit nicht in einem ausreichenden Maße überprüft werden.
-Allerdings ist zu erwähnen, dass die Beschreibungssprache durch die grundlegende YAML-Syntax einem Standard entspricht, welcher zum Beispiel in der Erstellung
-von Konfigurationsdateien, wie zum Beispiel GitHub Actions, verwendet wird.\footnote{https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow}
-Hierdurch ist eine grundlegend bekannte Syntax vorhanden und nur eine Begrenzung der zu erstellenden Elemente grundlegend neu.
-Diese Begrenzungen sind in der Dokumentation von fulibWorkflows ausführlich beschrieben.\footnote{\url{https://fujaba.github.io/fulibWorkflows/docs/definitions/}}
-
-Die Verarbeitung der Beschreibungssprache durch einen eigens erstellten Parser und die daraus resultierenden generierte Event Storming Board Datei
-
-
-\todo{Verarbeitung der Beschreibungssprache in benutzerfreundliche Formate -> Erfüllt?}
-\todo{Entwicklung einer Web-Anwendung zur Erstellung einer \ac{ES} Beschreibung -> Erfüllt?}
-\todo{Darstellung der verarbeiteten Beschreibung in der Web-Anwendung -> Erfüllt?}
-
-\todo{Nachdem das beantwortet ist -> Ist das Ergebnis eine Bereicherung für ES? (Adam mit rein mit ja ist cool), ABER es brauch noch erweiterungen die in Kapitel 6 kommen}
-
-
-\todo{Warum ist die Anwendung kein ersatz für sowas wie Miro oder vorort Arbeit?}
-Durch den Web-Editor könnte immer nur eine Person am Board arbeiten, das tritt mehrere Grundlagen des ES mit füßen.
-Alle sollen mitmachen, alle sollen frei post its aufhängen können.
-
+Abschließend ist zu sagen, dass die in dieser Arbeit erstellte Anwendung nicht als Ersatz für Stifte und Post-its, oder ein Online-Tool wie Miro, ersetzt.
+In seiner aktuellen Form ist die Anwendung lediglich ein unterstützendes Werkzeug für ein Event Storming, da ein Board lediglich von einer Person bearbeitet werden kann.
+Dies verstößt gegen eine Grundlage des Event Stormings, der Freiheit der Teilnehmer jeder Zeit neue Events zu erstellen.
+In dieser Arbeit wurde allerdings die Grundlage für ein Online-Tool geschaffen, aus welchem ein solcher Ersatz mit weiterer Arbeit werden kann.
+Dies wurde ebenfalls während des Expertengespräches bestätigt.\footnote{Anhang Expertengespräch ab Minute 51:06}
+Welche Erweiterungen hierfür getroffen werden müssten, werden in Kapitel~\ref{ch:ausblick} erläutert.
 
 Während dem Implementieren der Anwendung traten keine nennenswerten Probleme auf.
 Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
-Das Problem hierbei war die Nutzung von Graphviz zur Generierung der UML-Diagramme im Backend.
-Während der Generierung wurde eine zusätzliche Javascript Engine gestartet welche für Graphviz benötigt wurde.
+Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der UML-Diagramme im Backend.
+Während der Generierung wurde eine zusätzliche Javascript Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
 Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Error, welcher die Generierung aller Dateien beeinflusste.
 Somit konnten weder neue Event Storming Boards noch alle Funktionen bei den Mockups richtig generiert werden.
 Dies sorgte während des Expertengespräches für Pausen, in denen das Backend neu gestartet werden musste.
 Diese Neustarts mussten allerdings nach fast jeder Generierung wiederholt werden.
-Um diese Problematik zu umgehen wurde aus der Spring Boot Anwendung eine Jar erstellt und diese zusammen mit einer Graphviz Installation in einem Docker Image
+Um diese Problematik zu umgehen wurde aus der Spring Boot Anwendung eine Jar erstellt und diese zusammen mit einer \textit{Graphviz} Installation in einem Docker Image
 vereinigt.\cite*{size-problem}
-Somit muss keine zusätzliche Javascript Engine gestartet werden, da Graphviz über die vorinstallierte Distanz genutzt werden kann.
+Somit muss keine zusätzliche Javascript Engine gestartet werden, da \textit{Graphviz} über die vorinstallierte Instanz genutzt werden kann.
 Durch die Verwendung eines Docker Images musste das Deployment auf Heroku angepasst werden.
 Heroku bietet eine eigene Registry an, in welcher Docker Images bereitgestellt werden können.\footnote{https://devcenter.heroku.com/articles/container-registry-and-runtime}
 Nachdem dies funktionierte wurde die Anwendung mittels mehreren Generierungen großer Workflow Beschreibungen getestet und das Speicherproblem gelöst.
