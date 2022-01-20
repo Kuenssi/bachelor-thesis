@@ -2,8 +2,22 @@
 Neben der Beantwortung der Frage, ob die Ziele aus Kapitel~\ref{sec:ziele} erreicht wurden, wird auch auf Probleme während
 der Implementierung eingegangen.
 
+\todo{Ich glaube, dass die beiden Nachfolgenden Absätze keinen Sinn machen. Eher das Endziel evaluieren mit diesen Teilschritten}
+Bevor die Frage nach der Erfüllung des Zieles einer Web-Anwendung, welche ein Event Storming unterstützen kann, beantwortet wird,
+werden zuerst die in Kapitel~\ref{sec:ziele} gesetzten Teilziele überprüft.
 
-\todo{Enwicklung einer Beschreibungssprache für Event Storming -> Erfüllt?}
+Ob die Entwicklung einer Beschreibungssprache für Event Stormings erfolgreich war, zeigt sich erst, nachdem weitere Personen die Anwendung 
+ausprobiert haben und somit verwertbares Feedback entsteht.
+In erster Linie wurden Anpassungen an der Sprache durchgeführt, nachdem die im Web-Editor vorhandenen Beispiele, in der Anwendung selbst erstellt wurden.
+Ein Nutzerfeedback konnten in dieser Arbeit nicht in einem ausreichenden Maße überprüft werden.
+Allerdings ist zu erwähnen, dass die Beschreibungssprache durch die grundlegende YAML-Syntax einem Standard entspricht, welcher zum Beispiel in der Erstellung
+von Konfigurationsdateien, wie zum Beispiel GitHub Actions, verwendet wird.\footnote{https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow}
+Hierdurch ist eine grundlegend bekannte Syntax vorhanden und nur eine Begrenzung der zu erstellenden Elemente grundlegend neu.
+Diese Begrenzungen sind in der Dokumentation von fulibWorkflows ausführlich beschrieben.\footnote{\url{https://fujaba.github.io/fulibWorkflows/docs/definitions/}}
+
+Die Verarbeitung der Beschreibungssprache durch einen eigens erstellten Parser und die daraus resultierenden generierte Event Storming Board Datei
+
+
 \todo{Verarbeitung der Beschreibungssprache in benutzerfreundliche Formate -> Erfüllt?}
 \todo{Entwicklung einer Web-Anwendung zur Erstellung einer \ac{ES} Beschreibung -> Erfüllt?}
 \todo{Darstellung der verarbeiteten Beschreibung in der Web-Anwendung -> Erfüllt?}
@@ -16,19 +30,17 @@ Durch den Web-Editor könnte immer nur eine Person am Board arbeiten, das tritt 
 Alle sollen mitmachen, alle sollen frei post its aufhängen können.
 
 
-\todo{Probleme bei der Implementierung -> Heroku ist Hure.}
-
-\textbf{Der unterer Absatz muss noch mal in gut geschrieben werden}
-
-Das mit backend auf heroku ist bei der durchführung des Expertengesprächs während jeder Generierung in das Problem gelaufen,
-dass der gebotene Speicher überschritten wurde.
-Dadurch musste das Backend verhäuft neu gestartet werden, da die erstellten Mockups und Boards halb oder sogar gar nicht generiert wurde.
-Einige Funktionalitäten gingen dadurch verloren.
-Grund für den zu hohen Verbrauch des Speichers ist die Verwendung von Graphviz zur Generierung der UML-Diagramme.
-Dafür wurde von Spring Boot eine javascript engine initialisiert.
-Das zusammenspiel von Spring Boot und der gestarteten javascript engine war somit zu viel.
-Dieses Problem wurde gelöst, indem das Backend in ein eigenes Docker Image verpackt wurde, bei dem Graphviz explizit vorinstalliert wurde,
-um das Starten der javascript engine von spring boot zu umgehen.
-Dadurch musste die Art und Weise wie das Backend auf Heroku bereitgestellt wird geändert werden.\footnote{https://devcenter.heroku.com/articles/container-registry-and-runtime}
-Heroku bietet glücklicherweise die möglichkeit docker images in einer heroku eigenen registry zu hinterlegen und diese für eine app auszuführen.
-Damit funktioniert die Generierung beziehungsweise das Backend wieder und steht zum aktuellen Zeitpunkt wieder in seiner ganzen Funktionalität bereit.
+Während dem Implementieren der Anwendung traten keine nennenswerten Probleme auf.
+Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
+Das Problem hierbei war die Nutzung von Graphviz zur Generierung der UML-Diagramme im Backend.
+Während der Generierung wurde eine zusätzliche Javascript Engine gestartet welche für Graphviz benötigt wurde.
+Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Error, welcher die Generierung aller Dateien beeinflusste.
+Somit konnten weder neue Event Storming Boards noch alle Funktionen bei den Mockups richtig generiert werden.
+Dies sorgte während des Expertengespräches für Pausen, in denen das Backend neu gestartet werden musste.
+Diese Neustarts mussten allerdings nach fast jeder Generierung wiederholt werden.
+Um diese Problematik zu umgehen wurde aus der Spring Boot Anwendung eine Jar erstellt und diese zusammen mit einer Graphviz Installation in einem Docker Image
+vereinigt.\cite*{size-problem}
+Somit muss keine zusätzliche Javascript Engine gestartet werden, da Graphviz über die vorinstallierte Distanz genutzt werden kann.
+Durch die Verwendung eines Docker Images musste das Deployment auf Heroku angepasst werden.
+Heroku bietet eine eigene Registry an, in welcher Docker Images bereitgestellt werden können.\footnote{https://devcenter.heroku.com/articles/container-registry-and-runtime}
+Nachdem dies funktionierte wurde die Anwendung mittels mehreren Generierungen großer Workflow Beschreibungen getestet und das Speicherproblem gelöst.
