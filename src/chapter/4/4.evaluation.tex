@@ -1,38 +1,50 @@
 \chapter{Evaluation}\label{ch:evaluation}
-In diesem Kapitel wird mittels eines Expertengespräches eine Einschätzung über die Erfüllung der in
-Kapitel~\ref{sec:ziele} definierten Ziele eingeholt.
-Weiterhin sollte durch das Durchgehen der vorhandenen Beispiele aus der erstellten Anwendung Probleme und/oder weitere
-Funktionen erkannt werden.
+In diesem Kapitel wird mittels eines Expertengespräches die bisher in dieser Arbeit gesammelten Erkenntnisse über Event Storming diskutiert.
+Aus dieser Diskussion und einer anschließenden Präsentation des erstellten Web-Editors, wird evaluiert, ob die zu Beginn in Kapitel~\ref{sec:ziele}
+gesetzten Ziele aus der Sicht des Experten erfüllt wurden.\newline
+Eine Aufnahme des gesamten Gespräches ist über den QR-Code im Anhang erreichbar.
 
 \section{Expertengespräch}\label{sec:expertengespraech}
-\todo{This section is the last one i have to do!}
+Bevor dem Experten die in dieser Arbeit erstellte Anwendung präsentiert wurde, wurden Probleme beim~\ac{RE}, welche aus den Erfahrungen des Experten
+hervorgingen, evaluiert.
+Direkt zu Beginn des Gespräches bestätigte sich, dass es bei Gesprächen mit Kunden eine diskrepanz zwischen beschriebenen Benutzeroberflächen und der
+tatsächlichen Implementierung gekommen ist.\footnote{Anhang Expertengespräch ab Minute 1:30}
+Dabei fallen, wie in Kapitel~\ref{sec:motivation} beschrieben, Probleme bei der Benutzung einer Anwendung erst nach einer Implementierung auf, wodurch
+weitere Anpassungen getätigt werden müssen.
+Durch eben diese Anpassungen entstehen während der Softwareentwicklung weitere Kosten, da erneut Gespräche mit dem Kunden darüber geführt werden müssen,
+wie Oberflächen auszusehen haben, welche Funktionen noch fehlen oder falsch verstanden wurden.
+Daraus resultiert, dass es mit einem entsprechendem Tooling, egal ob eine Methodik des Requirements Engineerings oder eine Anwendung zur Mockup Generierung,
+ermöglicht werden kann eine Kostenreduzierung für das Unternehmen zu erreichen.\footnote{Anhang Expertengespräch ab Minute 3:43}\newline
+Da als Methodik für diese Arbeit das \ac{ES} gewählt wurde, wurde ebenfalls darüber diskutiert, ob das~\ac{DDD} und~\ac{ES}, auch in der praktischen
+Anwendung während der Arbeit des Experten für ein produktiveres Arbeiten gesorgt hat.
+Die Erkenntnisse und Beschreibung aus Kapitel~\ref{sec:event-storming} konnten vom Experten bestätigt werden.\footnote{Anhang Expertengespräch ab Minute 4:58}
+Dies bezieht sich sowohl auf Bestandteile des \ac{DDD} als auch die Verwendung von Event Storming für initiale Meetings.
+Hierbei wurde vor allem auf das Verständnis des Prozesses währen einer Event Storming Session eingegangen.
+Nicht nur Entwickler konnten dadurch besser verstehen, was für eine Anwendung benötigt worden, auch Teilnehmer aus dem Unternehmen erlangten
+einen besseren Überblick über Bereiche in welchen diese nicht arbeiten.\newline
+Für Event Storming Session wurden bereits Online-Anwendungen verwendet, dies geschah in erster Linie aufgrund der Covid-Pandemie.\footnote{Anhang Expertengespräch ab Minute 12:20}
+Dadurch wurde Miro\footnote{bereits in Kapitel~\ref{sec:existierende-konzepte} beschrieben}, ein interaktives Online-Whiteboard, für Event Stormings verwendet.\newline
+Beim \ac{ES} werden bei einem Gespräch mit Kunden keine UML Diagramme zur Ermittlung eines Datenmodells verwendet,
+da diese für nicht technisch versierte Personen keinen Mehrwert bieten.\footnote{Anhang Expertengespräch ab Minute 9:35}
+Dennoch wird der generelle Einsatz von UML Diagrammen vor Entwicklungsstart einer Anwendung nicht als sinnlos erachtet,
+da sich Entwickler im vorhinein ein Datenmodell überlegen können, um daraus weitere Fragen gegenüber den Kunden zu stellen.
 
-Zuerst Fragen gestellt um Probleme beim RE herauszufinden und Adams Erfahrungen dazu zu sammeln.
-
-Probleme bei UIs -> Differenz zwischen mockup und implementierung/nutzung -> Bezug auf die Motivation nehmen\footnote{Anhang Expertengespräch ab Minute 1:30}
-
-Mit entsprechendem Tooling kostenredzuierung für unternehmen\footnote{Anhang Expertengespräch ab Minute 3:43}
-
-Event Storming Fragen in der Praxis, entspricht das dem was vaughn vernon und brandolini sagten\footnote{Anhang Expertengespräch ab Minute 4:58}
-
-UML in Event Storming nicht mehr enhalten, dennoch irgendwo sinnvoll?\footnote{Anhang Expertengespräch ab Minute 9:35}
-
-Nutzung von Online Tool während Pandemie oder genereller Arbeit? -> Miro, bezug auf einleitung nehmen\footnote{Anhang Expertengespräch ab Minute 12:20}
-
-Adam hat sich vorgestellt wie das Tool von ihm in der Praxis verwendet werden könnte, daraus kamen folgende Kommentare
-
-- UML Datenmodellierung -> Editor nah an sowas wie dbdiagram.io was er schon nutzte für Datenmodellierung in der ersten Phase des RE\footnote{Anhang Expertengespräch ab Minute 29:29}
-
-- Workflows -> Anordnung an einem Zeitstrahl damit genau das was beim ES auch gemacht wird -> Gut\footnote{Anhang Expertengespräch ab Minute 39:17}
-
-- UI Probleme vom Anfang könnten durch die Anwendung gelöst werden -> Clickdummy
-der schnell generiert werden kann während ES session ->
-Gefällt ihm kann er sich gut vorstellen -> Ist aber mit Vorsicht zu genießen\footnote{Anhang Expertengespräch ab Minute 33:40}
-
-\section{Auswertung}\label{sec:auswertung}
-Während des Expertengespräches wurden Probleme besprochen, welche während dem \ac{RE} entstehen und welche Auswirkungen haben, um festzustellen,
-ob die in dieser Arbeit präsentierte Anwendung alle oder einen Teil dieser Probleme lösen könnte.
-Hierbei hat sich der Experte nach einer kurzen Präsentation der Anwendung vorgestellt, diese in der Praxis zu nutzen und sieht dafür
-Anwendungsbereiche, in erster Linie die Generierung der Mockups und der Verknüpfung, welche Klickdummy fungieren kann.\footnote{Anhang Expertengespräch ab Minute 42:25}
-Dies bestätigt, dass die Anwendung einen positiven Beitrag zu einem Event Storming leisten kann.
+Nachdem grundlegende Probleme aus der Praxis und verwendete Technologien und Techniken während dem ersten Teil des Gespräches festgelegt waren,
+folgte die Vorstellung der Anwendung und allen dazugehörigen Funktionen.
+Da eine der Funktionen der Anwendung, das Erstellen von Datenmodellen mittels UML Diagrammen ist, verwies der Experte an den ähnlichen Aufbau der Anwendung
+zu anderen Datenmodellierungs-Tools wie~\textit{dbdiagram.io}.
+Dies kam bereits in der Praxis zum Einsatz, um ein Datenmodell für Datenbanken zu erstellen.
+Ebenso wie das in dieser Arbeit erstellte Tool, existiert dort ebenfalls ein Editor, in welchem mittels einer Beschreibungssprache ein Diagramm erzeugt wird,
+welches ein grundlegendes Datenmodell darstellt.
+Dies sei wie zuvor erwähnt besonders in der ersten Phase der Softwareentwicklung, dem~\ac{RE}, von Nutzen.\footnote{Anhang Expertengespräch ab Minute 29:29}\newline
+Ebenfalls fiel auf, dass die Darstellung des Event Storming Boards in mehreren Workflows, ebenfalls einer Anordnung an einem Zeitstrahl gleicht.
+Es wird somit ein zeitlicher Ablauf über Events modelliert, dies ist im \ac{ES} ebenfalls der Fall, wodurch die Unterteilung in Workflows nicht dazu führt,
+dass ein Grundbaustein des \ac{ES} verloren geht.\footnote{Anhang Expertengespräch ab Minute 39:17}\newline
+Das zu Beginn beschriebene Problem von Diskrepanzen bei der Entwicklung von Oberflächen wurde durch die Möglichkeit der Generierung von
+Mockups, welche grundlegende Funktionalität aufweisen, positiv aufgefasst.
+Durch die Möglichkeit Mockups über Buttons untereinander zu verknüpfen, kann in der Anwendung ein Klickdummy erstellt werden.
+Bei einem Klickdummy handelt es sich um Oberflächen, welche so miteinander verbunden sind, sodass diese eine Anwendung emulieren.
+Durch eine Generierung dieser während einer Event Storming Session könne man den späteren Nutzer, solange diese innerhalb der Teilnehmer sind,
+ihren Arbeitsablauf anhand des Klickdummies durchführen lassen.
+Daraus kann bereits vor Start der Entwicklung auf Probleme und Ungereimtheiten bei der Modellierung gelöst werden.\footnote{Anhang Expertengespräch ab Minute 33:40}\newline
 Es wurden zudem weitere Funktionen besprochen, welche einen positiven Effekt auf die Verwendung haben können, diese werden in Kapitel~\ref{ch:ausblick} ausgeführt.
