@@ -19,26 +19,26 @@ In Gesprächen mit dem Kunden die korrekten Anforderungen zu verstehen und umzus
 \section{Motivation}\label{sec:motivation}
 Um komplexe Arbeitsabläufe zu Beginn einer Softwareentwicklung zu verstehen, existiert die Methode des Event Stormings von Alberto Brandolini.
 Hierbei setzen sich Entwickler und Domänenexperten zusammen und erarbeiten in einem Workshop die in der Software darzustellenden Arbeitsabläufe.
-Sobald die Anwendung eine Benutzeroberfläche benötigt, benötigt es ebenso Mockups, wodurch die Entwickler Vorschläge für eine Benutzeroberfläche
+Sobald eine Anwendung Benutzeroberflächen enthält, benötigt es ebenso Mockups, wodurch die Entwickler Vorschläge für eine Benutzeroberfläche
 darlegen können, um ein schnelles Feedback der Kunden zu erlangen.
-Diese beiden Methodiken können die zuvor hervorgebrachten Probleme lösen.
+Diese beiden Methodiken können die soeben beschriebenen Probleme lösen.
 Doch während dem Event Storming können bereits Aussagen über eine mögliche Benutzeroberfläche getroffen werden.
 Eine Kombination aus den beiden Methodiken könnte somit einen größeren Nutzen mit sich ziehen.
-Aus dieser Idee resultiert das Thema dieser Arbeit und dem Versuch das Event Storming sinnvoll zu erweitern beziehungsweise den Prozess zu unterstützen.
+Aus dieser Idee resultiert das Thema dieser Arbeit und der Versuch das Event Storming sinnvoll zu erweitern beziehungsweise den Prozess zu unterstützen.
 
 \section{Ziele}\label{sec:ziele}
 Aus der Motivation lassen sich mehrere Ziele extrahieren:
 
 \begin{itemize}
-    \item Entwicklung einer Beschreibungssprache für Event Storming
+    \item Entwicklung einer Beschreibungssprache für \ac{ES}
     \item Verarbeitung der Beschreibungssprache in benutzerfreundliche Formate
-    \item Entwicklung einer Web-Anwendung zur Erstellung einer \ac{ES} Beschreibung
+    \item Entwicklung einer Web-Anwendung zur Erstellung einer \ac{ES}-Beschreibung
     \item Darstellung der verarbeiteten Beschreibung in der Web-Anwendung
 \end{itemize}
 
 Das Ergebnis dieser Arbeit soll alle vorherigen Ziele erfüllen, somit soll eine Web-Anwendung entwickelt werden,
-welche den Ablauf eines Event Storming Workshops unterstützt.
-Zusätzlich soll auch nach einem solchen Workshop die Möglichkeit vorhanden sein auf diese Daten zugreifen und Aktualisierungen
+welche den Ablauf eines \ac{ES}-Workshops unterstützt.
+Zusätzlich soll auch nach einem solchen Workshop die Möglichkeit vorhanden sein auf diese Daten zuzugreifen und Aktualisierungen
 im Verlauf der Entwicklung vornehmen zu können.
 
 
@@ -47,14 +47,15 @@ Event Storming, wie es klassisch von Alberto Brandolini entwickelt wurde, basier
 Dadurch kann jede Person, welche am \ac{ES} teilnimmt, frei und jederzeit neue Events erstellen und anbringen.
 Sollte ein Zusammenkommen in einem Raum nicht möglich sein, sei es durch internationale Teilnehmer oder, wie es momentan der Fall ist,
 durch eine Pandemie, welche aufgrund von Sicherheitsmaßnahmen kein Treffen mit größeren Gruppen ermöglicht, können Online-Tools genutzt werden.
-Beispiele für interaktive Online Boards sind Miro\footnote{https://miro.com/}, Conceptboard\footnote{https://conceptboard.com/} und MURAL\footnote{https://www.mural.co/}.
+Ein Beispiel für ein interaktives Online-Board ist Miro.\footnote{https://miro.com/}
 Hierbei kann jeder Teilnehmer ebenfalls selbstständig neue Events erstellen und auf dem Board platzieren.
+Zudem können Kommentare zu bestehenden Events hinzugefügt werden.
 Diese Aktualisierungen werden für alle Teilnehmer synchronisiert.
 
 
 \section{Aufbau der Arbeit}\label{sec:aufbau-der-arbeit}
 In Kapitel~\ref{ch:grundlagen} werden zuerst die Grundlagen des~\ac{ES} und die verwendeten Technologien
-zur Erstellung der zuvor erwähnte Anwendungen erläutert.
+zur Erstellung der zuvor erwähnten Anwendungen erläutert.
 Hierbei sind die Technologien entsprechend der zugehörigen Anwendung zugeordnet.
 Anschließend befasst sich Kapitel~\ref{ch:implementierung} mit der Implementierung der Anwendungen.
 Dabei wird genauer auf die Anwendung der aus Kapitel~\ref{ch:grundlagen} erläuterten Technologien eingegangen.
