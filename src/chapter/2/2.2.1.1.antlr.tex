@@ -1,7 +1,8 @@
 \subsubsection{Antlr}\label{subsubsec:antlr}
 \ac{Antlr} bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
-Die Grammatik muss Links ableitend sein und ist in~\ac{EBNF} definiert.
+Die Grammatik muss linksableitend sein und ist in erweiterter Backus-Naur-Form definiert.
 Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines~\textit{Parse trees}.
+Bei einem~\textit{Parse tree} handelt es sich um einen Syntaxbaum, in welchem über eine hierarchische Struktur ein Text in mehrere Knoten unterteilt wird.
 Hierdurch ergibt sich die Möglichkeit, während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
 \begin{listing}[!ht]
@@ -16,8 +17,7 @@ Es existieren drei nicht-terminale Regeln, welche für den generierten Parser wi
 Die Grammatik kann mehrere Properties verarbeiten, welche aus einer ID, einem Gleichheitszeichen und einem Wert bestehen.
 Hierbei ist in Zeile 4 zu erkennen, dass nach jeder Property eine neue Zeile begonnen werden muss.
 Ein Wert kann entweder ein String oder eine ID sein.
-\textit{STRING} und \textit{ID}  sind terminale Regeln, welche im generierten Lexer angesiedelt sind.
-Diese definieren einen finalen Knoten für einen Ast des Parse Trees.
+\textit{STRING} und \textit{ID} sind terminale Regeln, welche einen finalen Knoten für einen Ast des Parse Trees darstellen.
 
 Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
 Eine zulässige Eingabe für die festgelegte Grammatik aus Listing~\ref{listing:grammar-example} ist in Listing~\ref{listing:prop-input} dargestellt.
@@ -33,20 +33,20 @@ title="Supreme dictator for life"
 \end{listing}
 
 Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
-Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels dem Antlr Plugin für IntelliJ generiert.
+Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels des Antlr-Plugins für IntelliJ generiert.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{images/2.2/parseTreeExample}
-    \caption{Interner ParseTree}
+    \caption{Interner Parse Tree}
     \label{fig:parse-example}
 \end{figure}
 
 Hierbei ist ersichtlich, dass die Wurzel bei der obersten Regel~\textbf{file} beginnt und alle weiteren Kindknoten durch \textbf{prop} Regeln kreiert wurden.
-Beide Properties besitzen eine ID und einen Wert, welcher durch ein Gleichheitszeichen und einen Zeilenumbruch, umklammert ist.
+Beide Properties besitzen eine ID und einen Wert, welcher durch ein Gleichheitszeichen und einen Zeilenumbruch umklammert ist.
 Der zugeordnete Wert ist bei den Properties dieses Beispieles allerdings unterschiedlich in \textit{ID} und \textit{STRING} aufgeteilt.
 Dies entsteht durch die Unterscheidung bei der Grammatik in Terminale und Nicht-Terminale.
-Hierbei werden wie in Listing~\ref{listing:grammar-example} dargestellt Nicht-Terminale Regeln kleingeschrieben und Terminale Regeln werden in Großbuchstaben verfasst.
+Hierbei werden wie in Listing~\ref{listing:grammar-example} dargestellt nicht-terminale Regeln kleingeschrieben und terminale Regeln werden in Großbuchstaben verfasst.
 In der vereinfachten Grammatik sind lediglich ganze Zahlen als Eingabe erlaubt.
 
 Dies sind lediglich die Grundlagen von Antlr, auf die genauere Verwendung des generierten Parsers und Besonderheiten der Grammatik wird in Kapitel~\ref{subsec:antlr-grammatik},

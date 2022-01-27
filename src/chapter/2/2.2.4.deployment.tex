@@ -1,28 +1,28 @@
 \subsection{Deployment}\label{subsec:deployment}
-Im folgenden Kapitel werden die Technologien, welche für die Bereitstellung einer Java-Bibliothek und einer Web-Anwendung, verwendet werden können, behandelt.
-Hierbei wird MavenCentral für Java-Bibliotheken und Heroku für Web-Anwendungen festgelegt, da diese für die in dieser Arbeit erstellten
-Anwendungen verwendet werden.
+Im folgenden Kapitel werden die Technologien, welche für die Bereitstellung einer Java-Bibliothek und einer Web-Anwendung verwendet werden können, behandelt.
+Hierbei wurde für \textit{fulibWorkflows} die Plattform Maven Central und Heroku für Web-Anwendungen gewählt.
 
-\subsubsection{MavenCentral}\label{subsubsec:mavencentral}
-\textit{Maven Central} ist ein Archiv von Software Artefakten für Java Entwicklung.
+\subsubsection{Maven Central}\label{subsubsec:mavencentral}
+\textit{Maven Central} ist ein Archiv von Software-Artefakten für die Softwareentwicklung mit Java.
 Artefakte können \ac{SDK} oder Bibliotheken sein, welche von Entwicklern bereitgestellt werden, um diese zentralisiert bereitzustellen
-und den Aufwand der Konfiguration für andere Entwickler möglichst gering zu halten.\cite*{maven}
+und den Aufwand der Konfiguration für andere Entwickler möglichst gering zu halten.
 Veröffentliche Artefakte können in verschiedenen Build Management Tools verwaltet werden, zum Beispiel Gradle oder Maven.
-\textit{Maven Central} wurde von der Apache Software Foundation im Jahr 2002 ins Leben gerufen.
+\textit{Maven Central} wurde von der Apache Software Foundation im Jahr 2002 ins Leben gerufen\cite*{maven}.
 
 \subsubsection{Heroku}\label{subsubsec:heroku}
-Der in dieser Arbeit erstellte Web-Editor soll für jedermann zugänglich sein.
+Der in dieser Arbeit erstellte Web-Editor soll frei zugänglich sein.
 \textit{Heroku} ist eine Möglichkeit kostenlos und schnell Web-Anwendungen bereitzustellen.
-Bei Heroku handelt es sich um eine sogenannte \ac{CPaaS}, welche es ermöglicht in einer Cloud Umgebung
-Services verschiedener Arten und Programmiersprachen bereitzustellen.\cite*{heroku}
+Bei Heroku handelt es sich um eine sogenannte~\ac{CPaaS}, welche es ermöglicht in einer Cloud-Umgebung
+Services verschiedener Arten und Programmiersprachen bereitzustellen\cite*{heroku}.
 
-Um eine Anwendung über Heroku bereitzustellen bedarf es einem Account bei Heroku.
+Um eine Anwendung über Heroku bereitzustellen bedarf es eines Accounts bei Heroku.
 Dies ist für kleine Anwendungen oder zum Ausprobieren bereits ausreichend.
 Entwickler können bis zu fünf Anwendungen über einen kostenlosen Account gleichzeitig bereitstellen.
-Zudem erhalten Entwickler über die Heroku CLI ein weiteres Tool zum Hochladen des Codes und damit auch dem automatischen
+Zudem erhalten Entwickler über die Heroku-CLI ein weiteres Tool zum Hochladen des Codes und damit auch zum automatischen
 Bauen und Bereitstellen der Anwendung.
 Über Logs können Fehler in der Web-Ansicht einer Applikation gesichtet und analysiert werden.
 
-Im \textit{Heroku Dev Center} stehen zahlreiche Tutorials bereit, um verschiedenste Anwendungen bereitzustellen.
-Hierunter zählen unter anderem Node.js Applikationen und Java/Gradle Anwendungen.\cite*{herokuDev}
+Im~\textit{Heroku Dev Center} gibt es zahlreiche Tutorials, welche als Anleitung für die Bereitstellung verschiedenster Anwendungen dienen.
+Hierunter zählen unter anderem Node.js-Applikationen und Java- / Gradle-Anwendungen, welches sowohl das Frontend als auch das Backend
+des Web-Editors dieser Arbeit abdeckt.\cite*{herokuDev}.
 Über diese Tutorials ist es möglich mit geringem Aufwand eine lokale Anwendung für das Deployment vorzubereiten.
