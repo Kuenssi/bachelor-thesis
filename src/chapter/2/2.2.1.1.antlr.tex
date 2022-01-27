@@ -18,8 +18,6 @@ Die Grammatik kann mehrere Properties verarbeiten, welche aus einer ID, einem Gl
 Hierbei ist in Zeile 4 zu erkennen, dass nach jeder Property eine neue Zeile begonnen werden muss.
 Ein Wert kann entweder ein String oder eine ID sein.
 \textit{STRING} und \textit{ID} sind terminale Regeln, welche einen finalen Knoten für einen Ast des Parse Trees darstellen.
-
-Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
 Eine zulässige Eingabe für die festgelegte Grammatik aus Listing~\ref{listing:grammar-example} ist in Listing~\ref{listing:prop-input} dargestellt.
 
 \begin{listing}[!ht]
@@ -32,8 +30,10 @@ title="Supreme dictator for life"
     \label{listing:prop-input}
 \end{listing}
 
-Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über Tools bereits vor einer Generierung von Code durchgeführt werden.
-Hierzu wurde das Diagramm aus Abbildung~\ref{fig:parse-example} mittels des Antlr-Plugins für IntelliJ generiert.
+Die zuvor beschriebene Grammatik kann mittels weiterer Tools auf eine Eingabe geprüft werden.
+Eines dieser Tools ist das Antlr-Plugin für~\textit{IntelliJ}.
+Die Überprüfung auf die Richtigkeit einer Eingabe oder auch der Grammatik kann über das Plugin bereits vor einer Generierung von Code durchgeführt werden.
+Weiterhin ist es möglich einen Parse Tree zu generieren, was in Abbildung~\ref{fig:parse-example} betrachtet werden kann.
 
 \begin{figure}[h]
     \centering
