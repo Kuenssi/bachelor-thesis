@@ -2,7 +2,6 @@
   "type": "array",
   "additionalItems": false,
   "$defs": {
-    ....
     "pageItem": {
       "description": "Defines a ui page",
       "type": "object",
@@ -19,7 +18,6 @@
   },
   "items": {
     "oneOf": [
-      ....
       {
         "$ref": "#/$defs/pageItem"
       },

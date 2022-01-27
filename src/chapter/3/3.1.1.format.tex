@@ -1,4 +1,4 @@
-\subsection{Workflow Format}\label{subsec:workflow-format}
+\subsection{Workflow-Format}\label{subsec:workflow-format}
 Bevor in Kapitel~\ref{subsec:antlr-grammatik} auf den Parser und die Grammatik einer Workflowbeschreibung eingegangen wird,
 ist es nötig das Format in welcher ein Workflow beschrieben werden muss, näher zu beleuchten.
 Die Grundlage des Formats bildet \ac{YAML}, hierbei handelt es sich allerdings um eine stark begrenzte YAML-Syntax, welche verwendet werden kann.
@@ -6,26 +6,26 @@ Näheres zu den Beschränkungen der Syntax wird in Kapitel~\ref{subsec:schema} e
 
 \begin{listing}[!ht]
     \inputminted{yaml}{listings/3.1.1/allNotes.es.yaml}
-    \caption{Beispiel aller vorhandenen ``Post-Its''}
+    \caption{Beispiel aller vorhandenen ``Post-its''}
     \label{listing:workflowNotes}
 \end{listing}
 
 In Listing~\ref{listing:workflowNotes} sind alle möglichen Post-its aufgelistet.
-Im weiteren Verlauf wird für einen Post-It das Wort Zettel verwendet, da es sich bei jedem Element in der Beschreibung um einen einzelnen Zettel aus dem Event Storming handelt.
+Im weiteren Verlauf wird für einen Post-it das Wort Zettel verwendet, da es sich bei jedem Element in der Beschreibung um einen einzelnen Zettel aus dem Event Storming handelt.
 Als Beispiel für einen Workflow ist hierbei die Registrierung eines neuen Benutzers auf einer Webseite in vereinfachter Form dargestellt.
 Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.3.5, von fulibWorkflows aufgelistet und deren Funktion erläutert.
 
 \largerText{workflow}
 
 Zum Darstellen eines oder mehrerer Workflows benötigt es den \textit{workflow}-Zettel.
-Diesem kann lediglich ein Name zugeordnet werden, allerdings werden alle weiteren Zettel unter einem workflow-Zettel eben diesem Workflow zugewiesen.
+Diesem kann lediglich ein Name zugeordnet werden, allerdings werden alle weiteren Zettel unter einem workflow-Zettel ebendiesem Workflow zugewiesen.
 Pro Workflowbeschreibung benötigt es somit mindestens einen workflow-Zettel.
 Im vorherigen Beispiel gibt es einen Workflow mit dem Namen~\textit{User Registration}.
 
 \largerText{service}
 
 Durch den \textit{service}-Zettel werden Services bereitgestellt.
-Diese sind lediglich zur Strukturierung des Workflows und dem später daraus entstehenden Event Storming Board da.
+Diese sind lediglich zur Strukturierung des Workflows und dem später daraus entstehenden~\ac{ES}-Board da.
 Hiermit kann erreicht werden, dass die nach einem service-Zettel folgenden Zettel von dem vorherigen Service ausgeführt werden.
 Im Beispiel aus Listing~\ref{listing:workflowNotes} gibt es nur einen Service, dieser kümmert sich um die Nutzerverwaltung, daher
 stammt auch der Name~\textit{User management}.
@@ -43,8 +43,8 @@ Im obigen Workflow Beispiel, gibt es das Problem, dass das Validieren einer E-Ma
 
 Aus dem~\textit{Domain Event} aus dem Event Storming ist die verkürzte Version \textit{event} als Indikator für einen weiteren Zettel geworden.
 Hierbei wird eine Beschreibung eines Events in der Vergangenheitsform als Bezeichnung verwendet.
-Dies bezieht sich auf eine Aktion, welche innerhalb eines Workflows, aufgetreten ist.
-Wie in Listing~\ref{listing:workflowNotes} in Zeile 22 und ab Zeile 28 zu sehen, können event-Zettel allein stehen oder mit weiteren Informationen
+Dies bezieht sich auf eine Aktion, welche innerhalb eines Workflows aufgetreten ist.
+Wie in Listing~\ref{listing:workflowNotes} in Zeile 24 und ab Zeile 30 zu sehen, können event-Zettel allein stehen oder mit weiteren Informationen
 angereichert werden.
 Weitere Informationen, die einem Event zugeordnet sind, repräsentieren Daten, welche zu der ausgeführten Aktion gehören.
 
@@ -54,37 +54,38 @@ Ein \textit{user}-Zettel ist sehr ähnlich zu einem \textit{service}-Zettel.
 Einem User wird ein Name zugeordnet.
 Dieser Zettel dient ebenfalls der Strukturierung eines Workflows und leitet einen Abschnitt ein, welcher aktiv von einem
 Nutzer durchgeführt werden muss.
-Im Beispielworkflow existiert ein User, welcher den Namen Karli trägt, welches in Zeile 3 zu sehen ist.
+Im Beispiel-Workflow existiert ein User, welcher den Namen Karli trägt, welches in Zeile 3 zu sehen ist.
 
 \largerText{policy}
+
 Eine \textit{policy} ist wie auch beim \textit{event} eine Abstrahierung eines Begriffes aus dem Event Storming.
 Ein \textit{policy}-Zettel beschreibt somit einen Automatismus, welcher aufgrund eines vorherigen Events einen bestimmten
 Ablauf an Schritten ausführt.
-Im Beispiel aus Listing~\ref{listing:workflowNotes} reagiert die policy aus Zeile 16 auf den vorherigen Command, um automatisch zu prüfen,
+Im Beispiel aus Listing~\ref{listing:workflowNotes} reagiert die policy aus Zeile 18 auf den vorherigen Command, um automatisch zu prüfen,
 ob die eingegebene E-Mail valide ist.
 
 \largerText{command}
 
 Ein \textit{command}-Zettel stellt die Interaktion eines Nutzers mit einer Webseite oder Applikation dar.
-Im Falle des obigen Beispiels wird in Zeile 14 der Klick auf den Knopf \textit{Register} aus der darüber aufgeführten Page simuliert.
-Dies ist anhand der kurzen Beschreibung des Commands zu entnehmen.
+Im Falle des obigen Beispiels wird in Zeile 16 der Klick auf den Knopf \textit{Register} aus der darüber aufgeführten Page simuliert.
+Dies ist aus der kurzen Beschreibung des Commands zu entnehmen.
 
 \largerText{externalSystem}
 
-Wie auch bei dem \textit{service} und \textit{user} dient der \textit{externalSystem}-Zettel dazu einen Workflow zu strukturieren.
+Wie auch bei dem \textit{service} und \textit{user} dient der \textit{externalSystem}-Zettel dazu, einen Workflow zu strukturieren.
 In diesem Fall bedeutet dies, dass Aktionen oder Daten von einem System ausgeführt/gesendet werden, welche nicht Teil der zu entwickelnden
-Software gehört, für welche das aktuelle Event Storming durchgeführt wird.
-In Zeile 18 des Beispiels existiert ein externalSystem, welches für die Validierung einer E-Mail-Adresse zuständig ist.
+Software sind, für welche das aktuelle Event Storming durchgeführt wird.
+In Zeile 20 des Beispiels existiert ein externalSystem, welches für die Validierung einer E-Mail-Adresse zuständig ist.
 Es kann sich dabei um ein System handeln, welches von einer anderen Firma oder einem separaten Team entwickelt wird.
 
 \largerText{data}
 
 Wie in Kapitel~\ref{sec:event-storming} bereits erwähnt, ist \textit{data} eine Erweiterung des Event Stormings.
 Ein \textit{data}-Zettel benötigt als Bezeichner eine besondere Form, diese besteht zuerst aus einer Klassenbezeichnung und anschließend einem Namen für das Objekt.
-Dies ist nötig um im späteren Verlauf das Aufbauen eines Datenmodells zu gewährleisten und Klassen-/Objektdiagramme generieren zu können.
+Dies ist nötig, um im späteren Verlauf das Aufbauen eines Datenmodells zu gewährleisten und ein Klassendiagramm und mehrere Objektdiagramme generieren zu können.
 Wie auch bei dem \textit{event}-Zettel kann auch einem \textit{data}-Zettel zusätzliche Informationen übergeben werden.
 Auf welche Art und Weise diese aufgebaut sein müssen und welche Funktionen diese innehaben, darauf wird in Kapitel~\ref{subsubsec:objektdiagramme} genauer eingegangen.
-In Zeile 33 unseres Beispiels wird ein \textit{User} angelegt, mit den zuvor vom Event vorhandenen zusätzlichen Informationen zu Username, E-Mail und Passwort.
+In Zeile 35 unseres Beispiels wird ein \textit{User} mit den aus dem Event stammenden Informationen zu Username, E-Mail und Passwort angelegt.
 
 \largerText{page}
 
@@ -94,21 +95,21 @@ An diesem Punkt ist es lediglich wichtig, die Restriktionen einer \textit{page} 
 Eine Page besteht aus einer Liste an Elementen, hierbei steht \textit{pageName} lediglich für den Bezeichner der Page und wird im Mockup nicht dargestellt.
 Um die Oberfläche einer Applikation zu beschreiben, existieren vier Elemente, welche beliebig oft verwendet werden können.
 
-Ein Text Element enthält einen Text, welcher entweder zur Verwendung als Überschrift, Bezeichner oder Trenner verwendet werden kann.
+Ein Text-Element enthält einen Text, welcher entweder zur Verwendung als Überschrift, Bezeichner oder Trenner verwendet werden kann.
 Um Daten in einer Applikation eingeben zu können, gibt es das \textit{input}- und das \textit{password}-Element.
 Bei beiden handelt es sich um Eingabefelder, mit dem Unterschied, dass bei dem \textit{password}-Element der eingetippte Inhalt mit Punkten ersetzt wird.
-Der Bezeichner, welcher einem Input oder Password hinterlegt wird, wird als Platzhalter im Eingabefeld und als Label über eben diesem angezeigt.
+Der Bezeichner, welcher einem Input oder Password hinterlegt wird, wird als Platzhalter im Eingabefeld und als Label über ebendiesem angezeigt.
 Um die Variationen der Mockups zu erweitern und diese mit beispielhaften Eingaben zu füllen, können sowohl dem \textit{input}- als auch \textit{password}-Element
 ein Attribut namens \textit{fill} zugeordnet werden.
 Dabei handelt es sich um den Inhalt des Eingabefeldes, welches im Mockup angezeigt wird.
-Zuletzt kann ein Knopf mittels dem \textit{button}-Element erstellt werden, dabei wird der Bezeichner als Inhalt des Knopfes dargestellt.
+Zuletzt kann ein Knopf mithilfe eines~\textit{button}-Elements erstellt werden, dabei wird der Bezeichner als Inhalt des Knopfes dargestellt.
 Das \textit{button}-Element kann ebenfalls mit einem weiteren Attribut versehen werden.
 Mit dem Attribut \textit{targetPage} kann dem Knopf der Name einer Seite übergeben werden, welche innerhalb der workflow-Datei definiert wurde.
-Dafür ist es notwendig, dass die erstellten Pages unterschiedliche namen besitzen.
+Dafür ist es notwendig, dass die erstellten Pages unterschiedliche Namen besitzen.
 Dieses Attribut entfaltet seine Funktionalität im Web-Editor zu fulibWorkflows, da es somit möglich ist eine lose Verlinkung zwischen einem Button und einer Page
 zu erzeugen.
 Näheres zu der Verwendung und der Umsetzung folgt in Kapitel~\ref{subsec:darstellung-generierter-dateien}.
 
 Eine Oberfläche kann nur von oben nach unten beschrieben werden, eine weitere Limitierung ist, dass es nicht möglich ist mehrere Elemente in eine Reihe zu ordnen.
-Hierdurch ist das Designen eines Mockups durch die begrenzten Elemente einer Page sehr stark begrenzt und kann lediglich für
+Hierdurch ist das Designen eines Mockups durch die geringe Anzahl an Elementen stark begrenzt und kann lediglich für
 simple Benutzeroberflächen verwendet werden.

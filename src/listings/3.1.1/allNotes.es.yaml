@@ -13,7 +13,7 @@
     - button: Register
       targetPage: Login
 
-- command: Register clicked
+- command: Click Register
 
 - policy: check e-mail input
 
@@ -30,7 +30,7 @@
 - event: user data received
   username: Gonpachiro1912
   eMail: ds@taicho.com
-  psw: nesuko!DS42
+  psw: nezuko!DS42
 
 - data: User gonpachiro1912
   username: Gonpachiro1912

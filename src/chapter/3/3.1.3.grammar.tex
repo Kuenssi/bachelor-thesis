@@ -1,10 +1,11 @@
-\subsection{Antlr Grammatik}\label{subsec:antlr-grammatik}
-Da die möglichen Eingaben durch das zuvor beschriebene JSON-Schemas bereits verringert wurden, viel die Wahl der Verarbeitung der YAML-Eingabe auf eine durch Antlr generierten Parser.
-Der generierte Parser bietet die Möglichkeit, während dem parsen weitere Aktionen durchzuführen und in dem Fall dieser Anwendung ein Datenmodell aus der Eingabe zu erstellen.
+\subsection{Antlr-Grammatik}\label{subsec:antlr-grammatik}
+Da die möglichen Eingaben durch das zuvor beschriebene JSON-Schema bereits verringert wurden, fiel die Wahl der Verarbeitung der YAML-Eingabe auf einen durch Antlr generierten Parser.
+Dieser bietet die Möglichkeit, während dem Parsen weitere Aktionen durchzuführen und in dem Fall dieser Anwendung ein Datenmodell aus der Eingabe zu erstellen.
 Das Datenmodell wird im folgenden weiterverarbeitet und bietet somit eine Grundlage für die Generierung, auf welche im folgenden Kapitel eingegangen wird.
 
-Wie in Kapitel~\ref{subsubsec:antlr} bereits beschrieben, ist die Grundlage eines Antlr Parser die dazugehörige Grammatik, welche nun beleuchtet wird.
+Wie in Kapitel~\ref{subsubsec:antlr} bereits beschrieben, ist die Grundlage eines Antlr-Parsers die dazugehörige Grammatik, welche nun beleuchtet wird.
 Die komplette Grammatik ist im referenzierten fulibWorkflows-Repository im Anhang hinterlegt, in diesem Kapitel werden lediglich Ausschnitte daraus verwendet.
+Im Folgenden wird anstatt Zettel zur Beschreibung eines Post-its die englische Übersetzung ``Note'' verwendet, um einen direkten Bezug zu den nachfolgenden Listings herzustellen.
 
 \begin{listing}[!ht]
     \inputminted[firstnumber=5]{antlr-java}{listings/3.1.3/Main.g4}
@@ -13,11 +14,11 @@ Die komplette Grammatik ist im referenzierten fulibWorkflows-Repository im Anhan
 \end{listing}
 
 Zuerst wird die grundlegende Struktur einer Datei festgelegt, dies ist durch die drei Regeln in Listing~\ref{listing:main-grammar} dargestellt.
-Da eine Datei mehrere Workflows beinhalten kann, ist die oberste Regel in Zeile 5 der Startpunkt des Parser.
-Da als Eingabe eine YAML-Datei ist, heißt die oberste Regel \textit{file} und erfordert mindestens einen workflow.
-Ein workflow besteht immer aus einem workflow-Note und beliebig vielen event-Notes, wobei diese immer mit einer Leerzeile von einander getrennt sind.
+Da eine Datei mehrere Workflows beinhalten kann, ist die oberste Regel in Zeile 5 der Startpunkt des Parsers.
+Da als Eingabe eine YAML-Datei ist, heißt die oberste Regel \textit{file} und erfordert mindestens einen~\textit{workflow}.
+Ein~\textit{workflow} besteht immer aus einem workflow-Note und beliebig vielen event-Notes, wobei diese immer mit einer Leerzeile von einander getrennt sind.
 Die Spezifikation ist aufgrund der YAML-Syntax notwendig.
-Ein event-Note kann einer aus drei Typen sein, wobei nach einem Note beliebig viele Leerzeilen folgen können.
+Ein event-Note ist immer einem von drei Typen zuzuordnen, wobei nach einem Note beliebig viele Leerzeilen folgen können.
 
 \begin{listing}[!ht]
     \inputminted[firstnumber=11]{antlr-java}{listings/3.1.3/Note.g4}
@@ -25,12 +26,12 @@ Ein event-Note kann einer aus drei Typen sein, wobei nach einem Note beliebig vi
     \label{listing:note-grammar}
 \end{listing}
 
-Die Unterscheidung zwischen normal-/extended-Note, workflow und page erfolgt durch das Schlüsselwort, welches zwischen Bindestrich(MINUS) und Doppelpunkt(NAME) befindet.
+Die Unterscheidung zwischen normal-/extended-Note, workflow und page erfolgt durch das Schlüsselwort, welches zwischen Bindestrich (\textbf{MINUS}) und Doppelpunkt (\textbf{NAME}) befindet.
 Sowohl ein workflow-Note als auch die normal-Notes besitzen lediglich nach dem Doppelpunkt einen Wert, welcher durch \textbf{NAME} gekennzeichnet ist.
 Dies ist in Listing~\ref{listing:note-grammar} in Zeile 11 und 13 dargestellt.
 Ein extended-Note besitzt neben dem Wert zusätzliche Attribute, welche in einer neuen Zeile beschrieben werden.
-Die Anzahl der attribute ist beliebig, es ist somit erlaubt einen extended-Note ohne weitere Attribute anzugeben.
-Die Page ist wie zuvor bereits häufiger erwähnt ein Sonderfall, welches sich auch in der Grammatik widerspiegelt.
+Die Anzahl der Attribute ist beliebig, es ist somit erlaubt einen extended-Note ohne weitere Attribute anzugeben.
+Die Page ist wie zuvor bereits erwähnt ein Sonderfall, welches sich auch in der Grammatik widerspiegelt.
 Dem Schlüsselwort \textit{page} folgt ein gesonderter Doppelpunkt und anschließend eine Liste von neuen Elemente.
 
 \begin{listing}[!ht]
@@ -39,10 +40,10 @@ Dem Schlüsselwort \textit{page} folgt ein gesonderter Doppelpunkt und anschlie�
     \label{listing:note-ids}
 \end{listing}
 
-Die zuvor erwähnte \textit{normalen Notes} bestehen wie in Listing~\ref{listing:note-ids} Zeile 30 und 31 dargestellt aus externalSystem, service, command, policy, user und problem.
+Die zuvor erwähnten normal-Notes bestehen wie in Listing~\ref{listing:note-ids} Zeile 30 und 31 dargestellt aus \textit{externalSystem}, \textit{service}, \textit{command}, \textit{policy}, \textit{user} und \textit{problem}.
 Diese erhalten lediglich einen Bezeichner und erlauben keine weiteren Attribute.
-Zu den \textit{extended Notes} zählen lediglich event und data.
-Diese erhalten wie zuvor beschrieben weiter Attribute um Daten, welche zwischen Services verschickt werden, darstellen zu können.
+Zu den extended-Notes zählen lediglich \textit{event} und \textit{data}.
+Diese erhalten weitere Attribute, um Daten, welche zwischen Services verschickt werden, darstellen zu können.
 
 \begin{listing}[!ht]
     \inputminted[firstnumber=19]{antlr-java}{listings/3.1.3/Attribute.g4}
@@ -50,12 +51,12 @@ Diese erhalten wie zuvor beschrieben weiter Attribute um Daten, welche zwischen 
     \label{listing:attributes}
 \end{listing}
 
-Attribute werden eingerückt und enthalten neben einem Bezeichner(NAME) einen dazugehörigen Wert(value).
+Attribute werden eingerückt und enthalten neben einem Bezeichner (\textbf{NAME}) einen dazugehörigen Wert (\textit{value}).
 Ein Wert kann entweder ein Text, eine Nummer oder eine Liste sein, wobei eine neue Zeile optional ist.
 Die dazugehörigen Regeln sind in Zeile 19 und 21 aus Listing~\ref{listing:attributes} vermerkt.
 
-Wie in Listing~\ref{listing:values} genauer beschrieben, ist der akzeptierte Text auf eine feste Zahl an verschiedenen Zeichen begrenzt.
-Ein Text muss stets mit einem Buchstaben beginnen, ungeachtet ob groß oder klein geschrieben.
+Wie in Listing~\ref{listing:values} zu sehen ist, ist der akzeptierte Text auf eine feste Menge an verschiedenen Zeichen begrenzt.
+Ein Text muss stets mit einem Buchstaben beginnen, ungeachtet ob groß- oder kleingeschrieben.
 Darauf können Zahlen, Sonderzeichen und weitere Wörter folgen.
 Die Sonderzeichen sind in Zeile 36 genauer beschrieben.
 
@@ -66,7 +67,7 @@ Die Sonderzeichen sind in Zeile 36 genauer beschrieben.
 \end{listing}
 
 Eine Nummer kann lediglich eine ganze Zahl sein, führende Nullen sind erlaubt.
-Die Möglichkeit als Wert eine Liste angeben zu können, basiert auf der Möglichkeit Objekt- und Klassendiagramme mit fulibWorkflows generieren zu können.
+Die Möglichkeit als Wert eine Liste angeben zu können, basiert auf der Möglichkeit Objekt- und Klassendiagramme mit fulibWorkflows zu generieren.
 Hierzu wurde die Syntax von Java als Grundlage genommen.
 Zwischen den Klammern in Zeile 38 befindet sich eine sogenannte Wildcard, welche es erlaubt alle Symbole als Eingabe zu akzeptieren.
 Die Klammern erfüllen somit nicht nur den Zweck als Listendarstellung, sondern auch die Begrenzung der Wildcard.
@@ -79,17 +80,17 @@ welche keine anderen Regeln überschrieben hätte.
     \label{listing:page}
 \end{listing}
 
-Jeder Page muss ein pageName Element zugeordnet werden, um diese später referenzieren zu können.
+Jeder Page muss ein pageName-Element zugeordnet werden, um sie später referenzieren zu können.
 Weiterhin können Pages beliebig viele Elemente beherbergen.
 Ein Element kann entweder ein Text, Eingabefeld oder Knopf sein.
-Ein Text-Element wird ein Text(NAME) zugeordnet.
-Dies ist bei den Eingabefeldern und dem Knopf anders, da diese wie in Kapitel~\ref{subsec:workflow-format} beschrieben zuästzliche
+Ein Text-Element wird ein Text (\textbf{NAME}) zugeordnet.
+Dies ist bei den Eingabefeldern und dem Knopf anders, da diese wie in Kapitel~\ref{subsec:workflow-format} beschrieben zusätzliche
 Attribute besitzen können.
 
-Wie zuvor bereits beschrieben, wird aus der Grammatik ein Parser generiert.
-Dazu gehört unter anderem ein Interface, welches für diese Grammatik den Namen \textit{FulibWorkflowsListener} trägt.
-Um während dem Parsen ein Datenmodell aufzubauen, wurde eine eigener Listener implementiert, welcher die Methoden des Interfaces überschreibt.
-Für jeder Regel aus der Grammatik existiert eine enter- und eine exit-Methode.
+Zu dem aus der Grammatik generierten Parser gehört unter anderem ein Interface, welches für diese Grammatik den Namen \textit{FulibWorkflowsListener} trägt.
+Um während des Parsens ein Datenmodell aufzubauen, wurde ein eigener Listener implementiert, welcher die Methoden des Interfaces überschreibt.
+Für jede Regel aus der Grammatik existiert eine enter- und eine exit-Methode, welche nach enter/exit mit dem Namen der jeweiligen Regel verknüpft ist.
+Daraus entstehen Methoden wie zum Beispiel enterPage und exitPage.
 In den enter-Methoden werden lediglich neue Objekte angelegt und globale Variablen zurückgesetzt.
 
 \begin{figure}[h]
@@ -100,7 +101,7 @@ In den enter-Methoden werden lediglich neue Objekte angelegt und globale Variabl
 \end{figure}
 
 Bevor anhand eines Beispiels die Verwendung einer exit-Methode erläutert wird, ist es notwendig das Datenmodell genauer zu betrachten.
-In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches die Struktur eines Event Storming Boards nach dem Parsen der YAML-Eingabe widerspiegelt.
+In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches die Struktur eines \ac{ES}-Boards nach dem Parsen der YAML-Eingabe widerspiegelt.
 Jeder Note besitzt eine dazugehörige Klasse, welche von BaseNote erbt.
 Für jeden Note existiert somit ein Name und ein Index, auf welchen im folgenden Abschnitt eingegangen wird.
 Da es im Event Storming ein dazugehöriges \textit{Board} gibt, ist dies ebenfalls eine Klasse, welche alle \textit{workflows} einer Eingabe hält.
@@ -117,7 +118,7 @@ Das Pair beinhaltet den Bezeichner und den dazugehörigen Wert einer zusätzlich
 \end{listing}
 
 In Listing~\ref{listing:exitpage} wird ein neues Page-Objekt erstellt.
-Bevor jedoch die exitPage-Methode aufgerufen wird, werden alle Elemente in der Variable \textit{noteData} gespeichert.
-Dieser werden in der exitElement-Methode hinzugefügt, der Name einer Page wird hingegen in der gesonderten exitPageName-Methode zu noteData hinzugefügt.
+Bevor jedoch die exitPage-Methode aufgerufen wird, werden alle Elemente der Page in der Variable \textit{noteData} gespeichert.
+Diese Elemente werden in der exitElement-Methode hinzugefügt, der Name einer Page wird hingegen in der gesonderten exitPageName-Methode zu \textit{noteData} hinzugefügt.
 Zusätzlich zu den Daten eines Notes, wird diesem ein Index gegeben und anschließend zur Liste aller Notes hinzugefügt.
-Der Index ist wichtig, um die Reihenfolge von Notes und deren Attributen beizubehalten.
+Der Index ist notwendig, um die Reihenfolge von Notes und deren Attributen beizubehalten.

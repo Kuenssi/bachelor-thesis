@@ -84,12 +84,12 @@ Bei der Ausführung dieses Beispiels wird auf der Konsole der Text aus Listing~\
 \end{listing}
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
-JSON-Schemata geben die Struktur und den Inhalt einer JSON-/YAML-Datei vor.
+JSON-Schemas geben die Struktur und den Inhalt einer JSON-/YAML-Datei vor.
 Hierdurch ist es möglich, den Nutzer in seinen Eingaben zu begrenzen und bereits während des Schreibens einer Datei dabei zu unterstützen sinnvolle Eingaben zu erstellen.
 In dieser Arbeit wird lediglich auf die Nutzung der Schema-Version 7, die neuste Version, eingegangen, da diese in der Anwendung verwendet wird.
-\todo{Also sind diese JSON-Schemata eine Art Standard? Woher kommt das? Wer hats erfundn? Anscheinend gibt es ja schon 7 Versionen davon?}
+\todo{Also sind diese JSON-Schemas eine Art Standard? Woher kommt das? Wer hats erfundn? Anscheinend gibt es ja schon 7 Versionen davon?}
 
-JSON-Schemata können Objektstrukturen in beliebiger Tiefe schachteln.
+JSON-Schemas können Objektstrukturen in beliebiger Tiefe schachteln.
 Im folgenden Abschnitt werden die grundlegenden Elemente eines JSON-Schemas erläutert.
 Weiterführende Funktionalitäten werden anhand der Implementierung in Kapitel~\ref{subsec:schema} näher beleuchtet.
 
@@ -138,8 +138,8 @@ Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines diese
 
 Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode,
 möglich den Entwickler durch Fehlerhervorhebung und Autovervollständigung zu unterstützen.
-Hierfür ist es möglich bereits erstellte JSON-Schemata im \textit{SchemaStore} bereitzustellen.
-Dies ist eine zentrale Stelle, um JSON-Schemata für IDEs zur Verfügung zu stellen.
+Hierfür ist es möglich bereits erstellte JSON-Schemas im \textit{SchemaStore} bereitzustellen.
+Dies ist eine zentrale Stelle, um JSON-Schemas für IDEs zur Verfügung zu stellen.
 Bei dem \textit{SchemaStore} handelt es sich um ein Open-Source-Projekt, bei welchem die Einbringung eines neuen Schemas simpel gestaltet ist.
 Es ist möglich ein fertiges Schema fest dort zu hinterlegen, hierdurch muss für jede neue Änderung allerdings ein neuer Pull Request erstellt werden.
 Dieser bedarf einer Zustimmung einem der Verwalter des~\textit{Schema Stores}.
