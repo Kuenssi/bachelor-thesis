@@ -161,11 +161,11 @@ In Abbildung~\ref{fig:esBoard} ist ein Event-Storming-Board für das im Web-Edit
 Hierbei ist zu erwähnen, dass die Bereiche: Code-Editor, \ac{ES}-Board-IFrame und der IFrame zur Anzeige der Mockups und Diagramme beliebig vergrößert oder verkleinert werden kann.
 Um dies zu ermöglichen wurde die Bibliothek \textit{angular-split} verwendet.
 Diese ermöglicht es Bereiche zu definieren und darin Inhalt zu platzieren, sowie die Veränderung der Größen der Bereiche bereitzustellen\cite*{angular-split}.
-Ohne diese Funktionalität können auch größere Boards in der Oberfläche angezeigt werden.
+Das Abändern der Größe von Bereichen ermöglicht das Hervorheben des Editors, des \ac{ES}-Boards oder der Mockups/Diagramme.
 
 Für den unteren IFrame gelten die gleichen Gegebenheiten wie für den oberen IFrame.
 Da es mehrere Mockups oder Diagramme geben kann, existieren vier Knöpfe, mit welchen es möglich ist zwischen den Mockups/Diagrammen zu wechseln.
-Doch der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe möglich, sondern ebenfalls über die entsprechenden Notes aus dem Board IFrame.
+Doch der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe möglich, sondern ebenfalls über die entsprechenden Notes aus dem \ac{ES}-Board-IFrame.
 Für jeden Page- oder Data-Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
 
 \begin{listing}[!ht]
@@ -176,9 +176,13 @@ Für jeden Page- oder Data-Note existiert in der Anzeige ein Link, welcher als K
 
 Hierfür ist eine Methode erstellt worden, welche für die gesamte Oberfläche sichtbar ist.
 In der Generierung mittels fulibWorkflows wird dieser Link erstellt, darin wird die bereitgestellte Methode mittels~\texttt{window.parent.setIndexFromIframe(0, `pages');} aufgerufen.
+\todo{hmmm vielleicht auch ein snippet zur erklärung einfügen, statt das direkt in den text zu schreiben?}
 Hierbei wird über das Fenster auf die oberste Komponente der Anwendung zugegriffen, dort ist durch den Code aus Listing~\ref{listing:global-method}
 die Methode \textit{setIndexFromIframe} bereitgestellt.
-Neben dem Index, wird der Methode ebenfalls ein String übergeben, mit diesem ist es möglich zwischen Page und Object-Darstellung automatisch beim Klicken des Links zu wechseln.
+Neben dem Index wird der Methode ebenfalls ein String übergeben, mit diesem ist es möglich zwischen Page und Object-Darstellung automatisch beim Klicken des Links zu wechseln.
+
+\todo{so generell zu diesem absatz... ist das sehr wichtig? dann vielleicht ausführlicher erklären... wenn unwichtig.. vielleicht weglassen? kA also ich wurde da jetzt nicht so richtig schlau draus beim lesen}
 
 Zuletzt existieren drei weitere Buttons auf Höhe der Buttons zum Wechseln der Page oder des Diagramms, welche die Anzeige der generierten Dateien manuell umschaltet.
-Hierbei kann zwischen dem Anzeigen der Mockups(Pages), der Objektdiagramme oder des Klassendiagramms umgeschaltet werden.
+\todo{ja wo denn ich seh nix}
+Hierbei kann zwischen dem Anzeigen der Mockups (Pages), der Objektdiagramme und des Klassendiagramms umgeschaltet werden.
