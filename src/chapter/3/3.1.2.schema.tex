@@ -17,10 +17,10 @@ Das fulibWorkflows-Schema enthält die Definitionen und die Festlegung der erlau
 Durch das Schema werden nur JSON-/YAML-Dateien akzeptiert, welche aus einer Liste an Elementen bestehen.
 Hierbei sind die Elemente jedoch festgelegt durch die in Zeile 20 und 21 dargestellten Zeilen.
 Ein \textit{item} darf nur aus einem der Elemente bestehen, welche in der Auflistung ab Zeile 22 festgelegt sind.
-Um die Lesbarkeit zu vereinfachen und die Schachtelungstiefe möglichst gering zu halten, werden die erlaubten Elemente lediglich referenziert.
+Um die Lesbarkeit zu vereinfachen und die Schachtelungstiefe möglichst gering zu halten, werden nur die erlaubten Elemente referenziert.
 Die referenzierten Elemente wurden im ersten Teil des Schemas, ab Zeile 4, definiert.
 Für jedes der im vorherigen Kapitel erwähnten Zettel gibt es ein Element im Schema.
-Die Definitionen der Elemente, welche nicht in Listing~\ref{listing:schema-split} dargestellt sind, enthalten lediglich Standardwerte, welche bereits in Kapitel~\ref{subsubsec:json-schema} erläutert wurden.
+Die Definitionen der Elemente, welche nicht in Listing~\ref{listing:schema-split} dargestellt sind, enthalten Standardwerte, welche bereits in Kapitel~\ref{subsubsec:json-schema} erläutert wurden.
 Die Definition der Page ist jedoch ein Sonderfall, welche durch das Aufteilen in mehrere Dateien entstanden ist.
 Es ist möglich weitere Schemas aus einer anderen Datei zu importieren, dies ist in Zeile 11 ersichtlich.
 Auch dort es Referenzen, allerdings referenzieren diese nicht auf eine im Schema befindliche Definition, sondern auf die Page-Definition aus der \textit{page.schema.json}-Datei.

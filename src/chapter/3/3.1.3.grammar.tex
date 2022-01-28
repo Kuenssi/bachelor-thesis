@@ -4,7 +4,7 @@ Dieser bietet die Möglichkeit, während dem Parsen weitere Aktionen durchzufüh
 Das Datenmodell wird im folgenden weiterverarbeitet und bietet somit eine Grundlage für die Generierung, auf welche im folgenden Kapitel eingegangen wird.
 
 Wie in Kapitel~\ref{subsubsec:antlr} bereits beschrieben, ist die Grundlage eines Antlr-Parsers die dazugehörige Grammatik, welche nun beleuchtet wird.
-Die komplette Grammatik ist im referenzierten fulibWorkflows-Repository im Anhang hinterlegt, in diesem Kapitel werden lediglich Ausschnitte daraus verwendet.
+Die komplette Grammatik ist im referenzierten fulibWorkflows-Repository im Anhang hinterlegt, in diesem Kapitel werden Ausschnitte daraus verwendet.
 Im Folgenden wird anstatt Zettel zur Beschreibung eines Post-its die englische Übersetzung ``Note'' verwendet, um einen direkten Bezug zu den nachfolgenden Listings herzustellen.
 
 \begin{listing}[!ht]
@@ -27,7 +27,7 @@ Ein event-Note ist immer einem von drei Typen zuzuordnen, wobei nach einem Note 
 \end{listing}
 
 Die Unterscheidung zwischen normal-/extended-Note, workflow und page erfolgt durch das Schlüsselwort, welches zwischen Bindestrich (\textbf{MINUS}) und Doppelpunkt (\textbf{NAME}) befindet.
-Sowohl ein workflow-Note als auch die normal-Notes besitzen lediglich nach dem Doppelpunkt einen Wert, welcher durch \textbf{NAME} gekennzeichnet ist.
+Sowohl ein workflow-Note als auch die normal-Notes besitzen nach dem Doppelpunkt einen Wert, welcher durch \textbf{NAME} gekennzeichnet ist.
 Dies ist in Listing~\ref{listing:note-grammar} in Zeile 11 und 13 dargestellt.
 Ein extended-Note besitzt neben dem Wert zusätzliche Attribute, welche in einer neuen Zeile beschrieben werden.
 Die Anzahl der Attribute ist beliebig, es ist somit erlaubt einen extended-Note ohne weitere Attribute anzugeben.
@@ -41,8 +41,8 @@ Dem Schlüsselwort \textit{page} folgt ein gesonderter Doppelpunkt und anschlie�
 \end{listing}
 
 Die zuvor erwähnten normal-Notes bestehen wie in Listing~\ref{listing:note-ids} Zeile 30 und 31 dargestellt aus \textit{externalSystem}, \textit{service}, \textit{command}, \textit{policy}, \textit{user} und \textit{problem}.
-Diese erhalten lediglich einen Bezeichner und erlauben keine weiteren Attribute.
-Zu den extended-Notes zählen lediglich \textit{event} und \textit{data}.
+Diese erhalten nur einen Bezeichner und erlauben keine weiteren Attribute.
+Zu den extended-Notes zählen \textit{event} und \textit{data}.
 Diese erhalten weitere Attribute, um Daten, welche zwischen Services verschickt werden, darstellen zu können.
 
 \begin{listing}[!ht]
@@ -91,7 +91,7 @@ Zu dem aus der Grammatik generierten Parser gehört unter anderem ein Interface,
 Um während des Parsens ein Datenmodell aufzubauen, wurde ein eigener Listener implementiert, welcher die Methoden des Interfaces überschreibt.
 Für jede Regel aus der Grammatik existiert eine enter- und eine exit-Methode, welche nach enter/exit mit dem Namen der jeweiligen Regel verknüpft ist.
 Daraus entstehen Methoden wie zum Beispiel enterPage und exitPage.
-In den enter-Methoden werden lediglich neue Objekte angelegt und globale Variablen zurückgesetzt.
+In den enter-Methoden werden ausschließlich neue Objekte angelegt und globale Variablen zurückgesetzt.
 
 \begin{figure}[h]
     \centering

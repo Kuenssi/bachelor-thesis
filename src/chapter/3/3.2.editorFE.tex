@@ -74,7 +74,7 @@ Abbildung~\ref{fig:themes} zeigt den Codemirror in beiden Modi, wobei sich sowoh
 
 In Zeile 52 aus Listing~\ref{listing:configuration} wird die Programmiersprache des Editors festgelegt.
 Da die Workflow-Beschreibungen von fulibWorkflows in \textit{.es.yaml}-Dateien angelegt/gespeichert werden, wird die Programmiersprache auf \textit{yaml} festgelegt.
-Dieser Modus wird von Codemirror selbst bereitgestellt und bedarf zur Verwendung lediglich eines Importes in der \textit{main.ts}-Datei der Angular-Anwendung.
+Dieser Modus wird von Codemirror selbst bereitgestellt und bedarf zur Verwendung einen Import in der \textit{main.ts}-Datei der Angular-Anwendung.
 Über die Option \textit{extraKeys} können Tasten oder Tastenkombinationen an weitere Funktionen gekoppelt werden.
 In Zeile 54 wird das Öffnen einer Liste an vorgeschlagenen Wörtern geöffnet, nachdem der Nutzende die Tastenkombination ``Strg+Leertaste'' gedrückt hat.
 Damit dies funktioniert, benötigt es das Importieren des \textit{show-hint}-AddOns von Codemirror in der \textit{main.ts}-Datei.
@@ -95,7 +95,7 @@ Das eigens geschriebene Add-On ist nicht kontextsensitiv und besitzt somit nicht
 Der Code des geschriebenen Add-Ons befindet sich im Anhang dieser Arbeit, hierbei wird über die aktuelle Position des Cursors das aktuelle Wort extrahiert.
 Damit ist es möglich über die Liste der Schlüsselwörter zu iterieren und zu prüfen, welche Vorschläge sinnvoll sind, sollte ein Wort bereits begonnen sein.
 Dies ist anhand von Abbildung~\ref{fig:autocompletion}((b)) genauer zu erkennen.
-Hierbei wurde bereits der Buchstabe \textit{p} eingetippt und das Add-On bietet zur Vervollständigung lediglich Wörter an, welche mit \textit{p} beginnen.
+Hierbei wurde bereits der Buchstabe \textit{p} eingetippt und das Add-On bietet zur Vervollständigung nur Wörter an, welche mit \textit{p} beginnen.
 
 Des Weiteren wird durch das Betätigen der Tastenkombination ``Strg+S'' die Generierung angestoßen.
 Bevor die Daten aus dem Codemirror zur Generierung an das Backend gesendet werden, werden diese auf Richtigkeit überprüft.
@@ -123,7 +123,7 @@ Sollte die Eingabe valide sein, so wird diese über einen Service an das Backend
 
 \subsection{Darstellung generierter Dateien}\label{subsec:darstellung-generierter-dateien}
 Die anderen beiden Bereiche der Oberfläche, welche bisher nicht erläutert wurden, stellen jeweils einen bestimmten Teil der generierten Dateien dar.
-Beide Bereiche aus Abbildung~\ref{fig:frontend} bestehen aus einem IFrame, wobei der obere IFrame lediglich das generierte \ac{ES}-Board anzeigt.
+Beide Bereiche aus Abbildung~\ref{fig:frontend} bestehen aus einem IFrame, wobei der obere IFrame das generierte \ac{ES}-Board anzeigt.
 Andererseits übernimmt der untere IFrame die Anzeige der HTML-Mockups, den Objektdiagrammen und dem Klassendiagramm.
 
 \begin{listing}[!ht]
@@ -135,7 +135,7 @@ Andererseits übernimmt der untere IFrame die Anzeige der HTML-Mockups, den Obje
 Bevor auf die Darstellung und Funktionen der IFrames eingegangen wird, wird zuerst betrachtet in welcher Form die generierten Dateien vom Backend im Frontend verarbeitet werden.
 Die Form ist in Listing~\ref{listing:generateResult} dargestellt, in einem GenerateResult-Objekt werden alle generierten Dateien und Zusatzinformationen abgespeichert.
 Bei den Zusatzinformationen handelt es sich um die Anzahl der generierten Diagramme und HTML-Mockups.
-Die generierten Dateien werden lediglich als reiner String behandelt.
+Die generierten Dateien werden als reiner String behandelt.
 Um den Zugriff auf einzelne Objektdiagramme oder Mockups zu vereinfachen, sind diese jeweils in einer Map abgespeichert.
 Bei den Maps ist jedem Diagramm/Mockup eine eindeutige Nummer zugeordnet.
 
