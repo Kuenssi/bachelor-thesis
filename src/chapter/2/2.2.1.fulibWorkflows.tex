@@ -1,5 +1,5 @@
 \subsection{fulibWorkflows}\label{subsec:fulibworkflows}
-Bei~\textit{fulibWorkflows} handelt es sich um eine Java-Bibliothek, welche Workflows in YAML\footnote{Kurzform von "YAML Ain't Markup Language"}-Syntax notiert,
+Bei~\textit{fulibWorkflows} handelt es sich um eine Java-Bibliothek, welche Workflows in YAML\footnote{Kurzform von ``YAML Ain't Markup Language''}-Syntax notiert,
 als Eingabe erhält und daraus
 sowohl ein \ac{ES}-Board als auch im Workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, wird in Kapitel~\ref{subsec:workflow-format} erläutert.
@@ -25,19 +25,19 @@ Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Li
 \end{listing}
 
 Die Klasse \textit{ST} aus Zeile 3 kann mit einem String initialisiert werden.
-In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes die Zeichen \dq <\dq  und \dq >\dq verwendet.
+In diesem Beispiel wurden als Begrenzer für das zu ersetzende Stück des Textes die Zeichen ``<''  und ``>'' verwendet.
 Im Anschluss wird dem neuen \textit{ST}-Objekt mithilfe der add()-Methode ein bestimmter Wert hinzugefügt.
 Der erste Parameter der Methode ist der Bezeichner innerhalb eines Templates, zu beachten ist die Angabe des Bezeichners ohne die Begrenzer.
 Der Wert wird als zweiter Parameter übergeben und besitzt in diesem Beispiel den Text~\textbf{World}.
 Um nun den fertig ersetzten Text aus dem Template und dem übergebenem Wert zu bekommen, muss auf dem \textit{ST}-Objekt die Methode render() aufgerufen werden.
 Hierbei werden die Platzhalter des Templates durch den zuvor übergebenen Wert ersetzt und als String zurückgegeben.
-In Zeile 6 wird nun abschließend der fertige Text \dq Hello, World!\dq  auf der Konsole ausgegeben.
+In Zeile 6 wird nun abschließend der fertige Text ``Hello, World!''  auf der Konsole ausgegeben.
 Dieses Beispiel entstammt der offiziellen Webseite von~\textit{StringTemplate}\cite*{stOrg}.
 
 Für ein strukturiertes Arbeiten mit vielen Templates bietet \textit{StringTemplate} die Möglichkeit \ac{STG}s zu erstellen.
 Hierbei können mehrere Templates in einer Datei beschrieben werden, um aufeinander aufbauende Templates nicht im Code, sondern einer gesonderten Datei zu organisieren.
 In diesen Dateien, welche die Dateiendung \textbf{.stg} tragen, können die Begrenzer (eng.: Delimiters) frei gewählt werden.
-Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung von HTML-Dateien, welche \dq <\dq  und \dq >\dq als Zeichen zum Abgrenzen von Bereichen verwenden,
+Dies ist je nach Kontext des Templates nötig, da zum Beispiel die Generierung von HTML-Dateien, welche ``<''  und ``>'' als Zeichen zum Abgrenzen von Bereichen verwenden,
 mit den Standard-Begrenzern für einen Mehraufwand sorgt.
 Bei der Wahl der Begrenzer sollte somit stets auf die Wahl der Zeichen im Kontext der zu generierenden Sprache geachtet werden.
 Zum Parsen einer \ac{STG} wird ein mit Antlr generierter Parser verwendet\cite*{stgParser}.
@@ -48,12 +48,12 @@ Zum Parsen einer \ac{STG} wird ein mit Antlr generierter Parser verwendet\cite*{
     \label{listing:stgFile}
 \end{listing}
 
-Wie zuvor beschrieben ist in Listing~\ref{listing:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf~\texttt{\{\}} gesetzt wurden.
+Wie zuvor beschrieben ist in Listing~\ref{listing:stgFile} zu erkennen, dass in Zeile 1 die Begrenzer auf ``\{'' und ``\}'' gesetzt wurden.
 Dies hat den Hintergrund, dass in diesem Beispiel ein Text in eine HTML-Datei generiert werden soll.
-Hierfür könnten auch die Standard-Begrenzer verwendet werden, allerdings müssten dann für Schlüsselwörter wie~\texttt{<span>} die Zeichen < und > mit einem führenden Backslash definiert werden.
+Hierfür könnten auch die Standard-Begrenzer verwendet werden, allerdings müssten dann für Schlüsselwörter wie~\texttt{<span>} die Zeichen ``<'' und ``>'' mit einem führenden Backslash definiert werden.
 Da dies für HTML-Dateien allerdings einen immensen Aufwand bedeutet, ist die Nutzung anderer Begrenzer sinnvoll.
 In Zeile 3 werden für ein~\ac{ST} sowohl der Name des Templates als auch Übergabeparameter definiert.
-Ein~\ac{ST} wird durch \dq > >\dq geschlossen.
+Ein~\ac{ST} wird durch ``> >'' geschlossen.
 Die Begrenzer in Zeile 5 zeigen, dass alles, was sich zwischen Ihnen befindet, einen Übergabeparameter in sich trägt.
 Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährleistet.
 
