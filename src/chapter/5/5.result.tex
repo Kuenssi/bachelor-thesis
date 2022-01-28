@@ -1,4 +1,6 @@
 \chapter{Fazit}\label{ch:fazit}
+\todo{Fazit und Ausblick zusammenführen?}
+
 Neben der Beantwortung der Frage, ob die Ziele aus Kapitel~\ref{sec:ziele} erreicht wurden, wird auch auf Probleme während
 der Implementierung eingegangen.
 
@@ -10,25 +12,36 @@ Die Beschreibungssprache, auf welcher die Generierung basiert, erfüllt die Ansp
 Dennoch ist zu sagen, dass die in dieser Arbeit erstellte Anwendung kein Ersatz für Stifte und Post-its oder ein Online-Tool wie Miro ist.
 In seiner aktuellen Form ist die Anwendung lediglich ein unterstützendes Werkzeug für ein Event Storming, da ein Board nur von einer Person bearbeitet werden kann.
 Dies verstößt gegen eine Grundlage des Event Stormings, die Freiheit der Teilnehmer jederzeit neue Events zu erstellen.
-In dieser Arbeit wurde allerdings die Basis für ein Online-Tool geschaffen, aus welchem ein solcher Ersatz mit weiterer Arbeit werden kann.
+In dieser Arbeit wurde allerdings die Basis für ein Online-Tool geschaffen.
 Dies wurde ebenfalls während des Expertengespräches bestätigt\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  51:06}.
-Welche Erweiterungen hierfür getroffen werden müssen, werden in Kapitel~\ref{ch:ausblick} erläutert.
+Aufbauend auf dieser Basis wurden Erweiterungen besprochen, damit das Online-Tool in der Praxis einsetzbar ist.
+Die Erweiterungen werden in Kapitel~\ref{ch:ausblick} erläutert.
 
 \todo{Limitierungen von Heroku hervorheben \url{https://railsautoscale.com/heroku-free-dynos/}}
 Hierbei ist zu beachten, dass das initiale Laden der Webseite etwas Zeit in Anspruch nimmt, da die Anwendung auf Heroku nach einer gewissen
 Inaktivität in einen Ruhezustand versetzt wird und bei einem neuen Aufruf erst hochgefahren werden muss.
 
-Während dem Implementieren der Anwendung traten keine nennenswerten Probleme auf.
+Während des Implementierens der Anwendung traten keine nennenswerten Probleme auf.
 Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
 Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der UML-Diagramme im Backend.
-Während der Generierung wurde eine zusätzliche Javascript Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
-Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Error, welcher die Generierung aller Dateien beeinflusste.
-Somit konnten weder neue Event Storming Boards noch alle Funktionen bei den Mockups richtig generiert werden.
+Während der Generierung wurde eine zusätzliche Javascript-Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
+Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Fehler, welcher die Generierung aller Dateien beeinflusste.
+Somit konnten weder neue \ac{ES}-Boards noch alle Funktionen bei den Mockups richtig generiert werden.
 Dies sorgte während des Expertengespräches für Pausen, in denen das Backend neu gestartet werden musste.
-Diese Neustarts mussten allerdings nach fast jeder Generierung wiederholt werden.
-Um diese Problematik zu umgehen wurde aus der Spring Boot Anwendung eine Jar erstellt und diese zusammen mit einer \textit{Graphviz} Installation in einem Docker Image
+Diese Neustarts mussten nach fast jeder Generierung wiederholt werden.
+Um diese Problematik zu umgehen, wurde aus der Spring-Boot-Anwendung eine Jar-Datei erstellt und diese zusammen mit einer \textit{Graphviz}-Installation in einem Docker-Image
 vereinigt\cite*{size-problem}.
-Somit muss keine zusätzliche Javascript Engine gestartet werden, da \textit{Graphviz} über die vorinstallierte Instanz genutzt werden kann.
-Durch die Verwendung eines Docker Images musste das Deployment auf Heroku angepasst werden.
-Heroku bietet eine eigene Registry an, in welcher Docker Images bereitgestellt werden können.\footnote{https://devcenter.heroku.com/articles/container-registry-and-runtime}
-Nachdem dies funktionierte wurde die Anwendung mittels mehreren Generierungen großer Workflow Beschreibungen getestet und das Speicherproblem gelöst.
+Somit muss keine zusätzliche Javascript-Engine gestartet werden, da \textit{Graphviz} über die vorinstallierte Instanz genutzt werden kann.
+Durch die Verwendung eines Docker-Images musste das Deployment auf Heroku angepasst werden.
+Heroku bietet eine eigene Registry an, in welcher Docker-Images bereitgestellt werden können\cite*{heroku-registry}.
+Nachdem dies funktionierte, wurde die Anwendung mittels mehreren Generierungen großer Workflow-Beschreibungen getestet und das Speicherproblem gelöst.
+
+Die im Web-Editor vorhandenen Beispiele wurden in dem Editor selbst verfasst.
+Bei der Arbeit mit der Anwendung sind mehrere Feature-Anfragen aufgekommen.
+Die Autovervollständigung im Codeeditor ist bisher nicht kontextabhängig.
+Es werden immer alle möglichen Schlüsselwörter angeboten, auch wenn diese nach dem JSON-Schema nicht valide sind.
+Hier erhält der Nutzende erst bei dem Beginn der Generierung und der damit einhergehenden Validierung der Beschreibung ein Feedback.
+Um die Arbeit mit dem Tool für den Entwickelnden zu erleichtern, sollte diese Autovervollständigung verbessert werden und abhängig vom Kontext
+sinnvolle Vorschläge machen.
+Das eben erwähnte Feedback wird im Fehlerfall als Toast angezeigt, hierbei hat die Fehlermeldung eine bestimmte Form, welche nicht in jedem Fall aussagekräftig ist.
+Zudem wird zwar angezeigt, welches Element falsch ist, diese Stelle wird aber weder farblich hervorgehoben noch fokussiert.

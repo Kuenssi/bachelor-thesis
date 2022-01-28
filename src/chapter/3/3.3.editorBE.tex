@@ -34,7 +34,7 @@ Beide Methoden des Controllers reichen die erhaltenen Daten an den FulibWorkflow
 und der Erstellung des Zip-Archives kümmert.
 
 Im FulibWorkflowsService wird sowohl in der generate- als auch der createZip-Methode, welche vom Controller aufgerufen werden,
-der yaml-String über fulibWorkflows generiert.
+der YAML-String über fulibWorkflows generiert.
 Dabei nutzt das Backend die \texttt{generateAndReturnHTMLsFromString}-Methode des BoardGenerators von fulibWorkflows.
 \todo{wenn es kein Snippet gibt, wo die auftaucht, brauchst du die Methode nicht beim Namen nennen, sondern nur erklären, was die macht -> Schauen wie ich das Umschreibe}
 Im Anschluss wird aus der Map von generierten Dateien ein \textit{GenerateResult} erstellt, welches von der generate-Methode zu einem JSON-String weiterverarbeitet und zurück an den Controller gegeben wird.
