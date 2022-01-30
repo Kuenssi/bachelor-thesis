@@ -6,4 +6,4 @@ value: STRING | ID ;
 
 ID: [a-zA-Z]+ ;
 STRING: '"' .*? '"' ;
-WS : [ \t]+ -> skip ;
+WS : [` \textbackslash{t}`]+ -> skip ;
