@@ -6,9 +6,9 @@ Neben den eben genannten Dependencies wurde lediglich fulibWorkflows als weitere
 Die verfügbaren Endpunkte des Backends werden in einem Controller bereitgestellt.
 In diesem Fall ist dies der FulibWorkflowsController, welcher mit zwei Annotations versehen ist.
 Die erste Annotation ist~\texttt{@Controller}, welche eine Klasse als Controller deklariert.
-Bei der zweiten Annotation handelt es sich um \texttt{@CrossOrigin()} mit welcher es ermöglicht wird, problemlos mit dem
-Frontend zu interagieren.
-\todo{wenn das schon so dort steht, könnte sich dem leser die frage stellen, welche probleme man hat, wenn mans nicht macht?}
+Bei der zweiten Annotation handelt es sich um~\texttt{@CrossOrigin()} mit welcher es ermöglicht wird, mit anderen Services zu interagieren.
+Ohne diese Annotation kann der Mechanismus des \textit{Cross-Origin Resource Sharing (CORS)} nicht verwendet werden, wodurch Frontend und Backend
+keine Anfragen vom jeweils anderem Service akzeptieren würden.
 Im FulibWorkflowsController sind Endpunkte für die Generierung und den Download definiert.
 Diese Definitionen werden in Listing~\ref{listing:endpoints} zur Veranschaulichung dargestellt.
 
@@ -35,12 +35,10 @@ und der Erstellung des Zip-Archives kümmert.
 
 Im FulibWorkflowsService wird sowohl in der generate- als auch der createZip-Methode, welche vom Controller aufgerufen werden,
 der YAML-String über fulibWorkflows generiert.
-Dabei nutzt das Backend die \texttt{generateAndReturnHTMLsFromString}-Methode des BoardGenerators von fulibWorkflows.
-\todo{wenn es kein Snippet gibt, wo die auftaucht, brauchst du die Methode nicht beim Namen nennen, sondern nur erklären, was die macht -> Schauen wie ich das Umschreibe}
+Dabei nutzt das Backend die Funktion des BoardGenerators von fulibWorkflows, um die generierten Dateien als ``Strings'' zurückzubekommen und somit weiterverarbeiten zu können.
 Im Anschluss wird aus der Map von generierten Dateien ein \textit{GenerateResult} erstellt, welches von der generate-Methode zu einem JSON-String weiterverarbeitet und zurück an den Controller gegeben wird.
 Nachdem das GenerateResult-Objekt in der createZip-Methode erstellt wurde, beginnt das Erstellen des Zip-Archivs.
 Auf Grundlage der Query-Parameter werden die Dateien zum Zip-Archiv hinzugefügt, welche im Frontend ausgewählt werden.
-\todo{hab das gefühl ein ganz ähnlicher satz ist nicht lange her -> Ich sehs nicht xD}
 In Abbildung~\ref{fig:export} wurden alle Dateien heruntergeladen, welche von fulibWorkflows generiert wurden.
 
 \begin{figure}[h]

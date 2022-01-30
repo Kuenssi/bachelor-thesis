@@ -35,8 +35,6 @@ im Web-Editor genutzt wird.
     \label{fig:generated-board}
 \end{figure}
 
-\todo{der kram auf den notes könnte auch schwer zu lesen sein}
-
 In Abbildung~\ref{fig:generated-board} ist ein Ausschnitt des in Listing~\ref{listing:workflowNotes} beschriebenen Workflows in
 Form eines generierten \ac{ES}-Boards dargestellt.
 Hierbei sind die zuvor beschriebenen Unterschiede zwischen den verschiedenen Notes erkennbar.
@@ -64,8 +62,6 @@ Es existieren somit für die Oberflächenelemente~\acp{ST} für Text, Eingabefel
     \caption{Mittels fulibWorkflows generierte Mockups}%
     \label{fig:mockups}%
 \end{figure}
-
-\todo{bilder etwas größer machen?}
 
 In Abbildung~\ref{fig:mockups} sind die generierten Mockups aus dem vorherigen Beispiel dargestellt.
 Diese bestehen, entsprechend der Beschreibung, aus einem Text, drei Eingabefeldern, einem Passwortfeld und einem Knopf.
@@ -98,8 +94,6 @@ dazugehörigen Wert.
     \label{listing:fulibYaml}
 \end{listing}
 
-\todo{vlt kann man das hier auf die Seite davor schieben und Listing 20 auf diese Seite? Damit dann die nächste Abbildung nicht >1 Seite vom Text entfernt ist?}
-
 Nachdem ein Objektdiagramm in fulibYaml-Notation vorhanden ist, wird FulibTools verwendet, um daraus ein Diagram zu generieren.
 In Listing~\ref{listing:object-gen} ist diese Generierungsmethode abgebildet.
 Der erste Parameter der Methode enthält die Objektstruktur in Form von fulibYaml als String.
@@ -128,8 +122,6 @@ Diese Methoden existieren für die Nutzung im fulibWorkflows-Web-Editor, welche 
     \label{fig:generated-object}%
 \end{figure}
 
-\todo{puh da muss man aber ganz schön blättern jetzt, abbildung ist ganz weit woanders}
-
 In Abbildung~\ref{fig:generated-object} sind zwei Objektdiagramme dargestellt, welche mit fulibWorkflows generiert wurden.
 Die Beschreibung des Workflows stammt von einem Beispiel, welches zum Testen dieser Funktionalität in fulibWorkflows verwendet wurde.
 Das Beispiel ist im Anhang in Listing~\ref{listing:pm-yaml} hinterlegt.
@@ -149,18 +141,16 @@ Für das Erstellen eines Klassenmodells müssen die Data-Notes bestimmte Spezifi
     \label{listing:object-yaml}
 \end{listing}
 
-\todo{vlt listing 21 nach abbildung 3.6, brauchst du die abbildung hier oder war die nur für oben?}
-
 Anhand des Data-Notes aus Listing~\ref{listing:object-yaml} werden folgend die eben erwähnten Spezifikationen näher betrachtet.
 Der \textit{Name}, welcher in Zeile 5 nach dem Doppelpunkt vergeben wird, muss immer die Form: <Klassenname> <Objektname> besitzen.
 Zudem muss beim ersten Aufkommen einer Assoziation sowohl die Hin- als auch Rückrichtung beschrieben werden.
-Eine Assoziation wurde in Zeile 7 und 8 beschrieben, bei dieser wird mittels \textit{stops} der Bezeichner für die Hinrichtung festgelegt.
-Mit den eckigen Klammern um den Text \textit{stop1} wird ausgesagt, dass die Hinrichtung eine To-Many-Assoziation ist, somit ein Student mehrere Stops haben kann.
+Eine Assoziation wurde in Zeile 7 und 8 definiert, bei dieser wird mittels \textit{stops} der Bezeichner für die Hinrichtung festgelegt.
+Mit den eckigen Klammern um dem Text \textit{stop1} wird ausgesagt, dass die Hinrichtung eine To-Many-Assoziation ist, somit ein Student mehrere Stops haben kann.
+Damit die Verknüpfung von zwei Objekten funktioniert, benötigt es einen weiteren Data-Note, welcher ein Objekt ``stop1'' mit dem Typ ``Stop'' beschreibt.
+Ein solcher zweiter Note ist in Zeile 10 dargestellt.
 Die Rückrichtung wird in Zeile 8 durch \textit{stops.back} definiert, gemeinsam mit dem Wert \textit{student} wird der Bezeichner
 der Rückrichtung auf \textit{student} gesetzt.
 Durch die fehlenden eckigen Klammern ist die Kardinalität der Rückrichtung 0 oder 1.
-
-\todo{Zeile 10 aus Listing~\ref{listing:object-yaml} beschreiben}
 
 \begin{listing}[!ht]
     \inputminted[firstnumber=39]{java}{listings/3.1.4/ClassProcedure.java}
