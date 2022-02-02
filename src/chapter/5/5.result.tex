@@ -15,10 +15,6 @@ In dieser Arbeit wurde allerdings die Basis für ein Online-Tool geschaffen.
 Dies wurde ebenfalls während des Expertengespräches bestätigt\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  51:06}.
 Aufbauend auf dieser Basis wurden Erweiterungen besprochen, damit das Online-Tool in der Praxis einsetzbar ist.
 
-\todo{Limitierungen von Heroku hervorheben \url{https://railsautoscale.com/heroku-free-dynos/}}
-Hierbei ist zu beachten, dass das initiale Laden der Webseite etwas Zeit in Anspruch nimmt, da die Anwendung auf Heroku nach einer gewissen
-Inaktivität in einen Ruhezustand versetzt wird und bei einem neuen Aufruf erst hochgefahren werden muss.
-
 Während des Implementierens der Anwendung traten keine nennenswerten Probleme auf.
 Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
 Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der UML-Diagramme im Backend.
@@ -33,6 +29,10 @@ Somit muss keine zusätzliche Javascript-Engine gestartet werden, da \textit{Gra
 Durch die Verwendung eines Docker-Images musste das Deployment auf Heroku angepasst werden.
 Heroku bietet eine eigene Registry an, in welcher Docker-Images bereitgestellt werden können\cite*{heroku-registry}.
 Nachdem dies funktionierte, wurde die Anwendung mittels mehreren Generierungen großer Workflow-Beschreibungen getestet und das Speicherproblem gelöst.
+Diese Problematik entstand durch die Limitierungen von Heroku als nicht bezahlender Nutzer\cite*{size-problem}.
+Eine weitere Limitierung ist die Begrenzung der aktiven Stunden in einem Monat.
+Um diese Stunden möglichst niedrig zu halten, werden Anwendungen, welche nicht aktiv genutzt werden, nach 30 Minuten in einen Ruhezustand versetzt.
+Sobald eine Anwendung wieder verwendet werden soll, wird diese Hochgefahren, wodurch das initiale Laden der Anwendung etwas Zeit in Anspruch nimmt\cite*{heroku-limits}.
 
 Die im Web-Editor vorhandenen Beispiele wurden in dem Editor selbst verfasst.
 Bei der Arbeit mit der Anwendung sind mehrere Feature-Anfragen aufgekommen.
