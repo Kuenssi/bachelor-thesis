@@ -17,6 +17,8 @@ Dies wurde ebenfalls während des Expertengespräches bestätigt\footnote{Siehe~
 Aufbauend auf dieser Basis wurden Erweiterungen besprochen, damit das Online-Tool in der Praxis einsetzbar ist.
 
 Während des Implementierens der Anwendung traten keine nennenswerten Probleme auf.
+\todo{LÜGE! Hier schreiben, dass erst \ac{Antlr} benutzt wurde fürs parsen, aber dann auf snakeyaml umgestiegen wurde um das Datenmodell zu bauen}
+\todo{Vorteil -> Keine Eingrenzung bei Strings, Unabhängig von YAML Änderungen, Möglichkeit schneller Listen anstatt strings für elemente zuzulassen, Keine Wartung der ANTLR Grammatik (Unnötiger overhead)}
 Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
 Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der \ac{UML}-Diagramme im Backend.
 Während der Generierung wurde eine zusätzliche Javascript-Engine gestartet, welche für \textit{Graphviz} benötigt wurde.

@@ -1,14 +1,14 @@
 \section{fulibWorkflows}\label{sec:fulibworkflows2}
 Bei~\textit{fulibWorkflows} handelt es sich um eine Java-Bibliothek, welche Workflow-Beschreibungen als Eingabe erhält, diese Eingabe
 parst und daraus HTML-/FXML-Mockups, Objektdiagramme und Klassendiagramme generiert.
-Das Parsen wird über einen von \ac{Antlr} generierten Parser übernommen, hierzu wird in Kapitel~\ref{subsec:antlr-grammatik} genauer auf
-die zugrundeliegende Grammatik eingegangen.
-Zudem wird auf die Limitationen des Parsers und der generierten Mockups eingegangen.
+Das Parsen wird von einer weiteren Bibliothek übernommen und anschließend in einem Datenmodell für
+die Generierung vorbereitet, auf das Datenmodell wird in Kapitel~\ref{subsec:datenmodell} genauer eingegangen.
+Zudem wird auf die Limitationen der generierten Mockups eingegangen.
 
 \input{chapter/3/3.1.1.format}
 
 \input{chapter/3/3.1.2.schema}
 
-\input{chapter/3/3.1.3.grammar}
+\input{chapter/3/3.1.3.parser.tex}
 
 \input{chapter/3/3.1.4.generation}

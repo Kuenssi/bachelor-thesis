@@ -4,16 +4,19 @@ als Eingabe erhält und daraus
 sowohl ein \ac{ES}-Board als auch im Workflow beschriebene Mockups und Objekt-/ Klassendiagramme generiert.
 Welche Form die YAML-Eingabe haben muss und wie die Dateien aussehen und generiert werden, wird in Kapitel~\ref{subsec:workflow-format} erläutert.
 
-\input{chapter/2/2.2.1.1.antlr}
-
 \subsubsection{StringTemplate}
-Die Java-Bibliothek \textit{StringTemplate} gehört, wie das vorherige~\ac{Antlr}, zum~\textit{Antlr Project}.
+Die Java-Bibliothek \textit{StringTemplate} gehört zum~\textit{Antlr Project}.
 \ac{Antlr} verwendet ebenfalls String-Templates zur Generierung von formatiertem Text, im Folgenden als \textit{Code} bezeichnet.
 Templates (übersetzt: Schablonen) ermöglichen es zum Beispiel die feste Syntax einer Programmiersprache mit variablen Werten für
 Variablen, Klassen und Methoden zu belegen.
 Somit können die generellen Bausteine einer Sprache beliebig gefüllt werden.
 Durch diese Funktionalität bieten sich \acp{ST} sehr gut zur Generierung von Dateien an.
 Ursprünglich ist \textit{StringTemplate} eine Java-Bibliothek, jedoch wurden bereits Portierungen für C\#, Objective-C, JavaScript und Scala erstellt.
+
+\ac{Antlr} bietet die Möglichkeit einen Parser über eine eigens geschriebene Grammatik zu generieren.
+Der generierte Parser ermöglicht zudem das Aufbauen und Ablaufen eines~\textit{Parse trees}.
+Bei einem~\textit{Parse tree} handelt es sich um einen Syntaxbaum, in welchem über eine hierarchische Struktur ein Text in mehrere Knoten unterteilt wird.
+Hierdurch ergibt sich die Möglichkeit, während dem Parsen weitere Aktionen durchzuführen, welche den späteren Programmablauf eines Tools unterstützen können.
 
 Die folgenden Erläuterungen beziehen sich jedoch auf die ursprüngliche Java-Version von~\textit{StringTemplate}, da diese in dieser Arbeit verwendet wird.
 Die einfachste Möglichkeit für die Verwendung eines String Templates ist in Listing~\ref{listing:simpleTemplate} zu sehen.
