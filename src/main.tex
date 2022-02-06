@@ -33,7 +33,11 @@
 \listoflistings
 \listoffigures
 
-\printacronyms[name=Abkürzungsverzeichnis]
+\newpage
+\chapter*{Abkürzungsverzeichnis}
+\chaptermarker{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\printacronyms[name=Abkürzungsverzeichnis, heading=none]
 
 \clearpage
 \pagenumbering{arabic}
