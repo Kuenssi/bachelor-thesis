@@ -5,19 +5,20 @@ der Implementierung eingegangen.
 
 Anhand der Evaluierung zeigt sich, dass das Ziel erreicht wurde.
 Es wurde eine Web-Anwendung erstellt, welche ein Event Storming durch die Generierung und zeitnahe Darstellung von Dateien aus Events unterstützen kann\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  44:54}.
-Hierbei kann ebenfalls eine Datenmodellierung vorgenommen werden, welche initial bei einem Projekt von Entwicklern genutzt werden kann.
+Hierbei kann ebenfalls eine Datenmodellierung vorgenommen werden, welche initial bei einem Projekt von Entwickelnden genutzt werden kann.
 Die Beschreibungssprache, auf welcher die Generierung basiert, erfüllt die Ansprüche der Event-Notes für das Event Storming.
 
-Dennoch ist zu sagen, dass die in dieser Arbeit erstellte Anwendung kein Ersatz für Stifte und Post-its oder ein Online-Tool wie Miro ist.
+Dennoch ist zu sagen, dass die in dieser Arbeit erstellte Anwendung kein Ersatz für Stifte und Post-its\textsuperscript{\textregistered} oder ein Online-Tool wie Miro ist.
 In seiner aktuellen Form ist die Anwendung lediglich ein unterstützendes Werkzeug für ein Event Storming, da ein Board nur von einer Person bearbeitet werden kann.
 Dies verstößt gegen eine Grundlage des Event Stormings, die Freiheit der Teilnehmer jederzeit neue Events zu erstellen.
-In dieser Arbeit wurde allerdings die Basis für ein Online-Tool geschaffen.
+In dieser Arbeit wurde allerdings die Basis für ein Online-Tool geschaffen, welches zusätzlich zu einem \ac{ES}-Workshop genutzt werden kann.
+Eine mögliche Lösung für dieses Problem folgt zu einem späteren Zeitpunkt.
 Dies wurde ebenfalls während des Expertengespräches bestätigt\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  51:06}.
 Aufbauend auf dieser Basis wurden Erweiterungen besprochen, damit das Online-Tool in der Praxis einsetzbar ist.
 
 Während des Implementierens der Anwendung traten keine nennenswerten Probleme auf.
 Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
-Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der UML-Diagramme im Backend.
+Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der \ac{UML}-Diagramme im Backend.
 Während der Generierung wurde eine zusätzliche Javascript-Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
 Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Fehler, welcher die Generierung aller Dateien beeinflusste.
 Somit konnten weder neue \ac{ES}-Boards noch alle Funktionen bei den Mockups richtig generiert werden.
@@ -41,10 +42,11 @@ Es werden immer alle möglichen Schlüsselwörter angeboten, auch wenn diese nac
 Hier erhält der Nutzende erst bei dem Beginn der Generierung und der damit einhergehenden Validierung der Beschreibung ein Feedback.
 Um die Arbeit mit dem Tool für den Entwickelnden zu erleichtern, sollte diese Autovervollständigung verbessert werden und abhängig vom Kontext
 sinnvolle Vorschläge machen.
-Das eben erwähnte Feedback wird im Fehlerfall als Toast angezeigt, hierbei hat die Fehlermeldung eine bestimmte Form, welche nicht in jedem Fall aussagekräftig ist.
+Das eben erwähnte Feedback wird im Fehlerfall als Toast angezeigt.
+Hierbei hat die Fehlermeldung eine bestimmte Form, welche nicht in jedem Fall aussagekräftig ist.
 Zudem wird zwar angezeigt, welches Element falsch ist, diese Stelle wird aber weder farblich hervorgehoben noch fokussiert.
 
-Im Gespräch mit dem Experten aus Kapitel~\ref{sec:expertengespraech} entstanden ebenfalls weitere Funktionen, welche für die Verwendung des Tools in der Praxis von Vorteil wären.
+Im Gespräch mit dem Experten aus Kapitel~\ref{ch:evaluation} entstanden ebenfalls weitere Funktionen, welche für die Verwendung des Tools in der Praxis von Vorteil wären.
 Eine Ausweitung der verwendbaren Elemente in den Mockups ist eine dieser Funktionen\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  49:45}.
 Dabei wurde angesprochen, dass es sich dabei um Standardelemente wie Checkboxen, Dropdowns und Datepicker handelt.
 Es wurde auch das Erstellen von Tabellen angesprochen, allerdings bedarf es hierbei einer Abwägung, ob es möglich ist eine Tabelle in der YAML-syntax zu definieren,

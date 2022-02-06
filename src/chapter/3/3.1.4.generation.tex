@@ -4,8 +4,8 @@ Der Einstiegspunkt und somit der Start des Parsens und der Generierung ist die \
 Diese hat Methoden, um Datei- oder String-Eingaben zu verarbeiten.
 Nachdem mittels des Parsers aus der Eingabe ein fertiges Board-Objekt erstellt wurde, werden weitere Klassen zur Generierung verwendet.
 HTML-Dateien werden vom HtmlGenerator generiert, hierbei handelt es sich um Mockups und das \ac{ES}-Board.
-Mockups können allerdings auch als FXML-Datei generiert werden, um eine Grundlage für eine JavaFx-Anwendung zu bilden, diese Generierung
-übernimmt der FxmlGenerator.
+Mockups können allerdings auch als FXML-Datei generiert werden, um eine Grundlage für eine JavaFx-Anwendung zu bilden.
+Diese Generierung übernimmt der FxmlGenerator.
 Zuletzt vereint der DiagramGenerator die Generierung von Objekt- und Klassendiagrammen.
 Außer der \textit{BoardGenerator}-Klasse sind die restlichen Generator-Klassen für die Vorbereitung der Daten zuständig.
 Diese erhalten Eingaben von dem BoardGenerator, bereiten diese Eingabe auf, je nachdem welche Daten benötigt werden und enthalten eine
@@ -160,7 +160,7 @@ Durch die fehlenden eckigen Klammern ist die Kardinalität der Rückrichtung 0 o
 
 Anhand dieser Anforderungen an einen Data-Note ist es möglich ein Klassenmodell aus den Notes zu abstrahieren.
 In Listing~\ref{listing:class-procedure} sind die Schritte, welche zum Aufbau eines Klassenmodells nötig sind, aufgelistet.
-Diese stammen samt Kommentaren aus der Implementierung, die \textit{ClassModelManager}-Klasse ist in der fulib-Bibliothek enthalten.
+Diese stammen samt Kommentaren aus der Implementierung der \textit{ClassModelManager}-Klasse in der fulib-Bibliothek.
 Im ersten Schritt, Zeile 43, werden alle Klassen in einer Map abgelegt, wobei als Key der Name der Klasse und als Value ein \textit{Clazz}-Objekt fungiert.
 Hierbei wird über alle Data-Notes iteriert und die darin enthaltenen Klassen aus dem Namen des Data-Notes extrahiert.
 In Schritt zwei, Zeile 47, werden die vorhandenen Assoziationen erstellt.
@@ -187,7 +187,7 @@ Nachdem das Diagramm generiert wurde, wird dieses ebenfalls auf dem Dateisystem 
     \label{fig:generated-class}
 \end{figure}
 
-In Abbildung~\ref{fig:generated-class} ist das aus der vorherigen Kapitel verwendete Beispiel zur Grundlage der Generierung eines Klassendiagramms genutzt worden.
+In Abbildung~\ref{fig:generated-class} ist das im vorherigen Kapitel verwendete Beispiel zur Grundlage der Generierung eines Klassendiagramms genutzt worden.
 Das Klassendiagramm besteht aus drei Klassen und beinhaltet alle beschriebenen Assoziationen bestehend aus Kanten, Bezeichnern an beiden Seiten und den entsprechenden
 Kardinalitäten.
 Bei den Kardinalitäten kennzeichnet ein ``*'' eine To-Many-Assoziation.

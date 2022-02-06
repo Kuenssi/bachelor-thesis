@@ -4,7 +4,7 @@ In Kapitel~\ref{subsubsec:json-schema} wurden bereits die Grundlagen für JSON-S
 fulibWorkflows-Schema genauer betrachtet.
 Das komplette Schema ist in dem referenzierten fulibWorkflows-Repository im Anhang hinterlegt, da dieses zu lang ist, um es übersichtlich in diesem Kapitel zu erläutern.
 Dadurch wird nur auf die wichtigsten Punkte der Implementierung eingegangen.
-Um die Lesbarkeit für Entwickler zu verbessern, ist das Schema in zwei Dateien aufgeteilt.
+Um die Lesbarkeit für Entwickelnde zu verbessern, ist das Schema in zwei Dateien aufgeteilt.
 
 \begin{listing}[!ht]
     \inputminted{json}{listings/3.1.2/page.json}
@@ -15,7 +15,7 @@ Um die Lesbarkeit für Entwickler zu verbessern, ist das Schema in zwei Dateien 
 Listing~\ref{listing:schema-split} ist eine minimale Version des eigentlichen Schemas, in welchem dennoch die wichtigsten Funktionen dargestellt sind.
 Das fulibWorkflows-Schema enthält die Definitionen und die Festlegung der erlaubten Elemente in der obersten Liste.
 Durch das Schema werden nur JSON-/YAML-Dateien akzeptiert, welche aus einer Liste an Elementen bestehen.
-Hierbei sind die Elemente jedoch festgelegt durch die in Zeile 20 und 21 dargestellten Zeilen.
+Hierbei sind die Elemente jedoch festgelegt, dies ist durch die Spezifikation ab Zeile 19 umgesetzt.
 Ein \textit{item} darf nur aus einem der Elemente bestehen, welche in der Auflistung ab Zeile 22 festgelegt sind.
 Um die Lesbarkeit zu vereinfachen und die Schachtelungstiefe möglichst gering zu halten, werden nur die erlaubten Elemente referenziert.
 Die referenzierten Elemente wurden im ersten Teil des Schemas, ab Zeile 4, definiert.
@@ -23,7 +23,7 @@ Für jedes der im vorherigen Kapitel erwähnten Zettel gibt es ein Element im Sc
 Die Definitionen der Elemente, welche nicht in Listing~\ref{listing:schema-split} dargestellt sind, enthalten Standardwerte, welche bereits in Kapitel~\ref{subsubsec:json-schema} erläutert wurden.
 Die Definition der Page ist jedoch ein Sonderfall, welche durch das Aufteilen in mehrere Dateien entstanden ist.
 Es ist möglich weitere Schemas aus einer anderen Datei zu importieren, dies ist in Zeile 11 ersichtlich.
-Auch dort es Referenzen, allerdings referenzieren diese nicht auf eine im Schema befindliche Definition, sondern auf die Page-Definition aus der \textit{page.schema.json}-Datei.
+Auch dort gibt es Referenzen, allerdings referenzieren diese nicht auf eine im Schema befindliche Definition, sondern auf die Page-Definition aus der \textit{page.schema.json}-Datei.
 Die Aufteilung wurde durchgeführt, da die Page eine Liste ist und ebenfalls fünf eigene Elemente definiert.
 Allein das Page-Schema beläuft sich auf 93 Zeilen und umfasst somit allein die Hälfte des Parent-Schemas.
 

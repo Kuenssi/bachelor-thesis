@@ -18,7 +18,8 @@ Damit ist es möglich einen Light- oder Dark-Mode zum Schreiben des Codes zu ver
 Danach folgt ein Dropdown-Menü, mit welchem es möglich ist verschiedene vorgefertigte Beispiele zu laden.
 Das ausgewählte Beispiel wird automatisiert nach der Auswahl ans Backend geschickt und dort generiert, sodass nach einer kurzen Wartezeit ein \ac{ES}-Board und falls
 vorhanden Mockups und Diagramme angezeigt werden können.
-Als Nächstes folgt ein Knopf zum Anstoßen einer Generierung, nachdem dieser Knopf gedrückt wurde und die Generierung angestoßen ist, erscheint ein Ladekreis in dem Knopf,
+Als Nächstes folgt ein Knopf zum Anstoßen einer Generierung.
+Nachdem dieser Knopf gedrückt wurde und die Generierung angestoßen ist, erscheint ein Ladekreis in dem Knopf,
 um als Indikator dafür zu dienen, dass der Prozess noch nicht abgeschlossen ist.
 Die Web-Anwendung ermöglicht es zusätzlich die in der Oberfläche erstellten Dateien herunterladen.
 Hierfür öffnet sich ein Pop-Up, nachdem der Download-Knopf betätigt wurde.
@@ -91,7 +92,7 @@ Damit dies funktioniert, benötigt es das Importieren des \textit{show-hint}-Add
 Dieses Add-On erstellt die in Abbildung~\ref{fig:autocompletion}((a)) angezeigt Liste.
 Der Inhalt der Liste wird über ein in dieser Arbeit erstelltes Codemirror Add-On gefüllt.
 Hierbei fällt auf, dass auch Schlüsselwörter angezeigt werden, welche nur im Kontext eines Page-Notes sinnvoll sind.
-Das eigens geschriebene Add-On ist nicht kontextsensitiv und besitzt somit nicht die gleichen Funktionen wie die Autovervollständigung, welche eine IDE durch das JSON-Schema bereitstellt.
+Das eigens geschriebene Add-On ist nicht kontextsensitiv und besitzt somit nicht die gleichen Funktionen wie die Autovervollständigung, welche eine \ac{IDE} durch das JSON-Schema bereitstellt.
 Der Code des geschriebenen Add-Ons befindet sich im Anhang dieser Arbeit, hierbei wird über die aktuelle Position des Cursors das aktuelle Wort extrahiert.
 Damit ist es möglich über die Liste der Schlüsselwörter zu iterieren und zu prüfen, welche Vorschläge sinnvoll sind, sollte ein Wort bereits begonnen sein.
 Dies ist anhand von Abbildung~\ref{fig:autocompletion}((b)) genauer zu erkennen.
@@ -150,7 +151,7 @@ In Abbildung~\ref{fig:esBoard} ist ein \ac{ES}-Board für das im Web-Editor vorh
     \label{fig:esBoard}
 \end{figure}
 
-Hierbei ist zu erwähnen, dass die Bereiche: Code-Editor, \ac{ES}-Board-IFrame und der IFrame zur Anzeige der Mockups und Diagramme beliebig vergrößert oder verkleinert werden kann.
+Hierbei ist zu erwähnen, dass die Bereiche: Code-Editor, \ac{ES}-Board-IFrame und der IFrame zur Anzeige der Mockups und Diagramme beliebig vergrößert oder verkleinert werden können.
 Um dies zu ermöglichen wurde die Bibliothek \textit{angular-split} verwendet.
 Diese ermöglicht es Bereiche zu definieren und darin Inhalt zu platzieren, sowie die Veränderung der Größen der Bereiche bereitzustellen\cite*{angular-split}.
 Das Abändern der Größe von Bereichen ermöglicht das Hervorheben des Editors, des \ac{ES}-Boards oder der Mockups/Diagramme.

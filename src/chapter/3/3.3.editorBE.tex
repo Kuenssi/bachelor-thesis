@@ -7,7 +7,7 @@ Die verfügbaren Endpunkte des Backends werden in einem Controller bereitgestell
 In diesem Fall ist dies der FulibWorkflowsController, welcher mit zwei Annotations versehen ist.
 Die erste Annotation ist~\texttt{@Controller}, welche eine Klasse als Controller deklariert.
 Bei der zweiten Annotation handelt es sich um~\texttt{@CrossOrigin()} mit welcher es ermöglicht wird, mit anderen Services zu interagieren.
-Ohne diese Annotation kann der Mechanismus des \textit{Cross-Origin Resource Sharing (CORS)} nicht verwendet werden, wodurch Frontend und Backend
+Ohne diese Annotation kann der Mechanismus des \ac{CORS} nicht verwendet werden, wodurch Frontend und Backend
 keine Anfragen vom jeweils anderem Service akzeptieren würden.
 Im FulibWorkflowsController sind Endpunkte für die Generierung und den Download definiert.
 Diese Definitionen werden in Listing~\ref{listing:endpoints} zur Veranschaulichung dargestellt.

@@ -58,7 +58,7 @@ Die Begrenzer in Zeile 5 zeigen, dass alles, was sich zwischen Ihnen befindet, e
 Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährleistet.
 
 Um diese Templates nun in einem Java-Programm zu verwenden, benötigt es unter anderem die zuvor beschriebene ST-Klasse, sowie
-die Klasse~\textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates, benötigt wird.
+die Klasse~\textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates benötigt wird.
 In Zeile 6 von Listing~\ref{listing:stgJavaFile} ist zu erkennen, dass einem STGroupFile-Objekt bei der Initialisierung eine URL übergeben werden muss.
 Diese URL verweist auf die stg-Datei.
 Im Anschluss kann, wie in Zeile 8 ersichtlich, über die getInstanceOf()-Methode auf ein bestimmtes Template in der stg-Datei zugegriffen werden.
@@ -86,7 +86,7 @@ Bei der Ausführung dieses Beispiels wird auf der Konsole der Text aus Listing~\
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 JSON-Schemas, von der gleichnamigen Organisation ``JSON Schema'' entwickelt, geben die Struktur und den Inhalt einer JSON-/YAML-Datei vor\cite*{jsonSchema}.
 Hierdurch ist es möglich, den Nutzer in seinen Eingaben zu begrenzen und bereits während des Schreibens einer Datei dabei zu unterstützen sinnvolle Eingaben zu erstellen.
-Mittels JSON-Schemas werden unter anderem Konfigurationsdateien spezifiziert, wodurch Standards zur Übertragung von Daten mittels JSON-Dateien ermöglicht wird.
+Mittels JSON-Schemas werden unter anderem Konfigurationsdateien spezifiziert, wodurch Standards zur Übertragung von Daten mittels JSON-Dateien ermöglicht werden.
 
 JSON-Schemas können Objektstrukturen in beliebiger Tiefe schachteln.
 Im folgenden Abschnitt werden die grundlegenden Elemente eines JSON-Schemas erläutert.
@@ -94,7 +94,7 @@ Weiterführende Funktionalitäten werden anhand der Implementierung in Kapitel~\
 
 Ein einzelnes Objekt kann zur Verbesserung der späteren Nutzung mit einem Titel und einer kurzen Beschreibung versehen werden.
 Diese sind in Listing~\ref{listing:objectSchema} in Zeile 2 und 3 dargestellt.
-Die Einträge \textit{title} und \textit{description} dienen lediglich der verbesserten Lesbarkeit für den Entwickler.
+Die Einträge \textit{title} und \textit{description} dienen lediglich der verbesserten Lesbarkeit für den Entwickelnden.
 
 \begin{listing}[!ht]
     \inputminted{json}{listings/2.2.1/object.schema.json}
@@ -104,13 +104,13 @@ Die Einträge \textit{title} und \textit{description} dienen lediglich der verbe
 
 Einem Element muss stets ein~\textit{type}, also ein Typ, zugeordnet werden.
 Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{listing:objectSchema}, oder eine Liste sein.
-Einem Objekt können nun \textit{properties} hinzugefügt werden.
+Einem Objekt können nun \textit{Properties} hinzugefügt werden.
 Diese besitzen neben einem eindeutigen Bezeichner ebenfalls eine Beschreibung und einen Typen.
 Auf dieser Ebene kann der Typ eine Nummer, \textit{integer} in Zeile 8, oder auch ein Text, welcher den Typ \textit{string} bekommen würde, sein.
 Ist eine der \textit{Properties} ein notwendiges Feld, kann dies mittels des Schlüsselwortes \textit{required} realisiert werden.
 Hierbei wird eine Liste an Bezeichnern hinterlegt, welche dem Objekt bereits zugeordnet wurden und somit stets vorhanden sein müssen.
 Das Beispiel stammt von der offiziellen JSON-Schema-Webseite\cite*{schemaExample}.
-Sollten einem Objekt keine weiteren properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
+Sollten einem Objekt keine weiteren Properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
 
 \begin{listing}[!ht]
     \begin{minted}{json}
@@ -135,16 +135,16 @@ Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines diese
     \label{listing:listSchema}
 \end{listing}
 
-Durch ein fest definiertes Schema ist es vielen IDEs, darunter auch IntelliJ und VSCode,
-möglich den Entwickler durch Fehlerhervorhebung und Autovervollständigung zu unterstützen.
+Durch ein fest definiertes Schema ist es vielen~\acp{IDE}, darunter auch IntelliJ und VSCode,
+möglich den Entwickelnden durch Fehlerhervorhebung und Autovervollständigung zu unterstützen.
 Hierfür ist es möglich bereits erstellte JSON-Schemas im \textit{SchemaStore} bereitzustellen.
-Dies ist eine zentrale Stelle, um JSON-Schemas für IDEs zur Verfügung zu stellen.
+Dies ist eine zentrale Stelle, um JSON-Schemas für \acp{IDE} zur Verfügung zu stellen.
 Bei dem \textit{SchemaStore} handelt es sich um ein Open-Source-Projekt, bei welchem die Einbringung eines neuen Schemas simpel gestaltet ist.
 Es ist möglich ein fertiges Schema fest dort zu hinterlegen, hierdurch muss für jede neue Änderung allerdings ein neuer Pull Request erstellt werden.
-Dieser bedarf einer Zustimmung einem der Verwalter des~\textit{Schema Stores}.
+Dieser bedarf der Zustimmung einer der Verwalter des~\textit{Schema Stores}.
 Da dies stets mit einer Verzögerung passiert, ist es möglich eine Verlinkung zu einem Schema zu erstellen.
-Somit können Änderungen an einem Schema durchgeführt werden, um diese Änderungen nach dem Hochladen direkt zur Verfügung stellen zu können.
-Zum aktuellen Zeitpunkt existieren 439 Schemas, welche durch \textit{SchemaStore.org} für diverse IDEs\footnote{\url{https://www.schemastore.org/json/#editors}}
+Somit können Änderungen, die an einem Schema durchgeführt werden, direkt nach dem Hochladen zur Verfügung gestellt werden.
+Zum aktuellen Zeitpunkt existieren 439 Schemas, welche durch \textit{SchemaStore.org} für diverse \acp{IDE}\footnote{\url{https://www.schemastore.org/json/#editors}}
 bereitgestellt werden\cite*{schemaStore}.
 
 \subsubsection{fulibTools}

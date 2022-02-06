@@ -11,19 +11,19 @@ Ein grundlegendes Ziel des \ac{DDD} ist es ein Projekt in sogenannte \textit{Bou
 die Anwendung aus einem riesigen aufgeblähten Modell besteht.
 Um dieses Ziel zu erreichen, ist es wichtig in Gesprächen mit Domänenexperten die wichtigsten Punkte eines \textit{Bounded Context} zu evaluieren.
 Domänenexperten können in jedem Bereich eines Unternehmens gefunden werden.
-Es ist nötig ein möglichst breites Spektrum an Personen zu haben, um den gesamten zu entwickelnden Prozess zu verstehen und für die Entwickler verständlich zu machen.
+Es ist nötig ein möglichst breites Spektrum an Personen zu haben, um den gesamten zu entwickelnden Prozess zu verstehen und für die Entwickelnden verständlich zu machen.
 Dabei ist es wichtig, dass alle Personen, welche am Prozess des \ac{DDD} teilnehmen, eine einheitliche Sprache entwickeln.
 Diese einheitliche Sprache beschreibt Vernon als~\textit{Ubiquitous Language}\footnote{im Deutschen ``allgegenwärtige Sprache''}\cite*{dddd}.
 Diese Sprache zu entwickeln, ist eine fortlaufende Aufgabe für die im Projekt angesiedelten Personen.
-Initial ist es wichtig, dass zwischen den verschiedenen Domänenexperten und den Entwicklern diese allgegenwärtige Sprache entsteht, welche
+Initial ist es wichtig, dass zwischen den verschiedenen Domänenexperten und den Entwickelnden diese allgegenwärtige Sprache entsteht, welche
 nicht nur das Verständnis zwischen den beiden Parteien verbessern, sondern auch mit in das Modell einfließen soll.
 
 \subsection{Event Storming}\label{subsec:allgemein}
 Vernon selbst nennt Event Storming als mögliche Methode, um eine~\textit{Ubiquitous Language}\cite*{dddd} zu entwickeln.
 Event Storming wurde von Alberto Brandolini entwickelt und resultiert aus mangelnder Zeit während der Nutzung von~\textit{event-driven modeling}.
-\textit{Event-driven modeling} basiert ebenfalls auf Konversationen und konkreten Szenarien, allerdings mit der Verwendung von UML-Diagrammen zur Datenmodellierung.
-Dies hatte zur Konsequenz, dass in Gesprächen zur Anforderungsanalyse ab einem bestimmten Punkt nur noch die Entwickler daran teilnahmen.
-Brandolini verwarf UML-Diagramme, verwendete stattdessen Haftnotizen und legte damit den Grundbaustein für das~\ac{ES}\cite*{dddd}.
+\textit{Event-driven modeling} basiert ebenfalls auf Konversationen und konkreten Szenarien, allerdings mit der Verwendung von \ac{UML}-Diagrammen zur Datenmodellierung.
+Dies hatte zur Konsequenz, dass in Gesprächen zur Anforderungsanalyse ab einem bestimmten Punkt nur noch die Entwickelnden daran teilnahmen.
+Brandolini verwarf \ac{UML}-Diagramme, verwendete stattdessen Haftnotizen und legte damit den Grundbaustein für das~\ac{ES}\cite*{dddd}.
 
 In seinem Buch ``Introducing EventStorming'' beschreibt Brandolini mehrere \ac{ES}-Workshops und wie diese durchgeführt wurden\cite*{introES}.
 Hierbei stellt sich heraus, dass Event Storming kein starres Konstrukt aus Abläufen ist, sondern je nach Kontext angepasst werden kann.
@@ -57,7 +57,7 @@ Hierbei bleibt die Methodik an sich die gleiche, allerdings wird das Ziel genaue
 Hierzu ist es nötig, dass alle Interessengruppen vertreten sind, welche innerhalb des Unternehmens existieren und ebenfalls eine Entscheidungsgewalt innehaben.\newline
 \textbf{Design Level EventStorming} findet auf einer tieferen Ebene einen Einsatz.
 Dabei handelt es sich um das Erstellen möglicher Implementierungen, zum Beispiel, ob Event Sourcing oder andere Techniken aus dem~\ac{DDD} verwendet werden sollen.
-Es werden somit Entscheidungen getroffen, welcher in erster Linie die Entwickler betrifft und von diesen am besten zu bewerten ist.\newline
+Es werden somit Entscheidungen getroffen, welcher in erster Linie die Entwickelnden betrifft und von diesen am besten zu bewerten ist.\newline
 \textbf{Value-Driven EventStorming} bietet einen Einstieg in die Wertstromanalyse (englisch: value-stream mapping).
 Anhand einer solchen Analyse ist es möglich den Erhalt von Informationen und der Verarbeitung dieser darzustellen und Probleme zu erkennen.\newline
 \textbf{UX-Driven EventStorming} konzentriert sich auf das Erlebnis eines Nutzers/Kunden bei der Benutzung der Anwendung.
@@ -79,6 +79,7 @@ Zum anderen wurde bei der Entwicklung der Anwendung darauf Wert gelegt, die Gene
 Durch diese Möglichkeit ist das zuvor beschriebene \textbf{UX-Driven EventStorming} ein weiterer Typ des Event Stormings, welcher hierbei Verwendung findet.
 Die Generierung von Mockups und rudimentären \textit{Clickdummys} soll es ermöglichen, während einem Event Storming genauer auf Oberflächen eingehen zu können
 und daraus verschiedene Wege darzustellen, in welcher eine Anwendung genutzt werden kann.
+Bei einem Clickdummy handelt es sich um Oberflächen, welche so miteinander verbunden sind, dass diese eine Anwendung simulieren.
 
 Auf die Generierungsmöglichkeiten von Mockups und deren weitere Funktionen im Web-Editor wird in Kapitel~\ref{ch:implementierung} genauer eingegangen.
 
