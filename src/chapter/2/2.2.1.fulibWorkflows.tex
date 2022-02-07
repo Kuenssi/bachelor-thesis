@@ -151,16 +151,23 @@ Zum aktuellen Zeitpunkt existieren 439 Schemas, welche durch \textit{SchemaStore
 bereitgestellt werden\cite*{schemaStore}.
 
 \subsubsection{fulibTools}
-\todo{Für jemanden der Fulib nicht kennt ist das hier einfach Brainfuck oder? Mit Seb abklären, ob das stark genug genutzt wurde um es hier in vermutlich doppelter
-Länge richtig zu beschreiben}
 
-FulibTools ist Teil der Fujaba Tool Suite.
-Auch das in dieser Arbeit erstellte fulibWorkflows ist ein Teil der Fujaba Tool Suite.
-Fulib bildet die Grundlage für fulibTools, wobei fulibTools erweiterte Möglichkeiten für die Nutzung von fulib bereitstellt.
+FulibTools ist Teil der~\textit{Fujaba Tool Suite}.
+Die \textit{Fujaba Tool Suite} beherbergt diverse Java-Bibliotheken, welche sich mit der Datenmodellierung
+und dem Generieren von Datenmodellen für Java-Anwendungen befassen.
+Hierbei wurden bereits verschiedene Ansätze verfolgt.
+Bei der aktuell grundlegenden Bibliothek handelt es sich um~\ac{fulib}, welches somit die Grundlage für die Generierung von
+Datenmodellen bereitstellt.
 Fulib ist ein Codegenerator, welcher mittels einer~\ac{DSL} Modelle als Diagramme darstellen kann\cite*{fulib}.
 Dies begrenzt sich nicht nur auf Klassenmodelle, sondern ist auch für Objektmodelle einsetzbar.
+Diese Diagramme werden durch Funktionen von \textit{fulibTools} generiert.
 FulibTools ist eine Erweiterung, da die Generierung der Diagramme auch abseits der eben erwähnten DSL funktioniert\cite*{fulibTools}.
 Hierdurch bietet sich die Möglichkeit Objektmodelle über ein spezielles YAML-Format oder ein Java-Objektmodell zur Laufzeit zu generieren.
 Gleiches gilt für Klassenmodelle.
 Die Verwendung von FulibTools ist somit für diese Arbeit eine bessere Wahl als~\textit{Graphviz}, eine Bibliothek zur Generierung von Diagrammen, direkt zu verwenden.
-Dies ist der Fall, da FulibTools bereits die Verarbeitung einer Eingabe übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.
+Dies ist der Fall, da FulibTools bereits die Verarbeitung einer Eingabe übernimmt und hierdurch leichter für ein weiteres Tool der Fujaba Tool Suite zu verwenden ist.\newline
+Neben der Modellierung und Generierung über die eben erwähnte~\ac{DSL}, existiert ein textueller Ansatz.\footnote{\url{https://github.com/fujaba/fulibScenarios}}
+Die in dieser Arbeit erstellte Bibliothek~\textit{fulibWorkflows} verfolgt zur Modellierung die Beschreibung eines Datenmodells über Objekte, welche
+mittels Data-Notes dargestellt werden.
+Wie diese Data-Notes aufgebaut sind und wie diese zu einem Klassenmodell werden, wird in Kapitel~\ref{subsec:generierung-von-dateien} erläutert.
+Dadurch ist auch fulibWorkflows ein Teil der~\textit{Fujaba Tool Suite}.

@@ -36,9 +36,3 @@
   username: Gonpachiro1912
   eMail: ds@taicho.com
   psw: nezuko!DS42
-
-- event: User created
-
-- page:
-    - pageName: Login
-    - text: Successfully logged in

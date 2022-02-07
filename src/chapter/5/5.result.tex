@@ -16,10 +16,11 @@ Eine mögliche Lösung für dieses Problem folgt zu einem späteren Zeitpunkt.
 Dies wurde ebenfalls während des Expertengespräches bestätigt\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  51:06}.
 Aufbauend auf dieser Basis wurden Erweiterungen besprochen, damit das Online-Tool in der Praxis einsetzbar ist.
 
-Während des Implementierens der Anwendung traten keine nennenswerten Probleme auf.
+Während der Implementierung traten zwei größere Probleme auf.
 \todo{LÜGE! Hier schreiben, dass erst \ac{Antlr} benutzt wurde fürs parsen, aber dann auf snakeyaml umgestiegen wurde um das Datenmodell zu bauen}
 \todo{Vorteil -> Keine Eingrenzung bei Strings, Unabhängig von YAML Änderungen, Möglichkeit schneller Listen anstatt strings für elemente zuzulassen, Keine Wartung der ANTLR Grammatik (Unnötiger overhead)}
-Dies änderte sich allerdings, nachdem die Anwendung über Heroku bereitgestellt wurde.
+
+Bei dem zweiten Problem handelt es sich um die Bereitstellung des Web-Editor-Backends auf Heroku.
 Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der \ac{UML}-Diagramme im Backend.
 Während der Generierung wurde eine zusätzliche Javascript-Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
 Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Fehler, welcher die Generierung aller Dateien beeinflusste.

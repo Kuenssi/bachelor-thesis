@@ -1,6 +1,10 @@
 \subsection{Datenmodell}\label{subsec:datenmodell}
-\todo{This}
-
+Bevor im folgenden Kapitel die Generierung von Dateien erläutert wird, bedarf es der Betrachtung
+des Datenmodells, welches aus einer Workflow-Beschreibung entsteht.
+Der Inhalt einer Workflow-Beschreibung wird in~\ac{YAML}-Syntax vorgenommen.
+Diese wird durch den YAML-Parser von \textit{SnakeYAML}\footnote{\url{https://www.baeldung.com/java-snake-yaml}} in Java-Objekte umgewandelt.
+Aus der Liste an Java-Objekten wird das Datenmodell eines~\ac{ES}-Boards erstellt, welches die Generierung von Dateien ermöglicht.
+In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches die Struktur eines \ac{ES}-Boards nach dem Parsen der YAML-Eingabe widerspiegelt.
 
 \begin{figure}[h]
     \centering
@@ -9,10 +13,6 @@
     \label{fig:classdiagram}
 \end{figure}
 
-\todo{Rewrite the following part}
-
-Bevor anhand eines Beispiels die Verwendung einer exit-Methode erläutert wird, ist es notwendig das Datenmodell genauer zu betrachten.
-In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches die Struktur eines \ac{ES}-Boards nach dem Parsen der YAML-Eingabe widerspiegelt.
 Jeder Note besitzt eine dazugehörige Klasse, welche von BaseNote erbt.
 Für jeden Note existiert somit ein Name und ein Index, auf welchen im folgenden Abschnitt eingegangen wird.
 Da es im Event Storming ein dazugehöriges \textit{Board} gibt, ist dies ebenfalls eine Klasse, welche alle \textit{workflows} einer Eingabe hält.
