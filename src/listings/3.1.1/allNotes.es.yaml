@@ -6,7 +6,7 @@
     - pageName: Registration
     - text: Please create a new account
     - input: Username
-      fill: Gonpachiro1912
+      value: Gonpachiro1912
     - input: E-Mail
     - password: Password
     - password: Repeat Password
