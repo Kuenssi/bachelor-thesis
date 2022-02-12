@@ -34,7 +34,7 @@ Der erste Parameter der Methode ist der Bezeichner innerhalb eines Templates, zu
 Der Wert wird als zweiter Parameter übergeben und besitzt in diesem Beispiel den Text~\textbf{World}.
 Um nun den fertig ersetzten Text aus dem Template und dem übergebenem Wert zu bekommen, muss auf dem \textit{ST}-Objekt die Methode render() aufgerufen werden.
 Hierbei werden die Platzhalter des Templates durch den zuvor übergebenen Wert ersetzt und als String zurückgegeben.
-In Zeile 6 wird nun abschließend der fertige Text ``Hello, World!''  auf der Konsole ausgegeben.
+In Zeile 6 wird abschließend der fertige Text ``Hello, World!''  auf der Konsole ausgegeben.
 Dieses Beispiel entstammt der offiziellen Webseite von~\textit{StringTemplate}\cite*{stOrg}.
 
 Für ein strukturiertes Arbeiten mit vielen Templates bietet \textit{StringTemplate} die Möglichkeit \acp{STG} zu erstellen.
@@ -60,7 +60,7 @@ Ein~\ac{ST} wird durch ``> >'' geschlossen.
 Die Begrenzer in Zeile 5 zeigen, dass alles, was sich zwischen Ihnen befindet, einen Übergabeparameter in sich trägt.
 Somit ist das Wiederverwenden des Templates und die variable Befüllung gewährleistet.
 
-Um diese Templates nun in einem Java-Programm zu verwenden, benötigt es unter anderem die zuvor beschriebene ST-Klasse, sowie
+Um diese Templates in einem Java-Programm zu verwenden, benötigt es unter anderem die zuvor beschriebene ST-Klasse, sowie
 die Klasse~\textit{STGroupFile}, welche für die Verwaltung der stg-Datei als auch deren Templates benötigt wird.
 In Zeile 6 von Listing~\ref{listing:stgJavaFile} ist zu erkennen, dass einem STGroupFile-Objekt bei der Initialisierung eine URL übergeben werden muss.
 Diese URL verweist auf die stg-Datei.
@@ -88,7 +88,7 @@ Bei der Ausführung dieses Beispiels wird auf der Konsole der Text aus Listing~\
 
 \subsubsection{JSON-Schema}\label{subsubsec:json-schema}
 JSON-Schemas, von der gleichnamigen Organisation ``JSON Schema'' entwickelt, geben die Struktur und den Inhalt einer JSON-/YAML-Datei vor\cite*{jsonSchema}.
-Hierdurch ist es möglich, den Nutzer in seinen Eingaben zu begrenzen und bereits während des Schreibens einer Datei dabei zu unterstützen sinnvolle Eingaben zu erstellen.
+Hierdurch ist es möglich, den Nutzenden in seinen Eingaben zu begrenzen und bereits während des Schreibens einer Datei dabei zu unterstützen sinnvolle Eingaben zu erstellen.
 Mittels JSON-Schemas werden unter anderem Konfigurationsdateien spezifiziert, wodurch Standards zur Übertragung von Daten mittels JSON-Dateien ermöglicht werden.
 
 JSON-Schemas können Objektstrukturen in beliebiger Tiefe schachteln.
@@ -105,13 +105,12 @@ Die Einträge \textit{title} und \textit{description} dienen lediglich der verbe
     \label{listing:objectSchema}
 \end{listing}
 
-Einem Element muss stets ein~\textit{type}, also ein Typ, zugeordnet werden.
+Einem Element muss stets ein~\textit{type}, also einen Typen, zugeordnet werden.
 Dies kann entweder ein Objekt, Zeile 4 in Listing~\ref{listing:objectSchema}, oder eine Liste sein.
-Einem Objekt können nun \textit{Properties} hinzugefügt werden.
+Einem Objekt können \textit{Properties} hinzugefügt werden.
 Diese besitzen neben einem eindeutigen Bezeichner ebenfalls eine Beschreibung und einen Typen.
 Auf dieser Ebene kann der Typ eine Nummer, \textit{integer} in Zeile 8, oder auch ein Text, welcher den Typ \textit{string} bekommen würde, sein.
-Ist eine der \textit{Properties} ein notwendiges Feld, kann dies mittels des Schlüsselwortes \textit{required} realisiert werden.
-Hierbei wird eine Liste an Bezeichnern hinterlegt, welche dem Objekt bereits zugeordnet wurden und somit stets vorhanden sein müssen.
+Benötigt ein Objekt bestimmte~\textit{Properties}, so werden diese in einer Liste unter dem Schlüsselwort \textit{required} aufgelistet.
 Das Beispiel stammt von der offiziellen JSON-Schema-Webseite\cite*{schemaExample}.
 Sollten einem Objekt keine weiteren Properties hinzugefügt werden dürfen, ist dies mit dem Ausdruck aus Listing~\ref{listing:additionalProperties} möglich.
 
@@ -140,9 +139,9 @@ Bei mehreren Einträgen in der \textit{items} Aufzählung muss immer eines diese
 
 Durch ein fest definiertes Schema ist es vielen~\acp{IDE}, darunter auch IntelliJ und VSCode,
 möglich den Entwickelnden durch Fehlerhervorhebung und Autovervollständigung zu unterstützen.
-Hierfür ist es möglich bereits erstellte JSON-Schemas im \textit{SchemaStore} bereitzustellen.
+Hierfür ist es möglich bereits erstellte JSON-Schemas im \textit{SchemaStore}\footnote{\url{https://www.schemastore.org/json/}} bereitzustellen.
 Dies ist eine zentrale Stelle, um JSON-Schemas für \acp{IDE} zur Verfügung zu stellen.
-Bei dem \textit{SchemaStore} handelt es sich um ein Open-Source-Projekt, bei welchem die Einbringung eines neuen Schemas simpel gestaltet ist.
+Bei dem \textit{SchemaStore} handelt es sich um ein Open-Source-Projekt, bei welchem das Bereitstellen eines neuen Schemas simpel gestaltet ist.
 Es ist möglich ein fertiges Schema fest dort zu hinterlegen, hierdurch muss für jede neue Änderung allerdings ein neuer Pull Request erstellt werden.
 Dieser bedarf der Zustimmung einer der Verwalter des~\textit{Schema Stores}.
 Da dies stets mit einer Verzögerung passiert, ist es möglich eine Verlinkung zu einem Schema zu erstellen.
@@ -156,7 +155,7 @@ FulibTools ist Teil der~\textit{Fujaba Tool Suite}.
 Die \textit{Fujaba Tool Suite} beherbergt diverse Java-Bibliotheken, welche sich mit der Datenmodellierung
 und dem Generieren von Datenmodellen für Java-Anwendungen befassen.
 Hierbei wurden bereits verschiedene Ansätze verfolgt.
-Bei der aktuell grundlegenden Bibliothek handelt es sich um~\ac{fulib}, welches somit die Grundlage für die Generierung von
+Bei der aktuell grundlegenden Bibliothek handelt es sich um~\ac{fulib}, welches die Grundlage für die Generierung von
 Datenmodellen bereitstellt.
 Fulib ist ein Codegenerator, welcher mittels einer~\ac{DSL} Modelle als Diagramme darstellen kann\cite*{fulib}.
 Dies begrenzt sich nicht nur auf Klassenmodelle, sondern ist auch für Objektmodelle einsetzbar.

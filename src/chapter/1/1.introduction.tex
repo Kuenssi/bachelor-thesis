@@ -5,26 +5,26 @@
 \end{quote}
 
 
-Variationen dieses Satzes\footnote{, welcher von einem Kunden aus einem Drittmittelprojekt stammt}
-begegnen Softwareentwickelnden bei der agilen Softwareentwicklung für eine personalisierte Kundenanwendung häufiger.
+Variationen dieses Satzes\footnote{, welcher von einer auftraggebenden Person aus einem realen Projekt des Fachgebietes stammt}
+begegnen Softwareentwickelnden bei der agilen Softwareentwicklung für eine personalisierte Anwendung häufiger.
 In der agilen Softwareentwicklung können sich Anforderungen an die Anwendung stetig verändern.
-Neue Features werden vom Kunden ausprobiert, wodurch schnelles Feedback entsteht.
+Neue Features werden von den Auftraggebenden ausprobiert, wodurch schnelles Feedback entsteht.
 Dies verbessert zwar das Endprodukt, allerdings sorgt diese Art der Entwicklung für einen Mehraufwand aufseiten der Entwickelnden.
 In diesem Prozess ist die technische Abschätzung der Entwickelnden unerlässlich.
 Allerdings stellt dies auch eine Herausforderung für Softwareentwickelnde, im Folgenden ``Entwickelnde'', dar, sollten diese keine Erfahrung im
 \ac{RE} haben.
-In Gesprächen mit dem Kunden die korrekten Anforderungen zu verstehen und umzusetzen stellt ohne eine passende Methodik zum
+In Gesprächen mit den Auftraggebenden die korrekten Anforderungen zu verstehen und umzusetzen stellt ohne eine passende Methodik zum
 \ac{RE} ein Problem dar.
 
 \section{Motivation}\label{sec:motivation}
 Um komplexe Arbeitsabläufe zu Beginn einer Softwareentwicklung zu verstehen, existiert die Methode des Event Stormings von Alberto Brandolini.
-Hierbei setzen sich Entwickelnde und Domänenexperten zusammen und erarbeiten in einem Workshop die in der Software darzustellenden Arbeitsabläufe.
-Sobald eine Anwendung Benutzeroberflächen enthält, benötigt es ebenso Mockups, wodurch die Entwickelnden Vorschläge für eine Benutzeroberfläche
-darlegen können, um ein schnelles Feedback der Kunden zu erlangen.
+Hierbei setzen sich Entwickelnde und Sachverständige zusammen und erarbeiten in einem Workshop die in der Software darzustellenden Arbeitsabläufe.
+Sobald eine Anwendung Benutzeroberflächen enthält, benötigt sie ebenso Mockups, wodurch die Entwickelnden Vorschläge für eine Benutzeroberfläche
+darlegen können, um ein schnelles Feedback der Auftraggebenden zu erlangen.
 Diese beiden Methodiken können die soeben beschriebenen Probleme lösen.
 Doch während dem Event Storming können bereits Aussagen über eine mögliche Benutzeroberfläche getroffen werden.
 Eine Kombination aus den beiden Methodiken könnte somit in einem größeren Nutzen resultieren.
-Aus dieser Idee resultiert das Thema dieser Arbeit und der Versuch das Event Storming sinnvoll zu erweitern beziehungsweise den Prozess zu unterstützen.
+Aus dieser Idee entstand das Thema dieser Arbeit und der Versuch das Event Storming sinnvoll zu erweitern beziehungsweise den Prozess zu unterstützen.
 
 \section{Ziele}\label{sec:ziele}
 Aus der Motivation lassen sich mehrere Ziele extrahieren:
@@ -36,31 +36,33 @@ Aus der Motivation lassen sich mehrere Ziele extrahieren:
     \item Darstellung der verarbeiteten Beschreibung in der Web-Anwendung
 \end{itemize}
 
-Das Ergebnis dieser Arbeit soll alle extrahierten Ziele erfüllen und somit eine Web-Anwendung entwickelt werden,
-welche den Ablauf eines \ac{ES}-Workshops unterstützt.
-Zusätzlich soll auch nach einem solchen Workshop die Möglichkeit vorhanden sein auf diese Daten zuzugreifen und Aktualisierungen
+Das Ergebnis dieser Arbeit soll alle extrahierten Ziele erfüllen.
+Daraus soll eine Web-Anwendung entwickelt werden, welche den Ablauf eines \ac{ES}-Workshops unterstützt.
+Zusätzlich soll nach einem solchen Workshop die Möglichkeit vorhanden sein auf diese Daten zuzugreifen, um Aktualisierungen
 im Verlauf der Entwicklung vornehmen zu können.
 
 
 \section{Existierende Konzepte}\label{sec:existierende-konzepte}
 Event Storming, wie es klassisch von Alberto Brandolini entwickelt wurde, basiert auf der Arbeit in einem Raum mit vielen Post-its\textsuperscript{\textregistered}.
 Dadurch kann jede Person, welche am \ac{ES} teilnimmt, frei und jederzeit neue Events erstellen und anbringen.
-Sollte ein Zusammenkommen in einem Raum nicht möglich sein, sei es durch internationale Teilnehmer oder, wie es momentan der Fall ist,
-durch eine Pandemie, welche aufgrund von Sicherheitsmaßnahmen kein Treffen mit größeren Gruppen ermöglicht, können Online-Tools genutzt werden.
+Das Zusammenkommen in einem Raum ist nicht immer möglich.
+Ein Grund können Teilnehmende aus verschiedenen Ländern sein.
+In der aktuelle herrschenden Pandemie konnten aufgrund von Sicherheitsmaßnahmen keine größeren Gruppen in einem Raum versammelt werden.
+Dadurch ist der Einsatz von Online-Tools eine Möglichkeit diese Probleme zu umgehen.
 Ein Beispiel für ein interaktives Online-Board ist Miro.\footnote{https://miro.com/}
-Hierbei kann jeder Teilnehmer ebenfalls selbstständig neue Events erstellen und auf dem Board platzieren.
+Hierbei kann jeder Teilnehmende ebenfalls selbstständig neue Events erstellen und auf dem Board platzieren.
 Zudem können Kommentare zu bestehenden Events hinzugefügt werden.
-Diese Aktualisierungen werden für alle Teilnehmer synchronisiert.
+Diese Aktualisierungen werden für alle Teilnehmenden synchronisiert.
 
 
 \section{Aufbau der Arbeit}\label{sec:aufbau-der-arbeit}
 In Kapitel~\ref{ch:grundlagen} werden zuerst die Grundlagen des~\ac{ES} und die verwendeten Technologien
 zur Erstellung der zuvor erwähnten Anwendungen erläutert.
-Hierbei sind die Technologien entsprechend der zugehörigen Anwendung zugeordnet.
+Hierbei sind die Technologien entsprechend der zugehörigen Funktion zugeordnet.
 Anschließend befasst sich Kapitel~\ref{ch:implementierung} mit der Implementierung der Anwendungen.
-Dabei wird genauer auf die Anwendung der in Kapitel~\ref{ch:grundlagen} erläuterten Technologien eingegangen.
-Um den Nutzen der erstellten Anwendungen zu prüfen, wird in Kapitel~\ref{ch:evaluation} eine Evaluierung mittels Expertengespräch durchgeführt.
+Dabei wird genauer auf die in Kapitel~\ref{ch:grundlagen} erläuterten Technologien eingegangen.
+Um den Nutzen des erstellten Web-Editors zu prüfen, wird in Kapitel~\ref{ch:evaluation} eine Evaluierung mittels Expertengespräch durchgeführt.
 Die zuvor aufgestellten Ziele sollen somit, gemeinsam mit einem Experten, als erfüllt oder nicht erfüllt evaluiert werden.
-Im folgenden und letzten Kapitel~\ref{ch:fazit} wird, unter Einbezug der in der Evaluation erlangten Erkenntnisse, ein Fazit zu den gestellten Fragen und Zielen erstellt.
+Im folgenden und letzten Kapitel~\ref{ch:fazit} wird, unter Einbezug der in der Evaluation erlangten Erkenntnisse, ein Fazit zu den Zielen erstellt.
 Zusätzlich soll die Umsetzung der zuvor festgelegten Funktionen anhand der Implementierung überprüft und ein Ausblick zur weiteren Entwicklung gegeben werden.
 Unter anderem wird auch der mögliche Nutzen in der Lehre angesprochen.
