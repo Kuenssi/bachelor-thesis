@@ -8,16 +8,16 @@ Mockups können allerdings auch als FXML-Datei generiert werden, um eine Grundla
 Diese Generierung übernimmt der FxmlGenerator.
 Zuletzt vereint der DiagramGenerator die Generierung von Objekt- und Klassendiagrammen.
 Außer der \textit{BoardGenerator}-Klasse sind die restlichen Generator-Klassen für die Vorbereitung der Daten zuständig.
-Diese erhalten Eingaben von dem BoardGenerator, bereiten diese Eingabe auf, je nachdem welche Daten benötigt werden und enthalten eine
-separate Methode zum Erstellen von Dateien im Dateisystem.
-Das Bauen einer Datei in Form eines Strings wird in einer gesonderten \textit{Constructor}-Klasse erledigt.
+Diese erhalten Eingaben von dem BoardGenerator und bereiten diese auf.
+Zudem enthalten die Generator-Klassen eine separate Methode zum Erstellen von Dateien im Dateisystem.
+Das Bauen einer Datei in Form eines Strings wird in einer gesonderten \textit{Constructor}-Klasse erledigt, wie \textit{BoardConstructor} oder~\textit{PageConstructor}.
 Da es fünf verschiedene Typen von Dateien gibt und das Bauen für jede Datei unterschiedlich ist, existiert für jeden Typ eine eigene~\textit{Constructor}-Klasse.
 Im Folgenden werden die Aufbereitungsschritte genauer beleuchtet.
 
 \subsubsection{Event-Storming-Board}
 Für die Generierung des Event-Storming-Boards bedarf es keiner Bearbeitung des HtmlGenerators, da das gesamte Board generiert werden soll und die Daten,
 welche vom Parser erstellt wurden, bereits optimiert sind.
-Die HTML-Datei wird mittels~\acp{ST}, welche in einer~\ac{STG} organisiert sind, zusammengebaut.
+Die HTML-Datei wird mittels~\acp{ST}, welche in einer~\ac{STG} organisiert sind, generiert.
 Für jeden Workflow im Board-Objekt wird eine neue Reihe in der HTML-Datei angelegt.
 Innerhalb einer Workflow-Reihe werden alle dazugehörigen Notes gebaut.
 Hierbei wird zwischen den verschiedenen Notes unterschieden, um verschiedene Darstellungen zu ermöglichen.
@@ -109,8 +109,8 @@ FulibTools erlaubt bei der Generierung nicht, dass der Inhalt der zu generierend
 
 Im Anschluss an die Generierung durch FulibTools wird der Inhalt der generierten Datei als String ausgelesen und von der Methode zurückgegeben.
 Danach wird die generierte Datei, sowie ein für die Generierung temporär angelegter Ordner wieder gelöscht.
-Dies hat den Hintergrund, dass die Generierung von Dateien, in Form vom Speichern im lokalen Dateisystem, gesammelt in der BoardGenerator-Klasse vollzogen werden soll.
-Zudem wird im BoardGenerator die Möglichkeit geboten, Dateien aus einer Workflow-Beschreibung zu generieren und diese als String zurückzugeben.
+Dies hat den Hintergrund, dass das Speichern der generierten Dateien gesammelt in der BoardGenerator-Klasse vollzogen werden soll.
+Zudem wird im BoardGenerator die Möglichkeit geboten, Dateien aus einer Workflow-Beschreibung zu generieren, um diese als String zurückzugeben.
 Diese Methoden existieren für die Nutzung im fulibWorkflows-Web-Editor, welche in einem nachfolgenden Kapitel näher betrachtet werden.
 
 \begin{figure}%
@@ -145,7 +145,7 @@ Anhand des Data-Notes aus Listing~\ref{listing:object-yaml} werden folgend die e
 Der \textit{Name}, welcher in Zeile 5 nach dem Doppelpunkt vergeben wird, muss immer die Form: <Klassenname> <Objektname> besitzen.
 Zudem muss beim ersten Aufkommen einer Assoziation sowohl die Hin- als auch Rückrichtung beschrieben werden.
 Eine Assoziation wurde in Zeile 7 und 8 definiert, bei dieser wird mittels \textit{stops} der Bezeichner für die Hinrichtung festgelegt.
-Mit den eckigen Klammern um dem Text \textit{stop1} wird ausgesagt, dass die Hinrichtung eine To-Many-Assoziation ist, somit ein Student mehrere Stops haben kann.
+Mit den eckigen Klammern um den Text \textit{stop1} wird ausgesagt, dass die Hinrichtung eine To-Many-Assoziation ist, somit kann ein \textit{Student} mehrere \textit{Stops} haben.
 Damit die Verknüpfung von zwei Objekten funktioniert, benötigt es einen weiteren Data-Note, welcher ein Objekt ``stop1'' mit dem Typ ``Stop'' beschreibt.
 Ein solcher zweiter Note ist in Zeile 10 dargestellt.
 Die Rückrichtung wird in Zeile 8 durch \textit{stops.back} definiert, gemeinsam mit dem Wert \textit{student} wird der Bezeichner

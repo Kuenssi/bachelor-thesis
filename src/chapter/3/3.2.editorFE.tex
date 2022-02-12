@@ -1,5 +1,5 @@
 \section{Frontend des Web-Editors}\label{sec:editor-frontend}
-Nachdem die erste Hälfte der Implementierung durch fulibWorkflows abgeschlossen ist, konzentrieren sich dieses und das folgende Kapitel um den dazugehörigen Web-Editor.
+Nachdem die erste Hälfte der Implementierung durch fulibWorkflows abgeschlossen ist, konzentrieren sich dieses und das folgende Kapitel auf den dazugehörigen Web-Editor.
 Der Web-Editor besteht aus einem Frontend und einem Backend, welche beide über Heroku deployt wurden und somit\footnote{unter \url{https://workflows-editor-frontend.herokuapp.com/}}
 erreichbar sind.
 
@@ -21,7 +21,7 @@ vorhanden Mockups und Diagramme angezeigt werden können.
 Als Nächstes folgt ein Knopf zum Anstoßen einer Generierung.
 Nachdem dieser Knopf gedrückt wurde und die Generierung angestoßen ist, erscheint ein Ladekreis in dem Knopf,
 um als Indikator dafür zu dienen, dass der Prozess noch nicht abgeschlossen ist.
-Die Web-Anwendung ermöglicht es zusätzlich die in der Oberfläche erstellten Dateien herunterladen.
+Die Web-Anwendung ermöglicht es zusätzlich die in der Oberfläche erstellten Dateien herunterzuladen.
 Hierfür öffnet sich ein Pop-Up, nachdem der Download-Knopf betätigt wurde.
 Dieses Fenster ist in Abbildung~\ref{fig:download} dargestellt.
 
@@ -33,7 +33,7 @@ Dieses Fenster ist in Abbildung~\ref{fig:download} dargestellt.
 \end{figure}
 
 Im sich öffnenden Fenster erhält der Benutzende die Möglichkeit auszuwählen, welche Dateien heruntergeladen werden sollen.
-Es können einzelne Dateien heruntergeladen werden, wie der Inhalt des Code-Editors, das generierte \ac{ES}-Board oder aber alle Dateien
+Es können einzelne Dateien heruntergeladen werden, wie der Inhalt des Code-Editors, das generierte \ac{ES}-Board oder alle Dateien
 die durch die aktuelle Workflow-Beschreibung im Code-Editor generiert wurden.
 Mit einem Klick auf den Download-Knopf, welcher sich neben dem Dismiss-Knopf befindet, wird eine Zip-Datei generiert und automatisch durch den jeweiligen Browser heruntergeladen.
 
@@ -45,10 +45,10 @@ Letztlich befindet sich ganz rechts die aktuelle Versionsnummer des Web-Editors.
 \subsection{Code-Editor}\label{subsec:codeeditor}
 In diesem Kapitel wird der Code-Editor, welcher das Herzstück der Anwendung ist, erläutert.
 Dieser befindet sich auf der linken Seite der in Abbildung~\ref{fig:frontend} dargestellten Oberfläche.
-Wie zuvor bereits beschrieben wurde hierbei ein Codemirror verwendet.
+Wie zuvor bereits beschrieben wurde hierbei die Bibliothek \textit{Codemirror} verwendet.
 Durch die Verwendung der \textit{ngx-codemirror} Bibliothek vereinfacht sich das Einbinden eines Codemirrors in eine Angular-Anwendung.
 Dadurch kann eine Konfiguration des Codemirrors über ein Options-Objekt übergeben werden.
-Die Konfiguration des Codemirrors ist in Listing~\ref{listing:configuration} dargestellt.
+Diese ist in Listing~\ref{listing:configuration} dargestellt.
 
 \begin{listing}[!ht]
     \inputminted[firstnumber=49]{ts}{listings/3.2/codemirror-options.ts}

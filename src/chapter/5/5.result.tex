@@ -4,7 +4,7 @@ Neben der Beantwortung der Frage, ob die Ziele aus Kapitel~\ref{sec:ziele} errei
 der Implementierung eingegangen.
 
 Anhand der Evaluierung zeigt sich, dass das Ziel erreicht wurde.
-Es wurde eine Web-Anwendung erstellt, welche ein Event Storming durch die Generierung und zeitnahe Darstellung von Dateien aus Events unterstützen kann\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  44:54}.
+Es wurde eine Web-Anwendung erstellt, welche ein Event Storming durch die Generierung eines Boards und zeitnahe Bereitstellung von Mockups aus Events unterstützen kann\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  44:54}.
 Hierbei kann ebenfalls eine Datenmodellierung vorgenommen werden, welche initial bei einem Projekt von Entwickelnden genutzt werden kann.
 Die Beschreibungssprache, auf welcher die Generierung basiert, erfüllt die Ansprüche der Event-Notes für das Event Storming.
 
@@ -25,20 +25,21 @@ Bugs entstanden dadurch, dass nicht die komplette von YAML unterstütze Syntax a
 Dadurch konnten Strings nicht mit Hochkommata versehen werden, um diese deutlich als Text zu kennzeichnen.
 Dies führte zu fehlerhaften Darstellungen in den mit fulibWorkflows generierten Objektdiagrammen.\newline
 Zusätzlich entstanden Inkonsistenzen zwischen dem JSON-Schema und der Grammatik.
-Hierbei wurden Beschreibungen, welche mittels JSON-Schema erfolgreich validiert wurden, nicht korrekt von der Grammatik, beziehungsweise dem daraus generierten Parser, verarbeitet werden.
+Hierbei wurden Beschreibungen, welche mittels JSON-Schema erfolgreich validiert wurden, nicht korrekt von dem generierten Parser verarbeitet.
 
-Um diese Probleme zu lösen und keine Limitierungen mehr bei Strings zu unterliegen, wurde auf den Parser von \textit{SnakeYAML} zurückgegriffen.
+Um diese Probleme zu lösen und keine Limitierungen bei Strings zu unterliegen, wurde auf den Parser von \textit{SnakeYAML} zurückgegriffen.
 Dieser kann alle derzeitig unterstützte YAML-Syntax parsen und untersteht lediglich den Limitierungen von~\ac{YAML}.
 Das Datenmodell muss weiterhin, wie in Kapitel~\ref{subsec:datenmodell} aufgezeigt, aufgebaut werden.
 Allerdings entfällt die Wartung einer~\ac{Antlr}-Grammatik und das Anpassen an Änderungen an der \ac{YAML}-Syntax oder des JSON-Schemas.
-Somit entstehen keine Inkonsistenzen zwischen JSON-Schema und Parser mehr.
+Somit entstehen keine Inkonsistenzen zwischen JSON-Schema und Parser.
 Zudem können Erweiterungen von Notes leichter vorgenommen werden, dies wäre zum Beispiel der Fall, falls neue View-Elemente zu den Pages hinzugefügt
 werden sollen.
-Innerhalb dieses Kapitels werden solche Erweiterungen zum Beispiel um ein Dropdown-Menü, welches eine Liste an Elementen benötigt.
+Innerhalb dieses Kapitels werden solche Erweiterungen zum Beispiel um ein Dropdown-Menü angesprochen.
+Damit ein solches Element beschrieben werden kann, wäre eine Liste an Elementen nötig.
 Dies würde der aktuelle Parser ohne weiteres annehmen, sollte die korrekte \ac{YAML}-Syntax verwendet worden sein.
 Um selbiges mit dem vorherigen \ac{Antlr}-Parser zu erreichen, hätte dort zuerst die Grammatik angepasst und getestet werden müssen.
 
-Bei dem zweiten Problem handelt es sich um die Bereitstellung des Web-Editor-Backends auf Heroku.
+Bei dem zweiten Problem handelt es sich, um die Bereitstellung des Web-Editor-Backends auf Heroku.
 Das Problem hierbei war die Nutzung von \textit{Graphviz} zur Generierung der \ac{UML}-Diagramme im Backend.
 Während der Generierung wurde eine zusätzliche Javascript-Engine gestartet, welche für \textit{Graphviz} benötigt wurde.
 Dadurch stieg der Speicherverbrauch des Backends und sorgte für einen Fehler, welcher die Generierung aller Dateien beeinflusste.
@@ -69,7 +70,7 @@ Zudem wird zwar angezeigt, welches Element falsch ist, diese Stelle wird aber we
 
 Im Gespräch mit dem Experten aus Kapitel~\ref{ch:evaluation} entstanden ebenfalls weitere Funktionen, welche für die Verwendung des Tools in der Praxis von Vorteil wären.
 Eine Ausweitung der verwendbaren Elemente in den Mockups ist eine dieser Funktionen\footnote{Siehe~\ref{fig:rec} Expertengespräch ab Minute  49:45}.
-Dabei wurde angesprochen, dass es sich dabei um Standardelemente wie Checkboxen, Dropdowns und Datepicker handelt.
+Dabei wurde angesprochen, dass es sich dabei, um Standardelemente wie Checkboxen, Dropdowns und Datepicker handelt.
 Es wurde auch das Erstellen von Tabellen angesprochen, allerdings bedarf es hierbei einer Abwägung, ob es möglich ist eine Tabelle in der YAML-syntax zu definieren,
 welche nicht zu kompliziert für die Nutzenden ist und damit zu zeitaufwändig in einer \ac{ES}-Session wäre.
 Neben diesen Elementen könne es in Betracht gezogen werden, URLs für Bilder oder sonstige Daten in Pages mit anzugeben und
@@ -90,7 +91,7 @@ Bevor diese Funktion umgesetzt wird, muss evaluiert werden, ob die erstellte Bes
 Zudem ist festzustellen, ob ein Bedarf für ein solches Tool existiert, oder die bisher erstellte Anwendung zur Unterstützung eines Event Stormings genügt.
 
 Wie bereits in Kapitel~\ref{subsec:erweiterung} angedeutet wurde, soll das in dieser Arbeit erstellte Tool auch einen Einsatz in der Lehre bekommen.
-In der Veranstaltung \textit{Programmieren und Modellieren} wird den Studierenden die Methodik der objektorientierten Programmierung beigebracht.
+In der Veranstaltung \textit{Programmieren und Modellieren} an der Universität Kassel wird den Studierenden die Methodik der objektorientierten Programmierung beigebracht.
 Hierfür wurde bereits in vorherigen Semestern zur Generierung von Datenmodellen in Java die Bibliothek \textit{fulib} verwendet.
 Doch auch fulibScenarios, welches die Datenmodellgenerierung über eine natürliche Sprache übernimmt, wurde als eine mögliche Alternative ausprobiert.
 Ebenso soll fulibWorkflows als eine Alternative zur Fulib-Notation ausprobiert werden.
@@ -99,7 +100,7 @@ Microservices erhalten.
 Da es sich dabei um separate Systeme handelt, welche miteinander kommunizieren, um Daten zu übertragen, ist die Architektur schwierig greifbar.
 Hierfür soll die Verwendung des mittels fulibWorkflows generierten \ac{ES}-Boards als Unterstützung zum Verständnis der Abläufe dienen.
 
-Studierende haben bereits in vergangenen Instanzen der Veranstaltung~\textit{Programmieren und Modellieren} die Web-Anwendung \textit{fulib.org} kennengelernt.
+Studierende haben bereits in vergangenen Versionen der Veranstaltung~\textit{Programmieren und Modellieren} die Web-Anwendung \textit{fulib.org} kennengelernt.
 Dort ist es möglich auf fulib basierende Anwendungen zu verwenden.
 Neben einer natürlichsprachigen Beschreibung eines Datenmodells besteht ebenfalls die Möglichkeit ein vorgefertigtes Gradle-Projekt zu exportieren.
 Da auch fulibWorkflows ein Teil der \textit{Fujaba Tool Suite} ist, soll der in dieser Arbeit erstellte Web-Editor in fulib.org integriert werden.

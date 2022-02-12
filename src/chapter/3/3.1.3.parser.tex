@@ -15,9 +15,10 @@ In Abbildung~\ref{fig:classdiagram} ist das Klassendiagramm abgebildet, welches 
 
 Jeder Note besitzt eine dazugehörige Klasse, welche von BaseNote erbt.
 Für jeden Note existiert somit ein Name und ein Index, auf welchen im folgenden Abschnitt eingegangen wird.
-Da es im Event Storming ein dazugehöriges \textit{Board} gibt, ist dies ebenfalls eine Klasse, welche alle \textit{workflows} einer Eingabe hält.
+Da es im Event Storming ein dazugehöriges \textit{Board} gibt, ist dies ebenfalls eine Klasse.
+Diese enthält alle \textit{workflows} einer Eingabe.
 Ein Workflow besteht weiterhin aus vielen Notes.
 Wie zuvor bereits erläutert, sind Data, Event und Page Sonderfälle unter den Notes, da diese weitere Daten beherbergen.
 Daher haben diese Klassen ein Attribut, welches diese Daten organisiert in einer Map hält.
 Hierbei wird als key der Index eines Notes verwendet und das value ist ein Pair.
-Das Pair beinhaltet den Bezeichner und den dazugehörigen Wert einer zusätzlichen Property eines Notes.
+Das Pair beinhaltet den Bezeichner und den dazugehörigen Wert einer zusätzlichen Information eines Notes.

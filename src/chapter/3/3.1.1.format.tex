@@ -1,7 +1,8 @@
 \subsection{Workflow-Format}\label{subsec:workflow-format}
 Bevor in Kapitel~\ref{subsec:datenmodell} auf den Parser und das Datenmodell einer Workflow-Beschreibung eingegangen wird,
 ist es nötig das Format in welcher ein Workflow beschrieben werden muss, näher zu beleuchten.
-Die Grundlage des Formats bildet \ac{YAML}, hierbei handelt es sich allerdings um eine stark begrenzte YAML-Syntax, welche verwendet werden kann.
+Die Grundlage des Formats bildet~\ac{YAML}.
+Wobei das Format durch ein JSON-Schema stark begrenzt ist.
 Näheres zu den Beschränkungen der Syntax wird in Kapitel~\ref{subsec:schema} erklärt.
 
 \begin{listing}[!ht]
@@ -54,7 +55,7 @@ Ein \textit{user}-Zettel ist sehr ähnlich zu einem \textit{service}-Zettel.
 Einem User wird ein Name zugeordnet.
 Dieser Zettel dient ebenfalls der Strukturierung eines Workflows und leitet einen Abschnitt ein, welcher aktiv von einem
 Nutzenden durchgeführt werden muss.
-Im Beispiel-Workflow existiert ein User, welcher den Namen Karli trägt, welches in Zeile 3 zu sehen ist.
+Im Beispiel-Workflow existiert ein User, welcher den Namen Karli trägt, dies ist in Zeile 3 zu sehen.
 
 \largerText{policy}
 
