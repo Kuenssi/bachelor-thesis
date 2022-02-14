@@ -31,13 +31,13 @@ Wie in Kapitel~\ref{subsubsec:json-schema} bereits erwähnt, ist das fulibWorkfl
 Das Schema wird automatisch auf Dateien mit der Dateiendung \textit{.es.yaml} vom Editor angewendet.
 Dadurch ist es zum Beispiel in IntelliJ möglich Autovervollständigung für fulibWorkflows zu bekommen und auf Fehler hingewiesen zu werden.
 
-\begin{figure}%
+\begin{figure}[h]
     \centering
-    \subfloat[\centering Leere Datei]{{\includegraphics[width=6cm]{images/3.1/Empty} }}%
+    \subfloat[\centering Leere Datei]{{\includegraphics[width=6cm]{images/3.1/Empty} }}
     \qquad
-    \subfloat[\centering Fehlerhafte Eingabe]{{\includegraphics[width=7cm]{images/3.1/fails} }}%
-    \caption{Fehleranzeige in IntelliJ}%
-    \label{fig:errors-schema}%
+    \subfloat[\centering Fehlerhafte Eingabe]{{\includegraphics[width=7cm]{images/3.1/fails} }}
+    \caption{Fehleranzeige in IntelliJ}
+    \label{fig:errors-schema}
 \end{figure}
 
 In Abbildung~\ref{fig:errors-schema} ist das Hervorheben von Fehlern in IntelliJ dargestellt, welches durch das JSON-Schema generiert wird.
@@ -46,13 +46,13 @@ Sobald ein Element begonnen wird, wird diese Warnung nicht mehr angezeigt.
 Sollte der Entwickelnde wiederum ein Element hinzufügen, welches keinem der definierten Elemente des Schemas entspricht, wird die Meldung aus Abbildung~\ref{fig:errors-schema}((b)) angezeigt.
 Da ein Command keine zusätzlichen Attribute/Properties akzeptiert, dennoch eines hinzugefügt wurde, besagt der Fehler, dass es nicht erlaubt ist weitere Attribute hinzuzufügen.
 
-\begin{figure}%
+\begin{figure}[h]
     \centering
-    \subfloat[\centering Alle Elemente]{{\includegraphics[width=6cm]{images/3.1/all} }}%
+    \subfloat[\centering Alle Elemente]{{\includegraphics[width=6cm]{images/3.1/all} }}
     \qquad
-    \subfloat[\centering Page Elemente]{{\includegraphics[width=6cm]{images/3.1/page} }}%
-    \caption{Autovervollständigung in IntelliJ}%
-    \label{fig:completion-schema}%
+    \subfloat[\centering Page Elemente]{{\includegraphics[width=6cm]{images/3.1/page} }}
+    \caption{Autovervollständigung in IntelliJ}
+    \label{fig:completion-schema}
 \end{figure}
 
 Wie zuvor erwähnt ermöglicht ein Schema jedoch nicht nur das Hervorheben von Fehlern, sondern unterstützt den Entwickelnden zusätzlich durch Autovervollständigung.
