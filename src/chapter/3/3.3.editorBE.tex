@@ -8,7 +8,10 @@ In diesem Fall ist dies der FulibWorkflowsController, welcher mit zwei Annotatio
 Die erste Annotation ist~\texttt{@Controller}, welche eine Klasse als Controller deklariert.
 Bei der zweiten Annotation handelt es sich um~\texttt{@CrossOrigin()} mit welcher es ermöglicht wird, mit anderen Services zu interagieren.
 Ohne diese Annotation kann der Mechanismus des \ac{CORS} nicht verwendet werden, wodurch Frontend und Backend
-keine Anfragen vom jeweils anderem Service akzeptieren würden.
+keine Anfragen vom jeweils anderem Service akzeptieren würden\footnote{\url{https://developer.mozilla.org/de/docs/Web/HTTP/CORS}}.
+Dies ist ein Problem, welches in der lokalen Entwicklung durch das Vergeben verschiedener Ports für Frontend und Backend, entsteht.
+Hierbei werden Frontend und Backend in verschiedenen Webbereichen ausgeführt.
+Die gleiche Problematik existiert auch bei dem separaten Bereitstellen der Anwendungen auf Heroku.
 Im FulibWorkflowsController sind Endpunkte für die Generierung und den Download definiert.
 Diese Definitionen werden in Listing~\ref{listing:endpoints} zur Veranschaulichung dargestellt.
 
