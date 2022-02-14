@@ -63,14 +63,13 @@ Codemirror stellt bereits zahlreiche verschiedene Themes für Light-Mode oder Da
 Initial wird der Codemirror mit dem Light-Theme geladen, das Umstellen des Themes erfolgt über die entsprechenden Knöpfe in der Navigationsleiste, wie bereits zuvor beschrieben.
 Abbildung~\ref{fig:themes} zeigt den Codemirror in beiden Modi, wobei sich sowohl Light- als auch Dark-Mode nah an den Standard-Modi von IntelliJ orientieren.
 
-% Diese Abbildungen ggf. in den Anhang verschieben
-\begin{figure}%
+\begin{figure}[h]
     \centering
-    \subfloat[\centering Light-Theme]{{\includegraphics[width=4cm,height=6cm]{images/3.2/light-theme} }}%
+    \subfloat[\centering Light-Theme]{{\includegraphics[width=4cm]{images/3.2/light-theme} }}
     \qquad
-    \subfloat[\centering Dark-Theme]{{\includegraphics[width=4cm,height=6cm]{images/3.2/dark-theme} }}%
-    \caption{Themes des Codemirrors}%
-    \label{fig:themes}%
+    \subfloat[\centering Dark-Theme]{{\includegraphics[width=4cm]{images/3.2/dark-theme} }}
+    \caption{Themes des Codemirrors}
+    \label{fig:themes}
 \end{figure}
 
 In Zeile 52 aus Listing~\ref{listing:configuration} wird die Programmiersprache des Editors festgelegt.
@@ -80,13 +79,13 @@ Dieser Modus wird von Codemirror selbst bereitgestellt und bedarf zur Verwendung
 In Zeile 54 wird das Öffnen einer Liste an vorgeschlagenen Wörtern geöffnet, nachdem der Nutzende die Tastenkombination ``Strg+Leertaste'' gedrückt hat.
 Damit dies funktioniert, benötigt es das Importieren des \textit{show-hint}-AddOns von Codemirror in der \textit{main.ts}-Datei.
 
-\begin{figure}%
+\begin{figure}[h]
     \centering
-    \subfloat[\centering Ohne Eingabe]{{\includegraphics[width=4cm,height=6cm]{images/3.2/autocompletion-all} }}%
+    \subfloat[\centering Ohne Eingabe]{{\includegraphics[width=4cm]{images/3.2/autocompletion-all} }}
     \qquad
-    \subfloat[\centering Mit Eingabe]{{\includegraphics[width=4cm,height=5cm]{images/3.2/autocompletion-p} }}%
-    \caption{Autovervollständigung}%
-    \label{fig:autocompletion}%
+    \subfloat[\centering Mit Eingabe]{{\includegraphics[width=4cm]{images/3.2/autocompletion-p} }}
+    \caption{Autovervollständigung}
+    \label{fig:autocompletion}
 \end{figure}
 
 Dieses Add-On erstellt die in Abbildung~\ref{fig:autocompletion}((a)) angezeigt Liste.
@@ -162,5 +161,5 @@ Der Wechsel zwischen diesen Elementen ist nicht nur über die vier Knöpfe mögl
 Für jeden Page- oder Data-Note existiert in der Anzeige ein Link, welcher als Knopf fungiert, mit welchem zu dem Mockup oder Diagramm des Notes gewechselt werden kann.
 
 Zuletzt existieren drei weitere Buttons auf Höhe der Buttons zum Wechseln der Page oder des Diagramms, welche die Anzeige der generierten Dateien manuell umschaltet,
-dies ist ebenfalls in Abbildung~\ref{fig:frontend} dargestellt.
+dies ist ebenfalls in Abbildung~\ref{fig:esBoard} dargestellt.
 Hierbei kann zwischen dem Anzeigen der Mockups (Pages), der Objektdiagramme und des Klassendiagramms umgeschaltet werden.
