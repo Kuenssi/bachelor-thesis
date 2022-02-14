@@ -16,23 +16,21 @@ Im weiteren Verlauf wird für einen Post-it\textsuperscript{\textregistered} das
 Als Beispiel für einen Workflow ist hierbei die Registrierung eines neuen Benutzenden auf einer Webseite in vereinfachter Form dargestellt.
 Folgend werden alle verwendbaren Zettel aus der aktuellen Version, v0.4.0, von fulibWorkflows aufgelistet und deren Funktion erläutert.
 
-\largerText{workflow}
 
+\paragraph*{workflow}
 Zum Darstellen eines oder mehrerer Workflows benötigt es den \textit{workflow}-Zettel.
 Diesem kann nur ein Name zugeordnet werden, allerdings werden alle weiteren Zettel unter einem workflow-Zettel ebendiesem Workflow zugewiesen.
 Pro Workflow-Beschreibung benötigt es somit mindestens einen workflow-Zettel.
 Im vorherigen Beispiel gibt es einen Workflow mit dem Namen~\textit{User Registration}.
 
-\largerText{service}
-
+\paragraph*{service}
 Durch den \textit{service}-Zettel werden Services bereitgestellt.
 Diese sind einzig zur Strukturierung des Workflows und dem später daraus entstehenden~\ac{ES}-Board da.
 Hiermit kann erreicht werden, dass die nach einem service-Zettel folgenden Zettel von dem vorherigen Service ausgeführt werden.
 Im Beispiel aus Listing~\ref{listing:workflowNotes} gibt es nur einen Service, dieser kümmert sich um die Nutzerverwaltung, daher
 stammt auch der Name~\textit{User management}.
 
-\largerText{problem}
-
+\paragraph*{problem}
 Falls während einem Event Storming an einem bestimmten Punkt innerhalb eines Workflows Fragen bei den Beteiligten aufkommen,
 können diese mittels \textit{problem}-Zettel festgehalten werden.
 Gleiches gilt für Probleme, welche bisher auftraten, allerdings noch nicht festgehalten wurden.
@@ -40,8 +38,7 @@ Somit ist es möglich zusätzliche Informationen, welche nicht zum eigentlichen 
 späteren Entwicklung genauer zu betrachten.
 Im obigen Workflow Beispiel, gibt es das Problem, dass das Validieren einer E-Mail enorm lange dauert, siehe Zeile 20.
 
-\largerText{event}
-
+\paragraph*{event}
 Aus dem~\textit{Domain Event} aus dem Event Storming ist die verkürzte Version \textit{event} als Indikator für einen weiteren Zettel geworden.
 Hierbei wird eine Beschreibung eines Events in der Vergangenheitsform als Bezeichnung verwendet.
 Dies bezieht sich auf eine Aktion, welche innerhalb eines Workflows aufgetreten ist.
@@ -49,38 +46,33 @@ Wie in Listing~\ref{listing:workflowNotes} in Zeile 24 und ab Zeile 30 zu sehen,
 angereichert werden.
 Weitere Informationen, die einem Event zugeordnet sind, repräsentieren Daten, welche zu der ausgeführten Aktion gehören.
 
-\largerText{user}
-
+\paragraph*{user}
 Ein \textit{user}-Zettel ist sehr ähnlich zu einem \textit{service}-Zettel.
 Einem User wird ein Name zugeordnet.
 Dieser Zettel dient ebenfalls der Strukturierung eines Workflows und leitet einen Abschnitt ein, welcher aktiv von einem
 Nutzenden durchgeführt werden muss.
 Im Beispiel-Workflow existiert ein User, welcher den Namen Karli trägt, dies ist in Zeile 3 zu sehen.
 
-\largerText{policy}
-
+\paragraph*{policy}
 Eine \textit{policy} ist wie auch beim \textit{event} eine Abstrahierung eines Begriffes aus dem Event Storming.
 Ein \textit{policy}-Zettel beschreibt somit einen Automatismus, welcher aufgrund eines vorherigen Events einen bestimmten
 Ablauf an Schritten ausführt.
 Im Beispiel aus Listing~\ref{listing:workflowNotes} reagiert die policy aus Zeile 18 auf den vorherigen Command, um automatisch zu prüfen,
 ob die eingegebene E-Mail valide ist.
 
-\largerText{command}
-
+\paragraph*{command}
 Ein \textit{command}-Zettel stellt die Interaktion eines Nutzenden mit einer Webseite oder Applikation dar.
 Im Falle des obigen Beispiels wird in Zeile 16 der Klick auf den Knopf \textit{Register} aus der darüber aufgeführten Page simuliert.
 Dies ist aus der kurzen Beschreibung des Commands zu entnehmen.
 
-\largerText{externalSystem}
-
+\paragraph*{externalSystem}
 Wie auch bei dem \textit{service} und \textit{user} dient der \textit{externalSystem}-Zettel dazu, einen Workflow zu strukturieren.
 In diesem Fall bedeutet dies, dass Aktionen oder Daten von einem System ausgeführt/gesendet werden, welche nicht Teil der zu entwickelnden
 Software sind, für welche das aktuelle Event Storming durchgeführt wird.
 In Zeile 20 des Beispiels existiert ein externalSystem, welches für die Validierung einer E-Mail-Adresse zuständig ist.
 Es kann sich dabei um ein System handeln, welches von einer anderen Firma oder einem separaten Team entwickelt wird.
 
-\largerText{data}
-
+\paragraph*{data}
 Wie in Kapitel~\ref{sec:event-storming} bereits erwähnt, ist \textit{data} eine Erweiterung des Event Stormings.
 Ein \textit{data}-Zettel benötigt als Bezeichner eine besondere Form, diese besteht zuerst aus einer Klassenbezeichnung und anschließend einem Namen für das Objekt.
 Dies ist nötig, um im späteren Verlauf das Aufbauen eines Datenmodells zu gewährleisten und ein Klassendiagramm und mehrere Objektdiagramme generieren zu können.
@@ -88,8 +80,7 @@ Wie auch bei dem \textit{event}-Zettel kann auch einem \textit{data}-Zettel zus�
 Auf welche Art und Weise diese aufgebaut sein müssen und welche Funktionen diese innehaben, darauf wird in Kapitel~\ref{subsubsec:objektdiagramme} genauer eingegangen.
 In Zeile 35 unseres Beispiels wird ein \textit{User} mit den aus dem Event stammenden Informationen zu Username, E-Mail und Passwort angelegt.
 
-\largerText{page}
-
+\paragraph*{page}
 Der \textit{page}-Zettel ist ebenfalls eine Erweiterung zum klassischen Event Storming.
 Aus den \textit{page}-Zetteln eines Workflows werden später Mockups generiert, wie dies genau funktioniert wird in Kapitel~\ref{subsubsec:mockups-html/fxml} erläutert.
 An diesem Punkt ist es wichtig, die Restriktionen einer \textit{page} zu erläutern.
