@@ -39,7 +39,7 @@ In Abbildung~\ref{fig:generated-board} ist ein Ausschnitt des in Listing~\ref{li
 Form eines generierten \ac{ES}-Boards dargestellt.
 Hierbei sind die zuvor beschriebenen Unterschiede zwischen den verschiedenen Notes erkennbar.
 Jeder Note-Typ besitzt eine eigene Farbe, wobei für User, Service und ExternalSystem eine kleinere Card und jeweils ein
-eigenes Icon erkennbar sind.
+eigenes Icon verwendet wird.
 Der Page-Note enthält die meisten Informationen, da nur dort zusätzliche Informationen in der Workflow-Beschreibung existierten.
 
 \subsubsection{Mockups (HTML und FXML)}\label{subsubsec:mockups-html/fxml}
@@ -54,7 +54,7 @@ Lediglich die zugrunde liegende~\ac{STG} unterscheidet die beiden Klassen.
 In beiden~\acp{STG} gibt es ein~\ac{ST} zum Aufbau der generellen Struktur der jeweiligen Datei und für jedes verfügbare Oberflächenelement ein weiteres~\ac{ST}.
 Es existieren somit für die Oberflächenelemente~\acp{ST} für Text, Eingabefeld, Passwortfeld und Knopf.
 
-\begin{figure}%
+\begin{figure}[h]
     \centering
     \subfloat[\centering FXML-Mockup]{{\includegraphics[width=4cm,height=6cm]{images/3.1.4/fxml-mockup} }}%
     \qquad
@@ -113,11 +113,11 @@ Dies hat den Hintergrund, dass das Speichern der generierten Dateien gesammelt i
 Zudem wird im BoardGenerator die Möglichkeit geboten, Dateien aus einer Workflow-Beschreibung zu generieren, um diese als String zurückzugeben.
 Diese Methoden existieren für die Nutzung im fulibWorkflows-Web-Editor, welche in einem nachfolgenden Kapitel näher betrachtet werden.
 
-\begin{figure}%
+\begin{figure}[h]
     \centering
-    \subfloat[\centering Diagramm nach 3 Data-Notes]{{\includegraphics[width=2.5cm,height=6cm]{images/3.1.4/3_diagram} }}%
+    \subfloat[\centering Diagramm nach 3 Data-Notes]{{\includegraphics[width=4cm]{images/3.1.4/3_diagram} }}%
     \qquad
-    \subfloat[\centering Diagramm nach 5 Data-Notes]{{\includegraphics[width=2.5cm,height=7cm]{images/3.1.4/5_diagram} }}%
+    \subfloat[\centering Diagramm nach 4 Data-Notes]{{\includegraphics[width=4cm]{images/3.1.4/4_diagram} }}%
     \caption{Mittels fulibWorkflows generierte Objektdiagramme}%
     \label{fig:generated-object}%
 \end{figure}
@@ -182,7 +182,7 @@ Nachdem das Diagramm generiert wurde, wird dieses ebenfalls auf dem Dateisystem 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.25\textwidth]{images/3.1.4/class_diagram}
+    \includegraphics[width=0.3\textwidth]{images/3.1.4/class_diagram}
     \caption{Mittels fulibWorkflows generiertes Klassendiagramm}
     \label{fig:generated-class}
 \end{figure}
